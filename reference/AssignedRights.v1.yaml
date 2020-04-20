@@ -1,0 +1,55 @@
+openapi: 3.0.0
+info:
+  title: AssignedRights
+  version: '1.0'
+  description: Allows the creation and check of AssignedRights
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/assigned_rights/{id}':
+    get:
+      summary: Get AssignedRight
+      tags:
+        - rights
+      responses: {}
+      operationId: get-assigned_rights
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: right
+          description: Unique identifier for a right specification (its latest version is assumed)
+        - schema:
+            type: string
+          in: query
+          name: credential_class
+          description: Class name for credential
+        - schema:
+            type: string
+          in: query
+          name: credential_id
+          description: Unique identifier for credential in given class
+      description: Get latest version of a given AssignedRight by its identifier or by a combination of a HolderCredential and RightSpecification
+  /assigned_rights:
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        description: |
+          Unique identifier for assigned right
+        allowEmptyValue: false
+    post:
+      summary: Create a new AssignedRight
+      tags:
+        - rights
+      responses: {}
+      operationId: post-assigned_rights
+      description: Create a new AssignedRight
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/AssignedRight.v1.yaml
+components:
+  schemas: {}
