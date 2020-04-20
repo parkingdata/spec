@@ -1,0 +1,10 @@
+title: RightHolder
+type: object
+x-tags:
+  - rights
+description: 'Information concerning a specific holder of a granted right, corresponding to a defined RightSpecification.'
+properties:
+  credentials:
+    type: array
+    items:
+      $ref: ./HolderCredential.v1.yaml

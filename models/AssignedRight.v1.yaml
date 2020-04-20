@@ -1,0 +1,27 @@
+title: AssignedRight
+type: object
+x-tags:
+  - rights
+description: 'AssignedRight indicates the granting of a specific RightSpecification to a specific RightHolder,and indicates one instance of a planned use of the Right.'
+properties:
+  id:
+    type: string
+    minLength: 1
+    description: Unique identifier for the AssignedRight
+  version:
+    type: integer
+    minimum: 0
+    description: Positive integer representing the version of the AssignedRight
+  rightHolder:
+    $ref: ./RightHolder.v1.yaml
+  rightSpecification:
+    $ref: ./RightSpecificationReference.v1.yaml
+  expiry:
+    type: string
+    format: date-time
+    description: 'The date/time when the specific AssignedRight expires, and is not longer available for use'
+required:
+  - id
+  - version
+  - rightHolder
+  - rightSpecification
