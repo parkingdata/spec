@@ -11,6 +11,7 @@ paths:
       summary: Get AssignedRight
       tags:
         - rights
+        - assigned
       responses: {}
       operationId: get-assigned_rights
       parameters:
@@ -43,6 +44,7 @@ paths:
       summary: Create a new AssignedRight
       tags:
         - rights
+        - assigned
       responses: {}
       operationId: post-assigned_rights
       description: Create a new AssignedRight
