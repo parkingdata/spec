@@ -1,0 +1,12 @@
+title: Reference
+type: object
+x-tags:
+  - common
+description: A reference to an identifiable managed object where the identifier is unique. It comprises an identifier (e.g. GUID) and a string identifying the class of the referenced object.
+properties:
+  className:
+    type: string
+    description: 'The key name should be the class name of the referenced object (e.g. "UKNumberPlate"), and the value should be the unique identifier within that class (e.g. "LA51ABC")'
+    minLength: 1
+required:
+  - className

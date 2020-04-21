@@ -1,0 +1,9 @@
+title: MultilingualString
+type: object
+description: Object using ISO language codes as keys and the translated string as their values
+properties:
+  isoLanguageCode:
+    type: string
+    description: 'The key names should be ISO language codes (e.g. en, es, de), and values should hold the respective strings'
+required:
+  - isoLanguageCode

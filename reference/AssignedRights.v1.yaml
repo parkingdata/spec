@@ -31,15 +31,14 @@ paths:
           name: credential_id
           description: Unique identifier for credential in given class
       description: Get latest version of a given AssignedRight by its identifier or by a combination of a HolderCredential and RightSpecification
-  /assigned_rights:
     parameters:
       - schema:
           type: string
         name: id
         in: path
-        description: |
-          Unique identifier for assigned right
-        allowEmptyValue: false
+        description: 'Identifier for the assigned right. When not provided, the `right`, `credential_class` and `credential_id` query params **must** be provided'
+  /assigned_rights:
+    parameters: []
     post:
       summary: Create a new AssignedRight
       tags:

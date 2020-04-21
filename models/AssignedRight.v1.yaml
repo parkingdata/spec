@@ -20,6 +20,11 @@ properties:
     type: string
     format: date-time
     description: 'The date/time when the specific AssignedRight expires, and is not longer available for use'
+  issuanceTime:
+    type: string
+    format: date-time
+  assignedRightIssuer:
+    $ref: ./Reference.v1.yaml
 required:
   - id
   - version
