@@ -1,8 +1,7 @@
-title: RightSpecification
 type: object
-x-tags:
-  - rights
+title: RightSpecification
 description: 'A Right Specification explicitly defines what the owner/manager of a Place is granting specific users or vehicles the ability to do (e.g. park, delivery, pick up).'
+additionalProperties: false
 properties:
   id:
     type: string
