@@ -8,9 +8,6 @@ paths:
   '/assigned_rights/{id}':
     get:
       summary: Get AssignedRight by identifier
-      tags:
-        - rights
-        - assigned
       responses:
         '200':
           description: OK
@@ -22,6 +19,8 @@ paths:
       description: Get latest version of a given AssignedRight by its identifier
       requestBody: {}
       parameters: []
+      tags:
+        - read
     parameters:
       - schema:
           type: string
@@ -41,6 +40,8 @@ paths:
           application/json:
             schema:
               $ref: ../models/AssignedRight.yaml
+      tags:
+        - create
     get:
       summary: Get AssignedRight by HolderCredential and RightSpecification
       operationId: get-assigned_rights
@@ -64,5 +65,7 @@ paths:
           in: query
           name: credential_id
           description: Unique identifier for credential in given class
+      tags:
+        - check
 components:
   schemas: {}
