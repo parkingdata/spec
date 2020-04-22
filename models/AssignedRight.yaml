@@ -59,6 +59,8 @@ properties:
     type: number
     description: The total monetary value of the Assigned Right held by the RightHolder.
     format: double
+  issueMethod:
+    $ref: ./enums/IssueMethodEnum.yaml
 required:
   - id
   - version

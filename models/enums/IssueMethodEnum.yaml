@@ -1,0 +1,14 @@
+type: string
+title: IssueMethodEnum
+enum:
+  - electronic
+  - ticket
+  - permit
+x-tags:
+  - enumeration
+description: |-
+  A list of the supported methods for issuing credentials.
+
+  * electronic: electronically issued, traceable
+  * permit: physical identifier, typically visibly mounted within vehicle
+  * ticket: typically single use, paper based
