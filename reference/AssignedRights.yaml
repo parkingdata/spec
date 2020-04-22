@@ -3,12 +3,11 @@ info:
   title: AssignedRights
   version: '1.0'
   description: Allows the creation and check of AssignedRights
-servers:
-  - url: 'http://localhost:3000'
+servers: []
 paths:
   '/assigned_rights/{id}':
     get:
-      summary: Get AssignedRight
+      summary: Get AssignedRight by identifier
       tags:
         - rights
         - assigned
@@ -19,7 +18,36 @@ paths:
             application/json:
               schema:
                 $ref: ../models/AssignedRight.yaml
+      operationId: get-assigned_rights-id
+      description: Get latest version of a given AssignedRight by its identifier
+      requestBody: {}
+      parameters: []
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        description: 'Identifier for the assigned right. When not provided, the `right_spec`, `credential_class` and `credential_id` query params **must** be provided'
+        required: true
+  /assigned_rights:
+    parameters: []
+    post:
+      summary: Create a new AssignedRight
+      responses: {}
+      operationId: post-assigned_rights
+      description: Create a new AssignedRight
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/AssignedRight.yaml
+    get:
+      summary: Get AssignedRight by HolderCredential and RightSpecification
       operationId: get-assigned_rights
+      responses:
+        '200':
+          description: OK
+      description: Gets an AssignedRight a combination of a HolderCredential and RightSpecification
       parameters:
         - schema:
             type: string
@@ -36,28 +64,5 @@ paths:
           in: query
           name: credential_id
           description: Unique identifier for credential in given class
-      description: Get latest version of a given AssignedRight by its identifier or by a combination of a HolderCredential and RightSpecification
-      requestBody: {}
-    parameters:
-      - schema:
-          type: string
-        name: id
-        in: path
-        description: 'Identifier for the assigned right. When not provided, the `right_spec`, `credential_class` and `credential_id` query params **must** be provided'
-  /assigned_rights:
-    parameters: []
-    post:
-      summary: Create a new AssignedRight
-      tags:
-        - rights
-        - assigned
-      responses: {}
-      operationId: post-assigned_rights
-      description: Create a new AssignedRight
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ../models/AssignedRight.yaml
 components:
   schemas: {}
