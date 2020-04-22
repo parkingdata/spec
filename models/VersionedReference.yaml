@@ -1,0 +1,20 @@
+type: object
+title: VersionedReference
+description: 'A reference to an identifiable version managed object where the combination of the identifier and version is unique. It comprises an identifier (e.g. GUID), a version (NonNegativeInteger) and a string identifying the class of the referenced object.'
+additionalProperties: false
+properties:
+  id:
+    type: string
+    minLength: 1
+    description: Unique identifier
+  version:
+    type: integer
+    minimum: 1
+    description: Version number
+  className:
+    type: string
+    description: "Class name of the referenced object. It's optional, as it might be implied by the attribute name using this reference"
+    pattern: '^([A-Z][a-z0-9]+)+'
+required:
+  - id
+  - version

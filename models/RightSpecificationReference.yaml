@@ -1,16 +1,2 @@
-type: object
-title: RightSpecification
-description: 'A Right Specification explicitly defines what the owner/manager of a Place is granting specific users or vehicles the ability to do (e.g. park, delivery, pick up).'
-additionalProperties: false
-properties:
-  id:
-    type: string
-    minLength: 1
-    description: Unique identifier
-  version:
-    type: integer
-    minimum: 1
-    description: Version number
-required:
-  - id
-  - version
+allOf: []
+title: RightSpecificationReference

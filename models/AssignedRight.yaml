@@ -15,7 +15,7 @@ properties:
   rightHolder:
     $ref: ./RightHolder.yaml
   rightSpecification:
-    $ref: ./RightSpecificationReference.yaml
+    $ref: ./VersionedReference.yaml
   expiry:
     type: string
     format: date-time
@@ -23,8 +23,42 @@ properties:
   issuanceTime:
     type: string
     format: date-time
+    description: The date/time of the issuing of a specific AssignedRight.
   assignedRightIssuer:
     $ref: ./Reference.yaml
+  instancesAvailable:
+    type: integer
+    description: The total number of instances under a specified RightSpecification that are available for use.
+  instancesUsed:
+    type: integer
+    description: The total number of instances under a specified RightSpecification that have been used.
+  minutesUsed:
+    type: number
+    description: |-
+      Number of minutes under a specified Assigned Right that have been used.
+      Decimal minutes
+    format: float
+  minutesAvailable:
+    type: number
+    description: |-
+      Number of minutes under a specified Assigned Right that are available for use.
+      Decimal minutes. Remaining time.
+    format: float
+  remainingValue:
+    type: number
+    format: double
+    description: The monetary value unused of the Assigned Right held by the RightHolder.
+  totalInstances:
+    type: integer
+    description: The total number of instances under a specified Assigned Right that have been issued.
+  totalMinutes:
+    type: number
+    description: Number of minutes under a specified Assigned Right that have been issued. Decimal minutes
+    format: float
+  totalRightValue:
+    type: number
+    description: The total monetary value of the Assigned Right held by the RightHolder.
+    format: double
 required:
   - id
   - version

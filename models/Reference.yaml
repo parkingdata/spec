@@ -4,6 +4,8 @@ description: A reference to an identifiable managed object where the identifier 
 additionalProperties: false
 minProperties: 1
 maxProperties: 1
+x-tags:
+  - common
 patternProperties:
   '^([A-Z][a-z0-9]+)+':
     type: string
@@ -11,5 +13,3 @@ patternProperties:
     minLength: 1
 required:
   - '^([A-Z][a-z0-9]+)+'
-x-tags:
-  - common
