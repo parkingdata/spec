@@ -1,9 +1,12 @@
-title: MultilingualString
 type: object
-description: Object using ISO language codes as keys and the translated string as their values
-properties:
-  isoLanguageCode:
+title: MultilingualString
+description: 'Object using ISO 639-1:2002 language codes as keys and the translated string as their values'
+minProperties: 1
+patternProperties:
+  '^[a-z]{2}':
     type: string
-    description: 'The key names should be ISO language codes (e.g. en, es, de), and values should hold the respective strings'
+    description: 'The property names should be lower case ISO 639-1:2002 language codes (e.g. en, es, de), and values should hold the respective strings'
 required:
-  - isoLanguageCode
+  - '^[a-z]{2}'
+x-tags:
+  - common

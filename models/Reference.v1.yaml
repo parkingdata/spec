@@ -1,12 +1,15 @@
-title: Reference
 type: object
-x-tags:
-  - common
-description: A reference to an identifiable managed object where the identifier is unique. It comprises an identifier (e.g. GUID) and a string identifying the class of the referenced object.
-properties:
-  className:
+title: Reference
+description: A reference to an identifiable managed object where the identifier is unique. It  a string identifying the class of the referenced object (key name) and a unique string identifier (value).
+additionalProperties: false
+minProperties: 1
+maxProperties: 1
+patternProperties:
+  '^([A-Z][a-z0-9]+)+':
     type: string
-    description: 'The key name should be the class name of the referenced object (e.g. "UKNumberPlate"), and the value should be the unique identifier within that class (e.g. "LA51ABC")'
+    description: 'The property should be the class name of the referenced object (e.g. "UKNumberPlate") in PascalCase, and the value should be the unique identifier within that class (e.g. "LA51ABC")'
     minLength: 1
 required:
-  - className
+  - '^([A-Z][a-z0-9]+)+'
+x-tags:
+  - common

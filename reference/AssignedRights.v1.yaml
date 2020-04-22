@@ -18,7 +18,7 @@ paths:
         - schema:
             type: string
           in: query
-          name: right
+          name: right_spec
           description: Unique identifier for a right specification (its latest version is assumed)
         - schema:
             type: string
@@ -36,7 +36,7 @@ paths:
           type: string
         name: id
         in: path
-        description: 'Identifier for the assigned right. When not provided, the `right`, `credential_class` and `credential_id` query params **must** be provided'
+        description: 'Identifier for the assigned right. When not provided, the `right_spec`, `credential_class` and `credential_id` query params **must** be provided'
   /assigned_rights:
     parameters: []
     post:
