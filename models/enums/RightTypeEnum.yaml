@@ -1,0 +1,13 @@
+type: string
+title: RightTypeEnum
+description: |-
+  Defines the type of RightSpecification
+
+  * `accessPermission`: intended grant access permission
+  * `loadingUnloading`: intended granting permissions to load and unload vehicles.
+  * `oneTimeUseParking`: intended for one time or limited parking usage
+  * `permitParking`: intended for multi-use parking usage
+  * `setdownPickup`: intended for passenger setdown and pickup
+  * `waiting`: intended to grant permission for an accompanied vehicle to wait
+enum:
+  - accessPermission

@@ -10,8 +10,8 @@ properties:
     description: Unique identifier for the AssignedRight
   version:
     type: integer
-    minimum: 0
     description: Positive integer representing the version of the AssignedRight
+    minimum: 1
   rightHolder:
     $ref: ./RightHolder.yaml
   rightSpecification:

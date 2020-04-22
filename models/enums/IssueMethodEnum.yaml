@@ -9,6 +9,6 @@ x-tags:
 description: |-
   A list of the supported methods for issuing credentials.
 
-  * electronic: electronically issued, traceable
-  * permit: physical identifier, typically visibly mounted within vehicle
-  * ticket: typically single use, paper based
+  * `electronic`: electronically issued, traceable
+  * `permit`: physical identifier, typically visibly mounted within vehicle
+  * `ticket`: typically single use, paper based

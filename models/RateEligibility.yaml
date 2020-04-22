@@ -1,0 +1,7 @@
+title: RateEligibility
+type: object
+x-tags:
+  - rights
+properties:
+  id:
+    type: string
