@@ -6,6 +6,7 @@ enum:
   - permit
 x-tags:
   - enumeration
+  - credentials
 description: |-
   A list of the supported methods for issuing credentials.
 

@@ -1,0 +1,10 @@
+type: string
+title: LowEmissionLevelEnum
+description: |-
+  The emission level of a vehicle
+
+  * `freeOfEmission`: Only vehicles that do not produce emissions (e.g. electric driven). Hybrid driven cars are allowed, when they switch to emission free mode within the considered situation
+  * `lowLevelEmission`: Vehicles with low level emission
+enum:
+  - freeOfEmission
+  - lowLevelEmission

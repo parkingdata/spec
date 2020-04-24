@@ -1,0 +1,15 @@
+title: Emissions
+type: object
+x-tags:
+  - eligibility
+description: Emission characteristics of vehicles.
+properties:
+  emissionClassificationEuro:
+    $ref: ../enums/EmissionClassificationEuroEnum.yaml
+  emissionClassificationOthers:
+    type: array
+    description: Some other (probably locally defined) value(s) for emission classification.
+    items:
+      type: string
+  emissionLevel:
+    $ref: ../enums/LowEmissionLevelEnum.yaml

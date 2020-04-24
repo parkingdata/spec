@@ -1,0 +1,15 @@
+title: VersionedIdentity
+type: object
+description: Represents an object with an identity and can have versions over time
+properties:
+  id:
+    type: string
+    description: Unique identifier for object
+    minLength: 1
+  version:
+    type: integer
+    minimum: 1
+    description: Positive integer representing the object version
+required:
+  - id
+  - version

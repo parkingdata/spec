@@ -14,9 +14,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/AssignedRight.yaml
-      operationId: get-assigned_rights-id
-      description: Get latest version of a given AssignedRight by its identifier
+                $ref: ../models/right/AssignedRight.yaml
+      operationId: get-assigned_right
+      description: Get latest version of a given `AssignedRight` by its identifier
       requestBody: {}
       parameters: []
       tags:
@@ -33,22 +33,22 @@ paths:
     post:
       summary: Create a new AssignedRight
       responses: {}
-      operationId: post-assigned_rights
-      description: Create a new AssignedRight
+      operationId: post-assigned_right
+      description: Create a new `AssignedRight`
       requestBody:
         content:
           application/json:
             schema:
-              $ref: ../models/AssignedRight.yaml
+              $ref: ../models/right/AssignedRight.yaml
       tags:
         - create
     get:
-      summary: Get AssignedRight by HolderCredential and RightSpecification
-      operationId: get-assigned_rights
+      summary: List AssignedRights
+      operationId: list-assigned_rights
       responses:
         '200':
           description: OK
-      description: Gets an AssignedRight a combination of a HolderCredential and RightSpecification
+      description: Lists `AssignedRights` and allows filtering by combination of a `HolderCredential` and `RightSpecification`
       parameters:
         - schema:
             type: string
@@ -66,6 +66,6 @@ paths:
           name: credential_id
           description: Unique identifier for credential in given class
       tags:
-        - check
+        - list and check
 components:
   schemas: {}

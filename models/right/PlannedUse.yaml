@@ -1,0 +1,40 @@
+title: PlannedUse
+type: object
+description: A specific future instance when an `AssignedRight` is to be used/initiated.
+properties:
+  startTime:
+    type: string
+    format: date-time
+    description: |-
+      Date/time instance when a `PlannedUse` is considered to start, and be available for
+      use.
+  endTime:
+    type: string
+    format: date-time
+    description: |-
+      Date/time instance when a `PlannedUse` is considered to end, and no longer be
+      available for use.
+  expiryTime:
+    type: string
+    format: date-time
+    description: 'Date/time instance when a `PlannedUse` expires, and is no longer available for use.'
+  cancelTime:
+    type: string
+    description: Date/time instance when a specific `Planned Use` has been cancelled by the right holder.
+    format: date-time
+  issuanceTime:
+    type: string
+    format: date-time
+    description: Date/time at which a specific `PlannedUse` instance was issued.
+  issueMethod:
+    $ref: ../enums/IssueMethodEnum.yaml
+  issuer:
+    $ref: ../common/MultilingualString.yaml
+  credentialsAssigned:
+    type: array
+    minItems: 1
+    description: Credentials that might be used
+    items:
+      $ref: ./CredentialAssigned.yaml
+required:
+  - startTime

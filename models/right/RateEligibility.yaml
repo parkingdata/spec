@@ -1,0 +1,31 @@
+title: RateEligibility
+type: object
+x-tags:
+  - rights
+description: Defines the combination of Eligibility requirements with RateTables and associates this combination to a RightSpecification.
+properties:
+  id:
+    type: string
+    description: Unique identifier
+  version:
+    type: integer
+    minimum: 1
+    description: Positive integer representing the object version
+  priority:
+    type: integer
+    description: |-
+      An integer value, starting at 1, indicating the order in which multiple relevant
+      RateTables shall be considered, with 1
+      being the highest priority.
+    minimum: 1
+  combinable:
+    type: boolean
+    description: Boolean attribute that indicates (TRUE) if all `RateTables` associated to a `RightSpecification` with a common `Eligibility` can be combined to establish a lowest cost tariff or (FALSE) they cannot be combined.
+  eligibility:
+    $ref: ../eligibility/Eligibility.yaml
+  rateTable:
+    $ref: ../common/VersionedReference.yaml
+required:
+  - id
+  - version
+  - eligibility

@@ -15,7 +15,7 @@ properties:
   rightHolder:
     $ref: ./RightHolder.yaml
   rightSpecification:
-    $ref: ./VersionedReference.yaml
+    $ref: ../common/VersionedReference.yaml
   expiry:
     type: string
     format: date-time
@@ -25,7 +25,7 @@ properties:
     format: date-time
     description: The date/time of the issuing of a specific AssignedRight.
   assignedRightIssuer:
-    $ref: ./Reference.yaml
+    $ref: ../common/Reference.yaml
   instancesAvailable:
     type: integer
     description: The total number of instances under a specified RightSpecification that are available for use.
@@ -60,7 +60,12 @@ properties:
     description: The total monetary value of the Assigned Right held by the RightHolder.
     format: double
   issueMethod:
-    $ref: ./enums/IssueMethodEnum.yaml
+    $ref: ../enums/IssueMethodEnum.yaml
+  plannedUsed:
+    type: array
+    description: Planned future uses of this `AssignedRight`
+    items:
+      $ref: ./PlannedUse.yaml
 required:
   - id
   - version

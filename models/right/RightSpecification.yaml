@@ -31,21 +31,13 @@ properties:
   transferableConditions:
     type: boolean
   type:
-    $ref: ./enums/RightTypeEnum.yaml
+    $ref: ../enums/RightTypeEnum.yaml
   hierarchyElements:
     type: array
     minItems: 1
     description: Versioned references to `Places` in the hierarchy where this `RightSpecification` is available
     items:
-      $ref: ./Reference.yaml
-  assignedRights:
-    type: array
-    description: |-
-      The versioned references to AssignedRights using this RightSpecification
-
-      TBD: Should this be accesible from the RightSpec object? Probably preferable via AssignedRights API
-    items:
-      $ref: ./VersionedReference.yaml
+      $ref: ../common/VersionedReference.yaml
   credentials:
     type: array
     description: The allowed credential types for this `RightSpecification`
@@ -62,7 +54,7 @@ properties:
     items:
       $ref: ./RightPool.yaml
   validity:
-    $ref: ./Validity.yaml
+    $ref: ../times/Validity.yaml
 required:
   - id
   - version

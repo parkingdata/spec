@@ -1,0 +1,17 @@
+title: WidthCharacteristic
+type: object
+x-tags:
+  - eligibility
+description: Width characteristic of a vehicle
+properties:
+  comparisonOperator:
+    $ref: ../enums/ComparisonOperatorEnum.yaml
+  vehicleWidth:
+    type: number
+    format: float
+    minimum: 0
+    exclusiveMinimum: true
+    description: 'The maximum width of an individual vehicle, including any features embedded or fixed on it, in metres'
+required:
+  - comparisonOperator
+  - vehicleWidth

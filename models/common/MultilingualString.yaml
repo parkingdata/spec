@@ -1,6 +1,6 @@
 type: object
 title: MultilingualString
-description: 'Object using ISO 639-1:2002 language codes as keys and the translated string as their values'
+description: 'Multilingual string, represented as an object using ISO 639-1:2002 language codes as keys and the translated string as their values'
 minProperties: 1
 patternProperties:
   '^[a-z]{2}':

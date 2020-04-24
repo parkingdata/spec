@@ -1,0 +1,17 @@
+title: HeightCharacteristic
+type: object
+x-tags:
+  - eligibility
+description: Height characteristic of a vehicle
+properties:
+  comparisonOperator:
+    $ref: ../enums/ComparisonOperatorEnum.yaml
+  vehicleHeight:
+    type: number
+    format: float
+    minimum: 0
+    exclusiveMinimum: true
+    description: 'The height of the highest part, excluding antennae, of an individual vehicle above the road surface, in metres.'
+required:
+  - comparisonOperator
+  - vehicleHeight

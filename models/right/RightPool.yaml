@@ -25,7 +25,7 @@ properties:
   relativeValidity:
     $ref: ./RelativeValidity.yaml
   validity:
-    $ref: ./Validity.yaml
+    $ref: ../times/Validity.yaml
 required:
   - id
   - version

@@ -6,4 +6,4 @@ x-tags:
 description: A specific calendar can be defined to represent the number of `AssignedRights` available for distribution in a specific recurring time period via `RelativeValidity`.
 properties:
   period:
-    $ref: ''
+    $ref: ../times/Period.yaml

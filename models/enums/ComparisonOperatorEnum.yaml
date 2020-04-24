@@ -1,0 +1,18 @@
+type: string
+title: ComparisonOperatorEnum
+enum:
+  - equalTo
+  - greaterThan
+  - greaterThanOrEqualTo
+  - lessThan
+  - lessThanOrEqualTo
+description: |-
+  Logical comparison operations
+
+  * `equalTo`: Logical comparison operator of "equal to".
+  * `greaterThan`: Logical comparison operator of "greater than".
+  * `greaterThanOrEqualTo`: Logical comparison operator of "greater than or equal to".
+  * `lessThan`: Logical comparison operator of "less than".
+  * `lessThanOrEqualTo`: Logical comparison operator of "less than or equal to".
+x-tags:
+  - enumeration

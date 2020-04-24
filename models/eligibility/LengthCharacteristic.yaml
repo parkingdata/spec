@@ -1,0 +1,17 @@
+title: LengthCharacteristic
+type: object
+x-tags:
+  - eligibility
+description: Length characteristic of a vehicle
+properties:
+  comparisonOperator:
+    $ref: ../enums/ComparisonOperatorEnum.yaml
+  vehicleLength:
+    type: number
+    format: float
+    minimum: 0
+    exclusiveMinimum: true
+    description: 'The overall distance (in metres) between the front and back of an individual vehicle, including the length of any trailers, couplings, embedded features.'
+required:
+  - comparisonOperator
+  - vehicleLength

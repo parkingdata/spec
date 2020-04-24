@@ -1,7 +1,5 @@
-title: RateEligibility
+title: Period
 type: object
-x-tags:
-  - rights
 properties:
   id:
     type: string

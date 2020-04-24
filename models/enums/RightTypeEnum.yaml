@@ -11,3 +11,6 @@ description: |-
   * `waiting`: intended to grant permission for an accompanied vehicle to wait
 enum:
   - accessPermission
+x-tags:
+  - enumeration
+  - rights

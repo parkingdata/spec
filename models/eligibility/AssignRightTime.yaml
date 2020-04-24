@@ -1,0 +1,18 @@
+title: AssignRightTime
+type: object
+x-tags:
+  - eligibility
+description: Qualification criteria for eligibility based on the duration of time relative to a defined time-based qualification related to an assigned right
+properties:
+  assignedRightTime:
+    type: string
+    description: Assigned right time
+    format: date-time
+  comparisonOperator:
+    $ref: ../enums/ComparisonOperatorEnum.yaml
+  unitOfTime:
+    $ref: ../enums/UnitOfTimeEnum.yaml
+required:
+  - assignedRightTime
+  - comparisonOperator
+  - unitOfTime

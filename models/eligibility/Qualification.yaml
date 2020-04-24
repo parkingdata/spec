@@ -1,0 +1,79 @@
+title: Qualification
+type: object
+x-tags:
+  - eligibility
+description: A singular set of criteria used to test eligibility for use of a rate table.
+properties:
+  activeAssignedRight:
+    $ref: ../common/Reference.yaml
+  fuelTypes:
+    type: array
+    description: Indicates eligible fuel types for applicable  vehicles
+    items:
+      $ref: ../enums/FuelTypeEnum.yaml
+  memberOfOtherRateTable:
+    type: boolean
+    description: 'Indicates if this qualification can be used in  combination with the use of another rate table. [TRUE]= member of (i.e., used) another rate table.'
+  membershipNames:
+    type: array
+    description: Free-text description of the membership
+    items:
+      $ref: ../common/MultilingualString.yaml
+  rateTableMember:
+    type: array
+    description: Free-text description of other rate table membership
+    items:
+      type: string
+  vehicleTypes:
+    type: array
+    description: Indicates the eligible vehicle types
+    items:
+      $ref: ../enums/VehicleTypeEnum.yaml
+  withMembership:
+    type: boolean
+    description: 'indicates that a membership is required. [TRUE] membership required'
+  withReservation:
+    type: boolean
+    description: 'indicates whether a reservation is required. [TRUE] reservation required'
+  paymentMethod:
+    type: array
+    description: Qualifying payment methods
+    items:
+      $ref: ../payment_method/PaymentMethod.yaml
+  emissions:
+    $ref: ./Emissions.yaml
+  assignRightTimes:
+    type: array
+    description: Qualify based on min/max time duration from a right being assigned
+    uniqueItems: true
+    maxItems: 2
+    items:
+      $ref: ./AssignRightTime.yaml
+  grossWeightCharacteristics:
+    type: array
+    description: "Qualify based on the vehicle's min/max gross weight characteristics"
+    uniqueItems: true
+    maxItems: 2
+    items:
+      $ref: ./GrossWeightCharacteristic.yaml
+  heightCharacteristics:
+    type: array
+    description: "Qualify based on the vehicle's min/max height characteristics"
+    uniqueItems: true
+    maxItems: 2
+    items:
+      $ref: ./HeightCharacteristic.yaml
+  lengthCharacteristics:
+    type: array
+    description: "Qualify based on the vehicle's min/max gross length characteristics"
+    uniqueItems: true
+    maxItems: 2
+    items:
+      $ref: ./LengthCharacteristic.yaml
+  widthCharacteristics:
+    type: array
+    description: "Qualify based on the vehicle's min/max gross width characteristics"
+    uniqueItems: true
+    maxItems: 2
+    items:
+      $ref: ./WidthCharacteristic.yaml

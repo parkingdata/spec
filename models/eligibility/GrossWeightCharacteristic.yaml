@@ -1,0 +1,20 @@
+title: GrossWeightCharacteristic
+type: object
+x-tags:
+  - eligibility
+description: Gross weight characteristic of a vehicle
+properties:
+  comparisonOperator:
+    $ref: ../enums/ComparisonOperatorEnum.yaml
+  grossVehicleWeight:
+    type: number
+    description: 'The gross weight of the vehicle and its load, including any trailers (in Tonnes)'
+    format: float
+    minimum: 0
+    exclusiveMinimum: true
+  typeOfWeight:
+    $ref: ../enums/WeightTypeEnum.yaml
+required:
+  - comparisonOperator
+  - grossVehicleWeight
+  - typeOfWeight

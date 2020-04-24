@@ -1,0 +1,24 @@
+type: string
+title: FuelTypeEnum
+description: "Type of fuel used by a vehicle: \n\n* `all`: All sort of fuel is accepted\n* `battery`: Battery\n* `biodiesel`: Biodiesel\n* `diesel`: Fuel used for compression- ignition (CI) engines\n* `dieselBatteryHybrid`: Diesel and battery hybrid\n* `ethanol`: Ethanol\n* `hydrogen`: Hydrogen\n* `liquidGas`: Liquid gas of any type including LPG\n* `lpg`: Liquid petroleum gas\n* `methane`: Methane gas\n* `other`: Other\n* `petrol`: Fuel used for positive-ignition (PI) engines\n* `petrol95Octane`: Petrol with 95 octane\n* `petrol98Octane`: Petrol with 98 octane\n* `petrolBatteryHybrid`: Petrol and battery hybrid\n* `petrolLeaded`: Leaded petrol\n* `petrolUnleaded`: Unleaded petrol\n* `unknown`: The sort of fuel is not known"
+enum:
+  - all
+  - battery
+  - biodiesel
+  - diesel
+  - dieselBatteryHybrid
+  - ethanol
+  - hydrogen
+  - liquidGas
+  - lpg
+  - methane
+  - other
+  - petrol
+  - petrol95Octane
+  - petrol98Octane
+  - petrolBatteryHybrid
+  - petrolLeaded
+  - petrolUnleaded
+  - unknown
+x-tags:
+  - enumeration

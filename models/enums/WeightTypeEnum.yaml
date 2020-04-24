@@ -1,0 +1,10 @@
+type: string
+title: WeightTypeEnum
+description: |-
+  Type of weight - describing the meaning of a vehicle weight value
+
+  * `actual`: The weight is the actual weight of a specific vehicle
+  * `maximumPermitted`: The weight is the maximum permitted weight for a vehicle
+enum:
+  - actual
+  - maximumPermitted

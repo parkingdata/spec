@@ -1,0 +1,21 @@
+type: string
+title: PaymentTimingEnum
+description: |-
+  Details of when payment is required.
+
+  * `other`: Other.
+  * `payAfterExit`: Payment on account
+  * `payAndExit`: Pay directly at the exit with a payment card or other means of payment (usually, this payment card must have been used when entering as well).
+  * `payOnEntry`: Pay at start of the parking session (e.g. for pay and display)
+  * `payPriorToExit`: Pay at machine on foot prior to returning to vehicle and use payment ticket to exit.
+  * `prepay`: Pay before entry
+enum:
+  - other
+  - payAfterExit
+  - payAndExit
+  - payOnEntry
+  - payPriorToExit
+  - prepay
+x-tags:
+  - enumeration
+  - payment_method

@@ -1,0 +1,29 @@
+type: string
+title: EmissionClassificationEuroEnum
+description: |-
+  Classification of emission according to the Euro emission classification (based on serveral amendments on 1970 Directive 70/220/EEC).
+  Note that `vehicleType` as well as `fuelType` are mandatory to provide to make this classification explicit.
+
+  * `euro5`: Euro 5
+  * `euro5a`: Euro 5a
+  * `euro5b`: Euro 5b
+  * `euro6`: Euro 6
+  * `euro6a`: Euro 6a
+  * `euro6b`: Euro 6b
+  * `euro6c`: Euro 6c
+  * `euro`: Euro V
+  * `euro`: Euro VI
+  * `other`: Any other level
+enum:
+  - euro5
+  - euro5a
+  - euro5b
+  - euro6
+  - euro6a
+  - euro6b
+  - euro6c
+  - euroV
+  - euroVI
+  - other
+x-tags:
+  - enumeration
