@@ -1,0 +1,115 @@
+openapi: 3.0.0
+info:
+  title: APDS
+  version: '1.0'
+  description: |-
+    Allows the standard CRUD operations, as well as listing/search of:
+
+    * `Places` (and their `Occupancy`)
+    * `Rates`
+    * `RightSpecifications`
+    * `AssignedRights`
+    * `Sessions`
+    * `Observations`
+  contact: {}
+tags:
+  - name: create
+    description: Create an assigned right
+  - name: read
+    description: Read an assigned right
+  - name: update
+    description: Update an assigned right
+  - name: delete
+    description: Delete an assigned right
+  - name: list
+    description: List (search) assigned rights
+servers:
+  - url: ''
+paths:
+  '/rights/assigned/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        description: 'Identifier for the assigned right. When not provided, the `right_spec`, `credential_class` and `credential_id` query params **must** be provided'
+        required: true
+    delete:
+      summary: Delete AssignedRight
+      operationId: delete-assigned_right
+      responses:
+        '200':
+          description: OK
+      tags:
+        - delete
+      description: Delete an existing `Assigned Right`
+    put:
+      summary: Update AssignedRight
+      operationId: update-assigned_right
+      responses:
+        '200':
+          description: OK
+      description: Update an existing `AssignedRight`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+      tags:
+        - update
+    get:
+      summary: Get an AssignedRight
+      operationId: read-assigned_right
+      description: Get latest version of a given `AssignedRight` by its identifier
+      tags:
+        - read
+      parameters: []
+      responses:
+        '200':
+          description: OK
+  /rights/assigned:
+    parameters: []
+    post:
+      summary: Create a new AssignedRight
+      responses:
+        '200':
+          description: OK
+      operationId: create-assigned_right
+      description: Create a new `AssignedRight`
+      requestBody:
+        description: This method allows an issuer to assign a parking right to a holder
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+      tags:
+        - create
+    get:
+      summary: List AssignedRights
+      operationId: list-assigned_rights
+      responses:
+        '200':
+          description: OK
+      description: Lists `AssignedRights` and allows filtering by combination of a `HolderCredential` and `RightSpecification`
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: right_spec
+          description: Unique identifier for a right specification (its latest version is assumed)
+        - schema:
+            type: string
+          in: query
+          name: credential_class
+          description: Class name for credential
+        - schema:
+            type: string
+          in: query
+          name: credential_id
+          description: Unique identifier for credential in given class
+      tags:
+        - list
+components:
+  schemas: {}
