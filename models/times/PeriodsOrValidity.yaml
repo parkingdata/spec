@@ -1,0 +1,14 @@
+title: PeriodsOrValidity
+description: Describes the mutually exclusive use of one Validity or one or more Periods
+x-examples: {}
+oneOf:
+  - properties:
+      validity:
+        $ref: ./Validity.yaml
+  - properties:
+      periods:
+        type: array
+        minItems: 1
+        items:
+          $ref: ./Period.yaml
+type: object

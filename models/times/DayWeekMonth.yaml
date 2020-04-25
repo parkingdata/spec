@@ -1,0 +1,29 @@
+title: DayWeekMonth
+type: object
+description: 'Specification of periods defined by the intersection of days, weeks and months.'
+x-tags:
+  - times
+properties:
+  applicableDay:
+    type: array
+    uniqueItems: true
+    maxItems: 7
+    description: |-
+      Applicable day of the week. "All days of the week" is expressed by non-inclusion of
+      this attribute.
+    items:
+      $ref: ../enums/DayEnum.yaml
+  applicableMonth:
+    type: array
+    description: 'Applicable month of the year. "All months of the year" is expressed by non-inclusion of this attribute.'
+    uniqueItems: true
+    maxItems: 12
+    items:
+      $ref: ../enums/MonthEnum.yaml
+  applicableWeek:
+    type: array
+    description: 'Applicable week of the month (1 to 5). "All  weeks of the month" is expressed by non-inclusion of this attribute.'
+    uniqueItems: true
+    maxItems: 5
+    items:
+      $ref: ../enums/WeekOfMonthEnum.yaml

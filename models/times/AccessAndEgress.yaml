@@ -1,0 +1,7 @@
+title: AccessAndEgress
+description: Time periods specified for access to or from a parking facility.
+oneOf:
+  - $ref: ./AccessAndEgressValidity.yaml
+  - $ref: ./AccessAndEgressPeriods.yaml
+x-tags:
+  - times

@@ -1,0 +1,12 @@
+title: PublicHoliday
+description: Specification of a specific public holiday in case `specialDayType` is set to `publicHoliday`.
+x-tags:
+  - times
+allOf:
+  - type: object
+    properties:
+      publicHolidayName:
+        $ref: ../common/MultilingualString.yaml
+    required:
+      - publicHolidayName
+  - $ref: ./SpecialDay.yaml

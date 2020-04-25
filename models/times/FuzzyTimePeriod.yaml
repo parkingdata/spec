@@ -1,0 +1,13 @@
+title: FuzzyTimePeriod
+type: object
+description: Specifies the time period with non-precise characteristics.
+x-tags:
+  - times
+properties:
+  beginOrDuration:
+    $ref: ../enums/FuzzyTimeTypeEnum.yaml
+  endOrDuration:
+    $ref: ../enums/FuzzyTimeTypeEnum.yaml
+required:
+  - beginOrDuration
+  - endOrDuration

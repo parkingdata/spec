@@ -1,0 +1,19 @@
+title: AccessAndEgressCommon
+type: object
+properties:
+  exitPossibleAtAnyTime:
+    description: 'If [TRUE], specifies that the specified access is available for exit at all times.'
+    type: boolean
+  entranceOpenTimeArea:
+    type: array
+    description: Entrance open time area
+    items:
+      $ref: ./EntranceOpenTime.yaml
+  exitOpenTimeArea:
+    type: array
+    description: Exit open time area
+    items:
+      $ref: ./ExitOpenTime.yaml
+description: Supporting model. `AccessAndEgress` common attributes
+x-tags:
+  - times

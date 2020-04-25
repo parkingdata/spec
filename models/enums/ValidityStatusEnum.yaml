@@ -1,0 +1,16 @@
+type: string
+title: ValidityStatusEnum
+enum:
+  - active
+  - definedByValidityTimeSpec
+  - planned
+  - suspended
+description: |-
+  Values of validity status that can be assigned to a described event, action or item.
+
+  * `active`: The described event, action or item is currently active regardless of the definition of the validity time specification.
+  * `definedByValidityTimeSpec`: The validity status of the described event, action or item is in accordance with the definition of the validity time specification.
+  * `planned`: The described event, action or item is currently planned regardless of the definition of the validity time specification.
+  * `suspended`: The described event, action or item is currently suspended, that is inactive, regardless of the definition of the validity time specification.
+x-tags:
+  - enumeration

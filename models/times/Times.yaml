@@ -1,0 +1,29 @@
+title: Times
+type: object
+description: "Defines forms of time period for specific purposes. There are four distinct time domain concepts: \n\n* Hours of operation (times at which the facility may be used)\n* Access and egress (times it is possible to enter and leave the facility)\n* Entrance open time\n* Exit open time"
+x-tags:
+  - times
+properties:
+  available24hours:
+    type: boolean
+    description: 'If [TRUE], the identified parking hierarchy entities is available 24 hours per day.'
+  openAllYear:
+    type: boolean
+    description: 'If [TRUE], the identified parking hierarchy entities is available every day each year.'
+  openingTimesNotSpecified:
+    type: boolean
+    description: 'If [TRUE], the time periods are not specified.'
+  openingTimesUnknown:
+    type: boolean
+    description: 'If [TRUE], the time periods are not known.'
+  accessAndEgress:
+    type: array
+    items:
+      $ref: ./AccessAndEgress.yaml
+  operatingTime:
+    $ref: ./OperatingTime.yaml
+required:
+  - available24hours
+  - openAllYear
+  - openingTimesNotSpecified
+  - openingTimesUnknown

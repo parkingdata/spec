@@ -1,0 +1,11 @@
+title: AccessAndEgressValidity
+description: Supporting model. `AccessAndEgress` variant with `Validity`
+x-tags:
+  - times
+allOf:
+  - $ref: ./AccessAndEgressCommon.yaml
+  - type: object
+    properties:
+      validity:
+        $ref: ./Validity.yaml
+    description: ''

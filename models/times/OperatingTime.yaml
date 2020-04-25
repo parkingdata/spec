@@ -1,0 +1,6 @@
+title: OperatingTime
+description: 'The times of operation of a parking facility - this is the time that the facility operates, not times of accessibility'
+x-tags:
+  - times
+allOf:
+  - $ref: ./PeriodsOrValidity.yaml

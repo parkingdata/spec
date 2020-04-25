@@ -1,0 +1,32 @@
+type: string
+title: MonthEnum
+description: |-
+  Defines permissible enumerations of identification of calendar months within a year
+
+  * `january`: January
+  * `february`: February
+  * `march`: March
+  * `april`: April
+  * `may`: May
+  * `june`: June
+  * `july`: July
+  * `august`: August
+  * `september`: September
+  * `october`: October
+  * `november`: November
+  * `december`: December
+enum:
+  - january
+  - february
+  - march
+  - april
+  - may
+  - june
+  - july
+  - august
+  - september
+  - october
+  - november
+  - december
+x-tags:
+  - enumeration

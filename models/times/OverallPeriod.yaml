@@ -1,0 +1,30 @@
+title: OverallPeriod
+type: object
+description: A continuous or discontinuous period of validity defined by overall bounding start and end times and the possible intersection of valid periods (potentially recurring) with the complement of exception periods (also potentially recurring).
+x-tags:
+  - times
+properties:
+  overallStartTime:
+    type: string
+    format: date-time
+    description: Start of bounding period of validity defined by date and time.
+  overallEndTime:
+    type: string
+    format: date-time
+    description: End of bounding period of validity defined by date and time.
+  validPeriods:
+    type: array
+    description: |-
+      A single time period, a recurring time `Period` period or a set of different recurring time
+      periods during which validity is true.
+    items:
+      $ref: ./Period.yaml
+  exceptionPeriods:
+    type: array
+    description: |-
+      A single time period, a recurring time Period period or a set of different recurring time
+      periods during which validity is false.
+    items:
+      $ref: ./Period.yaml
+required:
+  - overallStartTime

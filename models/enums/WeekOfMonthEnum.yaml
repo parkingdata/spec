@@ -1,0 +1,18 @@
+type: string
+title: WeekOfMonthEnum
+enum:
+  - firstWeekOfMonth
+  - secondWeekOfMonth
+  - thirdWeekOfMonth
+  - fourthWeekOfMonth
+  - fifthWeekOfMonth
+description: |-
+  Weeks of the month
+
+  * `firstWeekOfMonth`: First week of the month
+  * `secondWeekOfMonth`: Second week of the month
+  * `thirdWeekOfMonth`: Third week of the month
+  * `fourthWeekOfMonth`: Fourth week of the month
+  * `fifthWeekOfMonth`: Fifth week of the month (at most only 3 days and non in February when not a leap year)
+x-tags:
+  - enumeration

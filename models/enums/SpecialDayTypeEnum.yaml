@@ -1,0 +1,26 @@
+type: string
+title: SpecialDayTypeEnum
+description: |-
+  Collection of special types of days
+
+  * `dayBeforePublicHoliday`: The day preceding a public holiday
+  * `dayFollowingPublicHoliday`: A day following a public holiday
+  * `inLieuOfPublicHoliday`: A holiday in lieu of a public holiday that falls on a weekend
+  * `longWeekendDay`: A day between a public holiday and the weekend
+  * `other`: Some other special day
+  * `publicEventDay`: A day of a public event. You may use the publicEvent attribute to specify the corresponding event
+  * `publicHoliday`: Public holiday A public holiday in general. You may use the PublicHoliday class to refer on a specific public holiday
+  * `schoolDay`: A school day
+  * `schoolHolidays`: A day within the school holidays
+enum:
+  - dayBeforePublicHoliday
+  - dayFollowingPublicHoliday
+  - inLieuOfPublicHoliday
+  - longWeekendDay
+  - other
+  - publicEventDay
+  - publicHoliday
+  - schoolDay
+  - schoolHolidays
+x-tags:
+  - enumeration

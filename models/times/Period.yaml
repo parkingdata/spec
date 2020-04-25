@@ -1,5 +1,33 @@
 title: Period
 type: object
+description: A continuous time period or a set of discontinuous time periods defined by the intersection of a set of criteria all within an overall delimiting interval.
+x-tags:
+  - times
 properties:
-  id:
+  periodName:
+    $ref: ../common/MultilingualString.yaml
+  startOfPeriod:
     type: string
+    format: date-time
+    description: Start of period
+  endOfPeriod:
+    type: string
+    description: End of a period
+    format: date-time
+  recurringDayWeekMonthPeriod:
+    type: array
+    description: 'A recurring period defined in terms of days `DayWeekMonth` of the week, weeks of the month and months of the year.'
+    items:
+      $ref: ./DayWeekMonth.yaml
+  recurringSpecialDay:
+    type: array
+    description: A recurring period in terms of special days
+    items:
+      anyOf:
+        - $ref: ./PublicHoliday.yaml
+        - $ref: ./SpecialDay.yaml
+  recurringTimePeriodOfDay:
+    type: array
+    description: A recurring period of a day
+    items:
+      $ref: ./TimePeriodOfDay.yaml

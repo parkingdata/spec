@@ -1,0 +1,12 @@
+type: string
+title: InstanceOfDayInMonthEnum
+description: "Defines permissible enumerations of the instance of a specific day (e.g. Monday, Tuesday) within a calendar month\n\n* `firstInstance`: First instance of a specific day (e.g. Monday, Tuesday) within a calendar month\n* `secondInstance`: Second instance of a specific day (e.g. Monday, Tuesday) within a calendar month\n* `thirdInstance`: Third instance of a specific day (e.g. Monday, Tuesday) within a calendar month\n* `fourthInstance`: Fourth instance of a specific day (e.g. Monday, Tuesday) within a calendar month \n* `fifthInstance`: Fifth instance of a specific day (e.g. Monday, Tuesday) within a calendar month \n* `sixthInstance`: Sixth instance of a specific day (e.g. Monday, Tuesday) within a calendar month"
+enum:
+  - firstInstance
+  - secondInstance
+  - thirdInstance
+  - fourthInstance
+  - fifthInstance
+  - sixthInstance
+x-tags:
+  - enumeration

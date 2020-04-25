@@ -1,0 +1,14 @@
+title: SpecialDay
+type: object
+description: 'Specification of a special type of day, possibly also a public holiday. Can be country or region specific.'
+x-tags:
+  - times
+properties:
+  intersectWithApplicableDays:
+    type: boolean
+    description: 'When [TRUE], the period is the intersection of applicable days and this special day. When [FALSE], the period is the union of applicable days and this special day'
+  specialDayType:
+    $ref: ../enums/SpecialDayTypeEnum.yaml
+required:
+  - intersectWithApplicableDays
+  - specialDayType

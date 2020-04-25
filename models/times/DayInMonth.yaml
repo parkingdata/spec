@@ -1,0 +1,15 @@
+allOf:
+  - $ref: ./DayWeekMonth.yaml
+  - type: object
+    properties:
+      dayInMonth:
+        $ref: ../enums/InstanceOfDayInMonthEnum.yaml
+    required:
+      - dayInMonth
+description: |-
+  Indicates the instance of a specific day of the week within a month
+
+  When using this class, at least `applicableDay` must be specified
+title: DayInMonth
+x-tags:
+  - times

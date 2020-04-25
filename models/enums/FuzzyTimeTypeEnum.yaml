@@ -1,0 +1,46 @@
+type: string
+title: FuzzyTimeTypeEnum
+description: |-
+  Specifies the time period with non-precise characteristics
+
+  * `autumn`: Beginning of autumn/fall (Source: ISO 20524-1)
+  * `dawn`: Starts at dawn (Source: ISO 20524-1)
+  * `day`: Start of day (Source: ISO 20524-1)
+  * `drySeason`: Beginning of dry season (Source: ISO 20524-1)
+  * `dusk`: Starts at dusk (Source: ISO 20524-1)
+  * `external`: Starting period controlled by external device (Source: ISO 20524-1)
+  * `highTide`: Beginning of high tide (Source: ISO 20524-1)
+  * `highWater`: Beginning of high water (Source: ISO 20524-1)
+  * `holiday`: Starts at any holiday (Source: ISO 20524-1)
+  * `lowTide`: Beginning of low tide (Source: ISO 20524-1)
+  * `lowWater`: Beginning of low water (Source: ISO 20524-1)
+  * `night`: Start of night (Source: ISO 20524-1)
+  * `offpeakHours`: Start of off-peak hours (Source: ISO 20524-1)
+  * `peakHours`: Start of peak hours, peak hours include rush hour and activity/scheduled event based times. These would vary by location and by season (Source: ISO 20524-1)
+  * `school`: Starts at any school period (date and hour) (Source: ISO 20524-1)
+  * `spring`: Beginning of spring (Source: ISO 20524-1)
+  * `summer`: Beginning of summer (Source: ISO 20524-1)
+  * `wetSeason`: Beginning of wet season (Source: ISO 20524-1)
+  * `winter`: Beginning of winter (Source: ISO 20524-1)
+enum:
+  - autumn
+  - dawn
+  - day
+  - drySeason
+  - dusk
+  - external
+  - highTide
+  - highWater
+  - holiday
+  - lowTide
+  - lowWater
+  - night
+  - offpeakHours
+  - peakHours
+  - school
+  - spring
+  - summer
+  - wetSeason
+  - winter
+x-tags:
+  - enumeration

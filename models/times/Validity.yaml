@@ -1,8 +1,12 @@
 title: Validity
 type: object
 x-tags:
-  - validity
-  - common
+  - times
+description: 'Specification of validity, either explicitly or by a validity time period specification which may be discontinuous.'
 properties:
   validityStatus:
-    $ref: ''
+    $ref: ../enums/ValidityStatusEnum.yaml
+  validityTimeSpecification:
+    $ref: ./OverallPeriod.yaml
+required:
+  - validityTimeSpecification

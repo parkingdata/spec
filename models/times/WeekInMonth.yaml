@@ -1,0 +1,12 @@
+title: WeekInMonth
+description: Provides information concerning an identifiable calendar week in a calendar month - in accordance with ISO8601 calendar weeks start on a Monday.
+x-tags:
+  - times
+allOf:
+  - $ref: ./DayWeekMonth.yaml
+  - type: object
+    properties:
+      weekInMonth:
+        $ref: ../enums/CalendarWeekInMonthEnum.yaml
+    required:
+      - weekInMonth

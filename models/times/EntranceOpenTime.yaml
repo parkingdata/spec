@@ -1,0 +1,7 @@
+title: EntranceOpenTime
+description: Specification of periods of times when parking entrance(s) are open for vehicle movements.
+x-tags:
+  - times
+$ref: ''
+allOf:
+  - $ref: ./PeriodsOrValidity.yaml

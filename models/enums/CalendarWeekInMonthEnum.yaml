@@ -1,0 +1,18 @@
+type: string
+title: CalendarWeekInMonthEnum
+description: |-
+  Defines permissible enumerations of identification of calendar weeks within a month
+
+  * `firstWeek`: First week First calendar week of the month - in accordance with ISO8601. This is the first week, that starts on Monday, and contains the first day of the month.
+  * `secondWeek`: Second week Second calendar week of the month. Calendars weeks commence on a Monday. The second week immediately follows the first week of the month.
+  * `thirdWeek`: Third week Third calendar week of the month. Calendars weeks commence on a Monday. The third week immediately follows the second week of the month.
+  * `fourthWeek`: Fourth week Fourth calendar week of the month. Calendars weeks commence on a Monday. The fourth week immediately follows the third week of the month.
+  * `fifthWeek`: Fifth week Fifth calendar week of the month. Calendars weeks commence on a Monday. The fifth week immediately follows the fourth week of the month.
+  * `sixthWeek`: Sixth week Sixth calendar week of the month. Calendars weeks commence on a Monday. The sixth week immediately follows the fifth week of the month. **NOTE**: this may be the same week as the first calendar week of the following month.
+enum:
+  - firstWeek
+  - secondWeek
+  - thirdWeek
+  - fourthWeek
+  - fifthWeek
+  - sixthWeek

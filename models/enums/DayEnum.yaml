@@ -1,0 +1,20 @@
+type: string
+title: DayEnum
+enum:
+  - friday
+  - monday
+  - saturday
+  - sunday
+  - thursday
+  - tuesday
+  - wednesday
+description: |-
+  Defines permissible enumerations of identification of days within a week
+
+  * `friday`: Friday
+  * `monday`: Monday
+  * `saturday`: Saturday
+  * `sunday`: Sunday
+  * `thursday`: Thursday
+  * `tuesday`: Tuesday
+  * `wednesday`: Wednesday
