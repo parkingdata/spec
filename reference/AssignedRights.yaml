@@ -3,9 +3,12 @@ info:
   title: AssignedRights
   version: '1.0'
   description: Allows the creation and check of AssignedRights
-servers: []
+  contact: {}
+tags: []
+servers:
+  - url: ''
 paths:
-  '/assigned_rights/{id}':
+  '/rights/assigned/{id}':
     get:
       summary: Get AssignedRight by identifier
       responses:
@@ -28,7 +31,7 @@ paths:
         in: path
         description: 'Identifier for the assigned right. When not provided, the `right_spec`, `credential_class` and `credential_id` query params **must** be provided'
         required: true
-  /assigned_rights:
+  /rights/assigned:
     parameters: []
     post:
       summary: Create a new AssignedRight
@@ -66,6 +69,6 @@ paths:
           name: credential_id
           description: Unique identifier for credential in given class
       tags:
-        - list and check
+        - list
 components:
   schemas: {}
