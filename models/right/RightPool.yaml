@@ -1,34 +1,27 @@
 title: RightPool
-type: object
 x-tags:
   - rights
-properties:
-  id:
-    type: string
-    description: Unique identifier
-  version:
-    type: integer
-    description: Positive integer version number
-    minimum: 1
-  assignedRightsIssuer:
-    type: string
-    description: 'Identification of the issuer of an `AssignedRight` FIXME: should it be a Reference instead, as in AssignedRights?'
-  availableAssignedRights:
-    description: The number of Assigned Rights that have been issued by the Rights creator to a specific Rights Issuer that are still available to be assigned.
-    type: integer
-  distributedAssignedRights:
-    description: The number of Assigned Rights that have been issued by the Rights creator to a specific Rights Issuer
-    type: integer
-  qtyRelation:
-    type: integer
-    description: An integer defining the number of actions or parking included in a `RightSpecification`
-  relativeValidity:
-    $ref: ./RelativeValidity.yaml
-  validity:
-    $ref: ../times/Validity.yaml
-required:
-  - id
-  - version
-  - assignedRightsIssuer
-  - availableAssignedRights
-  - distributedAssignedRights
+allOf:
+  - $ref: ../common/VersionedIdentity.yaml
+  - type: object
+    properties:
+      assignedRightsIssuer:
+        type: string
+        description: 'Identification of the issuer of an `AssignedRight` FIXME: should it be a Reference instead, as in AssignedRights?'
+      availableAssignedRights:
+        description: The number of Assigned Rights that have been issued by the Rights creator to a specific Rights Issuer that are still available to be assigned.
+        type: integer
+      distributedAssignedRights:
+        description: The number of Assigned Rights that have been issued by the Rights creator to a specific Rights Issuer
+        type: integer
+      qtyRelation:
+        type: integer
+        description: An integer defining the number of actions or parking included in a `RightSpecification`
+      relativeValidity:
+        $ref: ./RelativeValidity.yaml
+      validity:
+        $ref: ../times/Validity.yaml
+    required:
+      - assignedRightsIssuer
+      - availableAssignedRights
+      - distributedAssignedRights

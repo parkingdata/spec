@@ -1,25 +1,17 @@
 title: Eligibility
-type: object
 description: A class defining one or several qualifications indicating eligibility for use of a rate table or right specification.
 x-tags:
   - eligibility
-properties:
-  id:
-    type: string
-    description: Unique identifier
-  version:
-    type: integer
-    minimum: 1
-    description: Positive integer representing the object version
-  description:
-    $ref: ../common/MultilingualString.yaml
-  eligibilityName:
-    $ref: ../common/MultilingualString.yaml
-  qualifications:
-    type: array
-    description: Criteria to be eligible
-    items:
-      $ref: ./Qualification.yaml
-required:
-  - id
-  - version
+allOf:
+  - $ref: ../common/VersionedIdentity.yaml
+  - type: object
+    properties:
+      description:
+        $ref: ../common/MultilingualString.yaml
+      eligibilityName:
+        $ref: ../common/MultilingualString.yaml
+      qualifications:
+        type: array
+        description: Criteria to be eligible
+        items:
+          $ref: ./Qualification.yaml

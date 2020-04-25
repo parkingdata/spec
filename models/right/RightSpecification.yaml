@@ -1,63 +1,56 @@
 title: RightSpecification
-type: object
 description: 'A Right Specification explicitly defines what the owner/manager of a Place is granting specific users or vehicles the ability to do (e.g. park, delivery, pick up).'
 x-tags:
   - rights
-properties:
-  id:
-    type: string
-    description: Unique identifier for the Right Specification
-  version:
-    type: integer
-    minimum: 1
-    description: Positive integer representing the version of the RightSpecification
-  description:
-    type: string
-    description: Free-text description
-  expiry:
-    type: string
-    format: date-time
-    description: Date/time showing the timestamp for when a RightSpecification ceases to be valid.
-  financialReference:
-    type: string
-    description: |-
-      Creator defined free-text reference to financial transactions associated to the
-      specific Right Specification.
-  issuer:
-    type: string
-    description: Text string identification of the entity issuing the RightsSpecification.
-  transferable:
-    type: boolean
-  transferableConditions:
-    type: boolean
-  type:
-    $ref: ../enums/RightTypeEnum.yaml
-  hierarchyElements:
-    type: array
-    minItems: 1
-    description: Versioned references to `Places` in the hierarchy where this `RightSpecification` is available
-    items:
-      $ref: ../common/VersionedReference.yaml
-  credentials:
-    type: array
-    description: The allowed credential types for this `RightSpecification`
-    items:
-      $ref: ./Credential.yaml
-  rateEligibility:
-    type: array
-    description: Defines the combination of `Eligibility` requirements with `RateTables` and associates this combination to a `RightSpecification`. RateEligibility enables a `RightSpecification` to have association to multiple `RateTable(s)` for a specific `Eligibility` ( or set of `Qualifications`). `RateEligibility` also defines if `RateTables` are `Combinable`. This is a Yes / No (Boolean) definition. Either all `RateTables` associated to a `RightSpecification` with a common `Eligibility` can be combined or they cannot.
-    items:
-      $ref: ./RateEligibility.yaml
-  rightPools:
-    type: array
-    description: 'Shares the number of AssignedRights that are available for use, are currently in use, or intended for use within a specific RightSpecification in specific date/time periods by a specific AssignedRightIssuer'
-    items:
-      $ref: ./RightPool.yaml
-  validity:
-    $ref: ../times/Validity.yaml
-required:
-  - id
-  - version
-  - issuer
-  - transferable
-  - hierarchyElements
+allOf:
+  - $ref: ../common/VersionedIdentity.yaml
+  - type: object
+    properties:
+      description:
+        type: string
+        description: Free-text description
+      expiry:
+        type: string
+        format: date-time
+        description: Date/time showing the timestamp for when a RightSpecification ceases to be valid.
+      financialReference:
+        type: string
+        description: |-
+          Creator defined free-text reference to financial transactions associated to the
+          specific Right Specification.
+      issuer:
+        type: string
+        description: Text string identification of the entity issuing the RightsSpecification.
+      transferable:
+        type: boolean
+      transferableConditions:
+        type: boolean
+      type:
+        $ref: ../enums/RightTypeEnum.yaml
+      hierarchyElements:
+        type: array
+        minItems: 1
+        description: Versioned references to `Places` in the hierarchy where this `RightSpecification` is available
+        items:
+          $ref: ../common/VersionedReference.yaml
+      credentials:
+        type: array
+        description: The allowed credential types for this `RightSpecification`
+        items:
+          $ref: ./Credential.yaml
+      rateEligibility:
+        type: array
+        description: Defines the combination of `Eligibility` requirements with `RateTables` and associates this combination to a `RightSpecification`. RateEligibility enables a `RightSpecification` to have association to multiple `RateTable(s)` for a specific `Eligibility` ( or set of `Qualifications`). `RateEligibility` also defines if `RateTables` are `Combinable`. This is a Yes / No (Boolean) definition. Either all `RateTables` associated to a `RightSpecification` with a common `Eligibility` can be combined or they cannot.
+        items:
+          $ref: ./RateEligibility.yaml
+      rightPools:
+        type: array
+        description: 'Shares the number of AssignedRights that are available for use, are currently in use, or intended for use within a specific RightSpecification in specific date/time periods by a specific AssignedRightIssuer'
+        items:
+          $ref: ./RightPool.yaml
+      validity:
+        $ref: ../times/Validity.yaml
+    required:
+      - issuer
+      - transferable
+      - hierarchyElements

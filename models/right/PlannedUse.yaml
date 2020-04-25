@@ -38,3 +38,5 @@ properties:
       $ref: ./CredentialAssigned.yaml
 required:
   - startTime
+x-tags:
+  - rights
