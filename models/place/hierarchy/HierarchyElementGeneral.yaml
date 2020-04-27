@@ -1,0 +1,41 @@
+title: HierarchyElementGeneral
+description: 'A generalised component of a place hierarchy, that forms one element in the tree-like hierarchy. This forms a reusable block of the hierarchy, with relations to its parent element (if one exists) and any child elements. Each Place element in the hierarchy shall have a name, and may support a free-text description and an operator/property owner defined reference (e.g. location number/identifier)'
+allOf:
+  - $ref: ../../common/VersionedIdentity.yaml
+  - type: object
+    properties:
+      name:
+        $ref: ../../common/MultilingualString.yaml
+      description:
+        $ref: ../../common/MultilingualString.yaml
+      layer:
+        type: integer
+        minimum: 0
+        description: |-
+          Indicator of the position of this hierarchy element in the specific hierarchy, with the
+          top of the hierarchy numbered layer 0.
+      type:
+        $ref: ../../enums/HierarchyElementTypeEnum.yaml
+      aliases:
+        type: array
+        description: Alternative names for the hierarchy element
+        items:
+          $ref: ../../common/MultilingualString.yaml
+      parentId:
+        $ref: ../../common/VersionedReference.yaml
+      childIds:
+        type: array
+        description: The identity of one or several child nodes directly related to this hierarchy element.
+        items:
+          $ref: ../../common/VersionedReference.yaml
+      operatorDefinedReference:
+        $ref: ../../common/MultilingualString.yaml
+      hierarchyElementRecord:
+        $ref: ./HierarchyElementRecord.yaml
+    required:
+      - name
+      - layer
+      - type
+      - hierarchyElementRecord
+x-tags:
+  - places

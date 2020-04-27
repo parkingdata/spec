@@ -1,0 +1,16 @@
+title: HierarchyElementRecord
+type: object
+description: A collection of information concerning the creation of a hierarchy element
+x-tags:
+  - places
+properties:
+  creationTime:
+    type: string
+    format: date-time
+    description: Date/time that this version of the place facility record was created.
+  creator:
+    $ref: ../../common/MultilingualString.yaml
+  creatorEmail:
+    $ref: ../../common/MultilingualString.yaml
+required:
+  - creationTime

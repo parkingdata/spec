@@ -1,0 +1,6 @@
+description: 'An identifiable discrete bounded geographic zone that shares common characteristics and that may be used for parking related or other purposes. Identified Areas are segmented into two types: Vehicular Access class and Specific Area class.'
+title: IdentifiedArea
+allOf:
+  - $ref: ./HierarchyElementGeneral.yaml
+x-tags:
+  - places

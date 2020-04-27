@@ -466,6 +466,49 @@ paths:
             schema:
               $ref: ../models/common/VersionedReference.yaml
         description: 'The final version of the `RightSpecification` should be sent, to confirm the client is acting based on updated information'
+  /places:
+    get:
+      summary: List elements in the Place hierarchy
+      tags:
+        - list
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ../models/common/PaginatedListMeta.yaml
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          anyOf:
+                            - $ref: ../models/place/hierarchy/Campus.yaml
+                            - $ref: ../models/place/hierarchy/Place.yaml
+                            - $ref: ../models/place/hierarchy/HierarchyElement.yaml
+                            - $ref: ../models/place/hierarchy/IdentifiedArea.yaml
+                            - $ref: ../models/place/hierarchy/Space.yaml
+      operationId: get-places
+      description: 'Lists `Places` and allows filtering by:'
+  '/places/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: Unique identifier for place hierarchy element
+    get:
+      summary: Read an element in the Place hierarchy
+      tags:
+        - read
+      responses:
+        '200':
+          description: OK
+      operationId: get-places-id
+      description: Get latest version of a given place hierarchy element by its identifier
 components:
   parameters:
     lat:

@@ -1,0 +1,6 @@
+title: Space
+description: 'A single space for parking, usually designed for one vehicle, which may, but not necessarily, be denoted by painted or other road surface marker.'
+allOf:
+  - $ref: ./HierarchyElementGeneral.yaml
+x-tags:
+  - places

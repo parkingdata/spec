@@ -1,0 +1,6 @@
+title: HierarchyElement
+description: 'A sub-division of a Place for the convenience of the operator that may be used for parking related or other purposes. Examples of HierarchyElement include a floor or level, specific street or row of a car parking facility'
+allOf:
+  - $ref: ./HierarchyElementGeneral.yaml
+x-tags:
+  - places

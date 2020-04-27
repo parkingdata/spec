@@ -1,0 +1,13 @@
+title: Place
+description: 'A place or location used for parking, loading, unloading, standing, or some other mobility or transport related activity. Place typically identifies a parking structure, surface lot or on street parking zone'
+allOf:
+  - $ref: ./HierarchyElementGeneral.yaml
+  - type: object
+    properties:
+      timeZone:
+        type: string
+        description: 'IANA time-zone (see http://www.iana.org/time-zones)'
+    required:
+      - timeZone
+x-tags:
+  - places

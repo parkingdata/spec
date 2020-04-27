@@ -16,3 +16,5 @@ enum:
   - fourthWeek
   - fifthWeek
   - sixthWeek
+x-tags:
+  - enumeration

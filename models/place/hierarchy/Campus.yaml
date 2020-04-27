@@ -1,0 +1,6 @@
+title: Campus
+description: 'The highest level in the hierarchy, it typically defines a large facility (such as a university campus, or an airport), or a large geographic zone (such as a city or a town), which may contain numerous Places. A Campus combines and encompasses a number of Places that can be logically reported together.'
+allOf:
+  - $ref: ./HierarchyElementGeneral.yaml
+x-tags:
+  - places
