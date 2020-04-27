@@ -1,0 +1,26 @@
+title: PaginatedListMeta
+type: object
+description: Metadata for paginated list of results for Listing APIs
+x-tags:
+  - api
+  - common
+properties:
+  meta:
+    type: object
+    properties:
+      referenceInstant:
+        type: integer
+        description: 'Allows a consistent view of data across multiple paged requests. Unix epoch time to be used as reference for offset > 0 (corresponds to query instant, as returned by server on first call) - should be the same for all pages'
+        minimum: 0
+      offset:
+        type: integer
+        minimum: 0
+        description: Index of the first item returned in the page
+      pageSize:
+        type: integer
+        description: Maximum number of items that can be returned per page
+        minimum: 0
+      total:
+        type: integer
+        description: Total number of items contained in all pages
+        minimum: 0
