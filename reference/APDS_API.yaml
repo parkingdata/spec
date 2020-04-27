@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.0.0
 info:
   title: APDS
   version: '1.0'
@@ -99,9 +99,24 @@ paths:
                   - $ref: ../models/common/PaginatedListMeta.yaml
                   - type: object
                     properties:
+                      deletedReferences:
+                        type: array
+                        items:
+                          $ref: ../models/common/DeletedReference.yaml
+                  - type: object
+                    properties:
                       data:
-                        $ref: ../models/right/AssignedRight.yaml
-      description: Lists `AssignedRights` and allows filtering by combination of a `HolderCredential` and `RightSpecification`
+                        type: array
+                        items:
+                          $ref: ../models/right/AssignedRight.yaml
+      description: |-
+        Lists `AssignedRights` and allows filtering by:
+
+        * a combination of `HolderCredential` and `RightSpecification`, to check if a given credential has a given right to park
+        * latitude, longitude, radius: to check for `AssignedRights` within a geographic area
+        * a modification instant: to only display changed resources
+      tags:
+        - list
       parameters:
         - schema:
             type: string
@@ -118,8 +133,47 @@ paths:
           in: query
           name: credential_id
           description: Unique identifier for credential in given class
-      tags:
-        - list
-      requestBody: {}
+        - schema:
+            type: string
+            enum:
+              - all
+              - none
+              - plannedUses
+              - assignedRightIssuer
+          in: query
+          name: expand
+          description: Comma separated list of optional object attributes associated to an `AssignedRight` that should be included in the result set
+        - $ref: '#/components/parameters/lat'
+        - $ref: '#/components/parameters/long'
+        - $ref: '#/components/parameters/radius'
+        - $ref: '#/components/parameters/mod'
 components:
-  schemas: {}
+  parameters:
+    lat:
+      schema:
+        type: number
+        format: float
+      in: query
+      name: latitude
+      description: Location latitude to use as filter (mandatory if longitude or radius are defined)
+    long:
+      schema:
+        type: number
+        format: float
+      in: query
+      name: longitude
+      description: Location longitude to use as filter (mandatory if longitude or radius are defined)
+    radius:
+      schema:
+        type: integer
+        minimum: 0
+      in: query
+      name: radius
+      description: Number of meters to use as search filter from given latitude and longitude (mandatory if latitude or longitude are defined)
+    mod:
+      schema:
+        type: integer
+        minimum: 0
+      in: query
+      name: modified_since
+      description: "Reference timestamp to only display resources that have changed after that instant (represented as seconds, in UTC, since epoch).\n\n* If `expand` attributes are requested, then this timestamp will also applyto those objects’ modifications \n* When this attribute is used, the result-set will also include a list of deleted resources’ IDs, so that the client can use this method to avoid storing stale data"

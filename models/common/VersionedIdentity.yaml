@@ -13,3 +13,5 @@ properties:
 required:
   - id
   - version
+x-tags:
+  - common
