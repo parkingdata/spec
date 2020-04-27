@@ -24,3 +24,8 @@ properties:
         type: integer
         description: Total number of items contained in all pages
         minimum: 0
+  deletedReferences:
+    type: array
+    description: 'This attribute will returned when the `modified_since` query parameter is used. It will contain references to deleted resources since the provided instant, that would have otherwise been included in the dataset (either at the top-level or as associated objects)'
+    items:
+      $ref: ./DeletedReference.yaml

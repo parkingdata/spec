@@ -26,13 +26,107 @@ tags:
 servers:
   - url: ''
 paths:
+  /rights/assigned:
+    parameters: []
+    post:
+      summary: Create a new AssignedRight
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: ../models/common/ResponseStatus.yaml
+              examples:
+                created:
+                  value:
+                    status: ok
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: ../models/common/ResponseStatus.yaml
+              examples:
+                missing-data:
+                  value:
+                    status: error
+                    code: 400
+                    message: Missing required attributes
+      operationId: create-assigned_right
+      description: Create a new `AssignedRight`
+      requestBody:
+        description: This method allows an issuer to assign a parking right to a holder
+        content:
+          application/json:
+            schema:
+              $ref: ../models/right/AssignedRight.yaml
+      tags:
+        - create
+    get:
+      summary: List AssignedRights
+      operationId: list-assigned_rights
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ../models/common/PaginatedListMeta.yaml
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        description: Result set with `AssignedRights` and requested expanded attributes
+                        items:
+                          $ref: ../models/right/AssignedRight.yaml
+                    description: ''
+      description: |-
+        Lists `AssignedRights` and allows filtering by:
+
+        * a combination of `HolderCredential` and `RightSpecification`, to check if a given credential has a given right to park
+        * latitude, longitude, radius: to check for `AssignedRights` within a geographic area
+        * a `Place`, to retrieve all assigned rights within a parking location
+        * a modification instant: to only display changed resources from that point onwards
+
+        Additionally, supports providing a comma-separated list of optional object attributes associated to an `AssignedRight` that should be included in the result set. If unused or left blank, `none` will be assumed.
+      tags:
+        - list
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: right_spec
+          description: Unique identifier for a `RightSpecification` (its latest version is assumed)
+        - $ref: '#/components/parameters/cred_type'
+        - schema:
+            type: string
+          in: query
+          name: credential_class
+          description: Specific class name for credential (a more generic option is to use `credential_type`)
+        - schema:
+            type: string
+          in: query
+          name: credential_id
+          description: Unique identifier for credential in given class
+        - schema:
+            type: string
+          in: query
+          name: place
+          description: Unique identifier for an element in the `Place` hierarchy (its latest version is assumed)
+        - $ref: '#/components/parameters/assigned_expand'
+        - $ref: '#/components/parameters/lat'
+        - $ref: '#/components/parameters/long'
+        - $ref: '#/components/parameters/radius'
+        - $ref: '#/components/parameters/mod'
   '/rights/assigned/{id}':
     parameters:
       - schema:
           type: string
         name: id
         in: path
-        description: 'Identifier for the assigned right. When not provided, the `right_spec`, `credential_class` and `credential_id` query params **must** be provided'
+        description: Identifier for the `AssignedRight`
         required: true
     delete:
       summary: Delete AssignedRight
@@ -160,10 +254,56 @@ paths:
             application/json:
               schema:
                 $ref: ../models/right/AssignedRight.yaml
-  /rights/assigned:
-    parameters: []
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: ../models/common/ResponseStatus.yaml
+  /rights/specs:
+    get:
+      summary: List RightSpecifications
+      tags:
+        - list
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ../models/common/PaginatedListMeta.yaml
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        description: Result set with `RightSpecifications` and requested expanded attributes
+                        items:
+                          $ref: ../models/right/RightSpecification.yaml
+      operationId: list-rights-specs
+      description: |-
+        Lists `RightSpecifications` and allows filtering by:
+
+        * latitude, longitude, radius: to check for `RightSpecifications` within a geographic area
+        * a `Place`, to retrieve all assigned rights within a parking location
+        * a modification instant: to only display changed resources from that point onwards
+
+        Additionally, supports providing a comma-separated list of optional object attributes associated to an `RightSpecification` that should be included in the result set. If unused or left blank, `none` will be assumed.
+      parameters:
+        - $ref: '#/components/parameters/lat'
+        - $ref: '#/components/parameters/long'
+        - $ref: '#/components/parameters/radius'
+        - $ref: '#/components/parameters/specs_expand'
+        - $ref: '#/components/parameters/mod'
+        - $ref: '#/components/parameters/cred_type'
+        - schema:
+            type: string
+          in: query
+          name: place
+          description: Unique identifier for an element in the `Place` hierarchy
     post:
-      summary: Create a new AssignedRight
+      summary: Create a new RightSpecification
+      operationId: post-rights-specs
       responses:
         '201':
           description: Created
@@ -171,10 +311,61 @@ paths:
             application/json:
               schema:
                 $ref: ../models/common/ResponseStatus.yaml
-              examples:
-                created:
-                  value:
-                    status: ok
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: ../models/common/ResponseStatus.yaml
+      tags:
+        - create
+      description: Create a new `RightSpecification`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/right/RightSpecification.yaml
+        description: ''
+  '/rights/specs/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: Identifier for the `RightSpecification`
+    get:
+      summary: Get a RightSpecification
+      tags:
+        - read
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../models/right/RightSpecification.yaml
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: ../models/common/ResponseStatus.yaml
+      operationId: get-rights-specs-id
+      description: Get latest version of a given `RightSpecification` by its identifier
+      parameters:
+        - $ref: '#/components/parameters/version'
+        - $ref: '#/components/parameters/specs_expand'
+    put:
+      summary: Update a RightSpecification
+      operationId: put-rights-specs-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../models/common/ResponseStatus.yaml
         '400':
           description: Bad Request
           content:
@@ -187,79 +378,94 @@ paths:
                     status: error
                     code: 400
                     message: Missing required attributes
-      operationId: create-assigned_right
-      description: Create a new `AssignedRight`
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: ../models/common/ResponseStatus.yaml
+              examples:
+                not-found:
+                  value:
+                    status: error
+                    code: 404
+                    message: Not found
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: ../models/common/ResponseStatus.yaml
+              examples:
+                conflict:
+                  value:
+                    status: error
+                    code: 409
+                    message: Outdated version number provided
       requestBody:
-        description: This method allows an issuer to assign a parking right to a holder
         content:
           application/json:
             schema:
-              $ref: ../models/right/AssignedRight.yaml
+              $ref: ../models/right/RightSpecification.yaml
+        description: 'The new version of the `RightSpecification`, including only its changed attributes'
+      description: Update an existing `RightSpecification`
       tags:
-        - create
-    get:
-      summary: List AssignedRights
-      operationId: list-assigned_rights
+        - update
+    delete:
+      summary: Delete RightSpecification
+      operationId: delete-rights-specs-id
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: ../models/common/PaginatedListMeta.yaml
-                  - type: object
-                    properties:
-                      deletedReferences:
-                        type: array
-                        description: 'This attribute will returned when the `modified_since` query parameter is used. It will contain references to deleted resources since the provided instant, that would have otherwise been included in the dataset (either at the top-level or as associated objects)'
-                        items:
-                          $ref: ../models/common/DeletedReference.yaml
-                  - type: object
-                    properties:
-                      data:
-                        type: array
-                        description: Result set with `AssignedRights` and requested expanded attributes
-                        items:
-                          $ref: ../models/right/AssignedRight.yaml
-                    description: ''
-      description: |-
-        Lists `AssignedRights` and allows filtering by:
-
-        * a combination of `HolderCredential` and `RightSpecification`, to check if a given credential has a given right to park
-        * latitude, longitude, radius: to check for `AssignedRights` within a geographic area
-        * a `Place`, to retrieve all assigned rights within a parking location
-        * a modification instant: to only display changed resources from that point onwards
-
-        Additionally, supports providing a comma-separated list of optional object attributes associated to an `AssignedRight` that should be included in the result set. If unused or left blank, `none` will be assumed.
+                $ref: ../models/common/ResponseStatus.yaml
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: ../models/common/ResponseStatus.yaml
+              examples:
+                bad-request:
+                  value:
+                    status: error
+                    code: 400
+                    message: Did not provide version number
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: ../models/common/ResponseStatus.yaml
+              examples:
+                not-found:
+                  value:
+                    status: error
+                    code: 404
+                    message: Not found
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: ../models/common/ResponseStatus.yaml
+              examples:
+                conflict:
+                  value:
+                    status: error
+                    code: 409
+                    message: Outdated version number provided
       tags:
-        - list
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: right_spec
-          description: Unique identifier for a `RightSpecification` (its latest version is assumed)
-        - schema:
-            type: string
-          in: query
-          name: credential_class
-          description: Class name for credential
-        - schema:
-            type: string
-          in: query
-          name: credential_id
-          description: Unique identifier for credential in given class
-        - schema:
-            type: string
-          in: query
-          name: place
-          description: Unique identifier for a `Place` (its latest version is assumed)
-        - $ref: '#/components/parameters/assigned_expand'
-        - $ref: '#/components/parameters/lat'
-        - $ref: '#/components/parameters/long'
-        - $ref: '#/components/parameters/radius'
-        - $ref: '#/components/parameters/mod'
+        - delete
+      description: Delete a `RightSpecification`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/common/VersionedReference.yaml
+        description: 'The final version of the `RightSpecification` should be sent, to confirm the client is acting based on updated information'
 components:
   parameters:
     lat:
@@ -308,3 +514,22 @@ components:
       in: query
       name: version
       description: 'Previous version number. Useful when a reference to a resource version is found in another dataset, and that version is no longer the latest one. Latest version is assumed when this parameter is not used.'
+    specs_expand:
+      schema:
+        type: string
+        enum:
+          - all
+          - none
+          - rateEligibility
+          - validity
+          - credentials
+          - rightPools
+      description: Comma-separated list of optional object attributes associated to an `RightSpecification` that should be included in the result set
+      name: expand
+      in: query
+    cred_type:
+      schema:
+        $ref: ../models/enums/CredentialTypeEnum.yaml
+      name: credential_type
+      in: query
+      description: Type of credential
