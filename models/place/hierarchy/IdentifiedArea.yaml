@@ -2,5 +2,30 @@ description: 'An identifiable discrete bounded geographic zone that shares commo
 title: IdentifiedArea
 allOf:
   - $ref: ./HierarchyElementGeneral.yaml
+  - type: object
+    description: Street address
+    properties:
+      streetAddress:
+        type: array
+        description: Identified area street address
+        items:
+          $ref: ../contacts/Address.yaml
+      areaBoundedZone:
+        type: array
+        description: Identified area bounded zone
+        items:
+          $ref: ../location/AreaLocation.yaml
+      indicativeIdentifiedAreaPointLocation:
+        type: array
+        description: Indicative identified area point location
+        items:
+          $ref: ../location/PointLocation.yaml
+      times:
+        $ref: ../../times/Times.yaml
+      operatingRestrictions:
+        type: array
+        description: Operating restrictions
+        items:
+          $ref: ./common/OperatingRestrictions.yaml
 x-tags:
   - places

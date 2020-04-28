@@ -1,5 +1,16 @@
 title: SpaceDimension
 type: object
-description: ''
+description: A component that provides dimension information. The product of width and height must not be necessarily be the square footage (e.g. in multi-storey buildings or when some zones are not part of the square footage).
 x-tags:
   - places
+properties:
+  dimensionHeight:
+    $ref: ../../common/LinearDimension.yaml
+  dimensionLength:
+    $ref: ../../common/LinearDimension.yaml
+  dimensionUsableArea:
+    $ref: ../../common/AreaDimension.yaml
+  dimensionWidth:
+    $ref: ../../common/LinearDimension.yaml
+  weightLimit:
+    $ref: ../../common/WeightDimension.yaml

@@ -7,7 +7,23 @@ allOf:
       timeZone:
         type: string
         description: 'IANA time-zone (see http://www.iana.org/time-zones)'
+      placeStreetAddress:
+        type: array
+        description: Place street address
+        items:
+          $ref: ../contacts/Address.yaml
+      placeBoundedZone:
+        type: array
+        description: Place bounded zone
+        items:
+          $ref: ../location/AreaLocation.yaml
+      indicativePlacePointLocation:
+        type: array
+        description: Indicative place point location
+        items:
+          $ref: ../location/PointLocation.yaml
     required:
       - timeZone
+  - $ref: ./common/CommonComponents.yaml
 x-tags:
   - places

@@ -1,0 +1,14 @@
+type: string
+title: UnitOfMeasureAreaEnum
+description: |-
+  A list of the supported units of area measure
+
+  * `squareFeet`: Unit of Square feet
+  * `squareMetres`: Unit of Metres Square
+  * `squareYards`: Unit of Square yards
+enum:
+  - squareFeet
+  - squareMetres
+  - squareYards
+x-tags:
+  - enumeration

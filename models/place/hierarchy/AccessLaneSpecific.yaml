@@ -1,5 +1,24 @@
 title: AccessLaneSpecific
 type: object
-description: ''
+description: A specialisation of an `identifiedArea` defining `VehicularAccess` areas. Defines the sequence and nature of a specific entrance or exit lane.
 x-tags:
   - places
+properties:
+  laneType:
+    $ref: ../../enums/AccessLaneTypeEnum.yaml
+  sequenceNumber:
+    type: integer
+    description: |-
+      Defines a unique sequence number for this specific lane within the identifiedArea.
+      No specific method of numbering is
+      defined. Preferred practice numbers lanes from right to left as seen in-bound into the parking facility.
+    minimum: 0
+  entranceOpenTimeLaneSpecific:
+    $ref: ../../times/EntranceOpenTime.yaml
+  exitOpenTimeLaneSpecific:
+    $ref: ../../times/ExitOpenTime.yaml
+  maxDimForSpecificLane:
+    $ref: ./MaximumDimensions.yaml
+required:
+  - laneType
+  - sequenceNumber

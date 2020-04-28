@@ -1,0 +1,15 @@
+title: LinearDimension
+type: object
+x-tags:
+  - common
+description: A class defining information concerning a linear measure (distance) with unit.
+properties:
+  measure:
+    type: number
+    format: float
+    description: Quantity in the defined unit of measure.
+  unitOfMeasure:
+    $ref: ../enums/UnitOfMeasureDistanceEnum.yaml
+required:
+  - measure
+  - unitOfMeasure

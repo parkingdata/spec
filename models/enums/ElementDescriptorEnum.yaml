@@ -1,0 +1,14 @@
+type: string
+title: ElementDescriptorEnum
+enum:
+  - floorOrLevel
+  - row
+  - street
+description: |-
+  A list of the supported parking element descriptors (e.g. floor, row).
+
+  * `floorOrLevel`: Describes a place identified as a "floor", with typical use to describe a floor or level in a multi-level structure
+  * `row`: Describes a place identified as a "row", with typical use to describe a quasi-line parking or other feature of common characteristics
+  * `street`: Describes a place identified as a "street", with typical use to describe a part of a road sharing a common given name.
+x-tags:
+  - enumeration

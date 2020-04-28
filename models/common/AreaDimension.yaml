@@ -1,0 +1,17 @@
+title: AreaDimension
+type: object
+description: |-
+  A class defining information concerning an area measurement with
+  unit.
+x-tags:
+  - common
+properties:
+  measure:
+    type: number
+    format: float
+    description: Quantity in the defined unit of measure.
+  unitOfMeasure:
+    $ref: ../enums/UnitOfMeasureAreaEnum.yaml
+required:
+  - measure
+  - unitOfMeasure

@@ -1,0 +1,12 @@
+type: string
+title: UnitOfMeasureWeightEnum
+description: |-
+  A list of the supported units of measure
+
+  * `poundsWeight`: 1 lb
+  * `tonnesMetric`: 1000 kilogrammes
+enum:
+  - poundsWeight
+  - tonnesMetric
+x-tags:
+  - enumeration

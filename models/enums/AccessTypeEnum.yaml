@@ -1,0 +1,14 @@
+type: string
+title: AccessTypeEnum
+description: |-
+  A list of the supported access area types
+
+  * `entry`: a zone or area that is a place for access into a facility
+  * `exit`: a zone or area that is a place for access from a facility
+  * `reversible`: a zone or area that is a place for access to or egress from a facility. Conditions may be changed by operation circumstances, such as time of day.
+enum:
+  - entry
+  - exit
+  - reversible
+x-tags:
+  - enumeration

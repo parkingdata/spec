@@ -1,5 +1,12 @@
 title: SpecificArea
-type: object
-description: ''
+description: |-
+  Specific Area class is a type of Identified Area data element that denotes a specific geographic area in a Place that has a common physical infrastructure purpose and common characteristics. Examples of common infrastructure purpose include parking area, electric charging infrastructure, bike storage. The Specific Area class describes the physical components of a Place.
+  Specific Area type Identified Area is used to assign Rights.
 x-tags:
   - places
+allOf:
+  - $ref: ./IdentifiedArea.yaml
+  - type: object
+    properties:
+      characteristics:
+        $ref: ./common/Characteristics.yaml

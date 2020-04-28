@@ -1,5 +1,12 @@
 title: MaximumDimensions
 type: object
-description: ''
+description: A class defining information relating to the maximum physical dimensions for the defined purpose
 x-tags:
   - places
+properties:
+  maximumHeight:
+    $ref: ../../common/LinearDimension.yaml
+  maximumLength:
+    $ref: ../../common/LinearDimension.yaml
+  maximumWidth:
+    $ref: ../../common/LinearDimension.yaml

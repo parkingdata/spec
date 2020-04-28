@@ -1,0 +1,22 @@
+type: string
+title: ParkingSpaceOccupancyDetectionEnum
+description: |-
+  A list of supported methods for detection of occupancy by a vehicle in a parking space.
+
+  * `anpr` Automated License Plate Recognition information is tracked for inbound and outbound traffic. The difference between in and out counts enables an occupancy count.
+  * `imageAnalytics` Image analytics are used to evaluate a picture with known parking space geography and computer vision is used to determine occupancy at a point in time.
+  * `spaceSensor` A sensor in each space detects the presence of a vehicle.
+  userDeclaration User self-declared, where the user enters a space identifier and/or vehicle registration number, typically at the start of a parking session.
+  * `videoAnalytics` Video analytics are used to evaluate a video stream to identify objects (vehicles) and direction of travel. The difference between the inbound objects and outbound objects determines occupancy.
+  * `videoSpace` Video analytics or ANPR technologies are used to evaluate a video stream with known space geometry to identify objects (vehicles or license plates) occupying specific spaces.
+  * `visual` Operator/owner makes periodic visual counts of the facility.
+enum:
+  - anpr
+  - imageAnalytics
+  - spaceSensor
+  - userDeclaration
+  - videoAnalytics
+  - videoSpace
+  - visual
+x-tags:
+  - enumeration

@@ -1,0 +1,12 @@
+type: string
+title: UnitOfMeasureDistanceEnum
+description: |-
+  A list of the supported units of linear measure
+
+  * `foot`: Imperial foot = 12 inches
+  * `metres`: SI - metre
+enum:
+  - foot
+  - metres
+x-tags:
+  - enumeration

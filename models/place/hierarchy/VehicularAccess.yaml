@@ -1,5 +1,27 @@
 title: VehicularAccess
-type: object
-description: ''
+description: |-
+  A specialisation of an identifiedArea defining a VehicularAccess areas.
+
+  Note: This model only supports the modelling of vehicular accesses at the present time. Other forms of access (e.g. pedestrian access, rental vehicle return, bicycle access, etc) may be introduced during a later Release if a stakeholder requirement is identified.
+  AccessType enumerations for the Vehicular Access type support the definition of characteristics for access into, from and both to and from a parking facility or part thereof respectively (denoted by the type attribute, using the AccessType enumerations). Each of the AccessLaneType enumerations may support the definition of characteristics for each lane within the specific Identified Area. Preferred practice gives a sequence number to each lane left to right when entering the facility.
 x-tags:
   - places
+$ref: ''
+allOf:
+  - $ref: ./IdentifiedArea.yaml
+  - type: object
+    properties:
+      accessLaneSpecifics:
+        type: array
+        description: Access lane specific
+        items:
+          $ref: ./AccessLaneSpecific.yaml
+      accessAndEgress:
+        type: array
+        description: Access and egress
+        items:
+          $ref: ../../times/AccessAndEgress.yaml
+      accessType:
+        $ref: ../../enums/AccessTypeEnum.yaml
+    required:
+      - accessType

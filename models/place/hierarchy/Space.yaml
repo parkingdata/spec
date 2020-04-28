@@ -2,5 +2,26 @@ title: Space
 description: 'A single space for parking, usually designed for one vehicle, which may, but not necessarily, be denoted by painted or other road surface marker.'
 allOf:
   - $ref: ./HierarchyElementGeneral.yaml
+  - type: object
+    properties:
+      spaceId:
+        $ref: ../../common/Reference.yaml
+      detection:
+        $ref: ../../enums/ParkingSpaceOccupancyDetectionEnum.yaml
+      indicativePointLocation:
+        $ref: ../location/PointLocation.yaml
+      spaceBoundedZone:
+        $ref: ../location/AreaLocation.yaml
+      spaceDimension:
+        $ref: ./SpaceDimension.yaml
+      spaceMaximumDims:
+        $ref: ./MaximumDimensions.yaml
+      operatingRestrictions:
+        type: array
+        description: Operating restrictions for space
+        items:
+          $ref: ./common/OperatingRestrictions.yaml
+    required:
+      - spaceId
 x-tags:
   - places
