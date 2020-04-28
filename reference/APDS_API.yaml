@@ -36,7 +36,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
               examples:
                 created:
                   value:
@@ -46,7 +46,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
               examples:
                 missing-data:
                   value:
@@ -73,15 +73,15 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - $ref: ../models/common/PaginatedListMeta.yaml
+                  - $ref: '#/components/schemas/PaginatedListMeta'
                   - type: object
+                    description: ''
                     properties:
                       data:
                         type: array
                         description: Result set with `AssignedRights` and requested expanded attributes
                         items:
                           $ref: ../models/right/AssignedRight.yaml
-                    description: ''
       description: |-
         Lists `AssignedRights` and allows filtering by:
 
@@ -137,13 +137,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
               examples:
                 bad-request:
                   value:
@@ -155,7 +155,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
               examples:
                 not-found:
                   value:
@@ -167,7 +167,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
               examples:
                 conflict:
                   value:
@@ -192,13 +192,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
               examples:
                 missing-data:
                   value:
@@ -210,7 +210,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
               examples:
                 not-found:
                   value:
@@ -222,7 +222,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
               examples:
                 conflict:
                   value:
@@ -259,7 +259,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
   /rights/specs:
     get:
       summary: List RightSpecifications
@@ -272,7 +272,7 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - $ref: ../models/common/PaginatedListMeta.yaml
+                  - $ref: '#/components/schemas/PaginatedListMeta'
                   - type: object
                     properties:
                       data:
@@ -310,13 +310,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
       tags:
         - create
       description: Create a new `RightSpecification`
@@ -350,7 +350,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
       operationId: get-rights-specs-id
       description: Get latest version of a given `RightSpecification` by its identifier
       parameters:
@@ -365,13 +365,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
               examples:
                 missing-data:
                   value:
@@ -383,7 +383,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
               examples:
                 not-found:
                   value:
@@ -395,7 +395,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
               examples:
                 conflict:
                   value:
@@ -420,13 +420,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
               examples:
                 bad-request:
                   value:
@@ -438,7 +438,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
               examples:
                 not-found:
                   value:
@@ -450,7 +450,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/common/ResponseStatus.yaml
+                $ref: '#/components/schemas/ResponseStatus'
               examples:
                 conflict:
                   value:
@@ -478,20 +478,72 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - $ref: ../models/common/PaginatedListMeta.yaml
+                  - $ref: '#/components/schemas/PaginatedListMeta'
                   - type: object
                     properties:
                       data:
                         type: array
                         items:
-                          anyOf:
-                            - $ref: ../models/place/hierarchy/Campus.yaml
-                            - $ref: ../models/place/hierarchy/Place.yaml
-                            - $ref: ../models/place/hierarchy/HierarchyElement.yaml
-                            - $ref: ../models/place/hierarchy/IdentifiedArea.yaml
-                            - $ref: ../models/place/hierarchy/Space.yaml
+                          $ref: '#/components/schemas/HierarchyElementData'
       operationId: get-places
-      description: 'Lists `Places` and allows filtering by:'
+      description: |-
+        Lists `Places` and allows filtering by:
+
+        * `latitude`, `longitude`, `radius`: to check for elements in the `Place` hierarchy within a geographic area
+        * a modification instant (`modified_since`): to only display changed resources from that point onwards
+        * `layer`: maximum hierarchy element layer desired
+        * `type`: types of hierarchy elements
+        * `right_type`: types of `RightSpecifications` associated with Place hierarchy elements
+        * `structure_type`: types of structure
+        * `structure_grade`: grades of structures
+        * `name`: name of facilities
+
+        Additionally, supports providing a comma-separated list of optional object attributes associated to a `Place` hierarchy element that should be included in the result set. (see `expand` attribute). If unused or left blank, `none` will be assumed.
+      parameters:
+        - $ref: '#/components/parameters/lat'
+        - $ref: '#/components/parameters/long'
+        - $ref: '#/components/parameters/radius'
+        - $ref: '#/components/parameters/places_expand'
+        - schema:
+            type: integer
+          in: query
+          name: layer
+          description: 'Most detailed (lower-level) layer of data desired. 0 (zero) being the first level (and higher numbers correspond to lower-levels of information). If left empty, the entire Place hierarchy that matches the remaining parameters will be returned'
+        - $ref: '#/components/parameters/place_type'
+        - $ref: '#/components/parameters/right_type'
+        - $ref: '#/components/parameters/structure_type'
+        - $ref: '#/components/parameters/structure_grade'
+        - schema:
+            type: string
+          in: query
+          name: name
+          description: Name of place hierarchy element (in any of its supported languages)
+        - $ref: '#/components/parameters/mod'
+    post:
+      summary: Create a new Place hierarchy element
+      operationId: post-places
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+              examples: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+      tags:
+        - create
+      description: Create a new element in the `Place` hierarchy
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HierarchyElementData'
   '/places/{id}':
     parameters:
       - schema:
@@ -507,8 +559,89 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HierarchyElementData'
       operationId: get-places-id
       description: Get latest version of a given place hierarchy element by its identifier
+      parameters:
+        - $ref: '#/components/parameters/version'
+        - $ref: '#/components/parameters/places_expand'
+    put:
+      summary: Update Place hierarchy element
+      operationId: put-places-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+      description: Update an element in the `Place` hierarchy (or one of its associated attributes like `Occupancy`)
+      tags:
+        - update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HierarchyElementData'
+        description: "The new version of the `Place` hierarchy element, including only its changed attributes. In the case of Occupancy updates, the Place version doesn't need to change."
+    delete:
+      summary: Delete Place hierarchy element
+      operationId: delete-places-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+      description: Delete Place hierarchy element
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/common/VersionedIdentity.yaml
+        description: 'The final version of the `Place` hierarchy element should be sent, to confirm the client is acting based on updated information'
+      tags:
+        - delete
 components:
   parameters:
     lat:
@@ -541,7 +674,7 @@ components:
       description: "Reference timestamp to only display resources that have changed after that instant (represented as seconds, in UTC, since epoch).\n\n* If `expand` attributes are requested, then this timestamp will also applyto those objects’ modifications \n* When this attribute is used, the result-set will also include a list of deleted resources’ IDs, so that the client can use this method to avoid storing stale data"
     assigned_expand:
       schema:
-        type: string
+        type: array
         enum:
           - all
           - none
@@ -559,7 +692,7 @@ components:
       description: 'Previous version number. Useful when a reference to a resource version is found in another dataset, and that version is no longer the latest one. Latest version is assumed when this parameter is not used.'
     specs_expand:
       schema:
-        type: string
+        type: array
         enum:
           - all
           - none
@@ -572,7 +705,171 @@ components:
       in: query
     cred_type:
       schema:
-        $ref: ../models/enums/CredentialTypeEnum.yaml
+        type: array
+        enum:
+          - hangtag
+          - permit
+          - licensePlate
+          - ticket
+          - eticket
+          - barcode
+          - bluetooth
+          - rfid
       name: credential_type
       in: query
       description: Type of credential
+    places_expand:
+      schema:
+        type: array
+        enum:
+          - all
+          - none
+          - rightSpecifications
+          - occupancy
+          - areaLocation
+          - pointLocation
+          - contacts
+          - operatingRestrictions
+          - characteristics
+          - paymentMethods
+          - openingTimes
+          - streetAddress
+      description: Comma-separated list of optional object attributes associated to a `Place` hierarchy element that should be included in the result set
+      name: expand
+      in: query
+    right_type:
+      schema:
+        type: array
+        enum:
+          - accessPermission
+          - loadingUnloading
+          - oneTimeUseParking
+          - permitParking
+          - setdownPickup
+          - waiting
+      name: right_type
+      in: query
+      description: Comma-separated list of type of `RightSpecifications` associated with place hierarchy elements (all will be assumed if parameter is not used or left blank)
+    place_type:
+      schema:
+        type: array
+        enum:
+          - campus
+          - hierarchyElement
+          - identifiedArea
+          - parkingPlace
+          - space
+      name: type
+      in: query
+      description: Comma-separated list of type of `Place` hierarchy elements to consider (all will be assumed if parameter is not used or left blank)
+    structure_type:
+      schema:
+        type: array
+        enum:
+          - offStreetStructure
+          - offStreetSurface
+          - onStreet
+      name: structure_type
+      in: query
+      description: Comma-separated list of types of Structure in the hierarchy to consider (all will be assumed if parameter is not used or left blank)
+    structure_grade:
+      schema:
+        type: array
+        enum:
+          - aboveGround
+          - groundLevel
+          - underground
+      name: structure_grade
+      in: query
+      description: Comma-separated list of Structure grades in the hierarchy to consider (all will be assumed if parameter is not used or left blank)
+  schemas:
+    HierarchyElementData:
+      title: HierarchyElementData
+      description: Represents an API data exchange model with any of the `Place` hierarchy types
+      x-tags:
+        - places
+      anyOf:
+        - $ref: ../models/place/hierarchy/Campus.yaml
+        - $ref: ../models/place/hierarchy/Place.yaml
+        - $ref: ../models/place/hierarchy/HierarchyElement.yaml
+        - $ref: ../models/place/hierarchy/IdentifiedArea.yaml
+        - $ref: ../models/place/hierarchy/Space.yaml
+    DeletedReference:
+      title: DeletedReference
+      type: object
+      properties:
+        id:
+          type: string
+        className:
+          type: string
+          pattern: '^([A-Z][a-z0-9]+)+'
+        deleteTimestamp:
+          type: string
+          format: date-time
+          description: The instant when the reference was deleted
+      required:
+        - deleteTimestamp
+        - id
+        - className
+      description: 'A reference to a deleted identifiable managed object where the identifier is unique. It is described by a string identifying the class of the referenced object (key name) with a unique string identifier as its value, and the deletion instant.'
+      x-tags:
+        - api
+    PaginatedListMeta:
+      title: PaginatedListMeta
+      type: object
+      description: Metadata for paginated list of results for Listing APIs
+      x-tags:
+        - api
+      properties:
+        meta:
+          type: object
+          required:
+            - referenceInstant
+            - offset
+            - pageSize
+            - total
+          properties:
+            referenceInstant:
+              type: integer
+              description: 'Allows a consistent view of data across multiple paged requests. Unix epoch time to be used as reference for offset > 0 (corresponds to query instant, as returned by server on first call) - should be the same for all pages'
+              minimum: 0
+            offset:
+              type: integer
+              minimum: 0
+              description: Index of the first item returned in the page
+            pageSize:
+              type: integer
+              description: Maximum number of items that can be returned per page
+              minimum: 0
+            total:
+              type: integer
+              description: Total number of items contained in all pages
+              minimum: 0
+        deletedReferences:
+          type: array
+          description: 'This attribute will returned when the `modified_since` query parameter is used. It will contain references to deleted resources since the provided instant, that would have otherwise been included in the dataset (either at the top-level or as associated objects)'
+          items:
+            $ref: '#/components/schemas/DeletedReference'
+      required:
+        - meta
+    ResponseStatus:
+      title: ResponseStatus
+      type: object
+      description: 'Codifies responses following some creation, update or delete operation'
+      required:
+        - status
+      properties:
+        status:
+          type: string
+          enum:
+            - ok
+            - error
+          description: Type of status
+        code:
+          type: integer
+          description: Same numbering and semantics as HTTP status codes
+        message:
+          type: string
+          description: Descriptive message for error statuses
+      x-tags:
+        - api

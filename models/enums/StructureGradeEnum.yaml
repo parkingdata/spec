@@ -1,0 +1,14 @@
+type: string
+title: StructureGradeEnum
+enum:
+  - aboveGround
+  - groundLevel
+  - underground
+description: |-
+  Types of layout of the parking site.
+
+  * `aboveGround`: Parking is above ground level (this may include ground level parking)
+  * `groundLevel`: Parking is at ground level
+  * `underground`: Parking is on one or more floors below ground level
+x-tags:
+  - enumeration

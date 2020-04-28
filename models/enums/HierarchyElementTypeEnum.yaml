@@ -14,3 +14,5 @@ description: |-
   * `identifiedArea`: A data structure holding information about a coherent feature, such as a set of parking spaces that all share the same characteristics
   * `parkingPlace`: A data structure holding information about a single identifiable facility
   * `space`: A data structure holding information about a single space for parking, usually designed for one vehicle, which may be denoted by painted or other road surface markers
+x-tags:
+  - enumeration

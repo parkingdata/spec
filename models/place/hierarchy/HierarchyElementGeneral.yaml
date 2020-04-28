@@ -32,6 +32,11 @@ allOf:
         $ref: ../../common/MultilingualString.yaml
       hierarchyElementRecord:
         $ref: ./HierarchyElementRecord.yaml
+      rightSpecifications:
+        type: array
+        description: RightSpecifications associated to the element
+        items:
+          $ref: ../../common/VersionedReference.yaml
     required:
       - name
       - layer

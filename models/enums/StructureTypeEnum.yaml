@@ -1,0 +1,14 @@
+type: string
+title: StructureTypeEnum
+description: |-
+  A list of types of parking structure.
+
+  * `offStreetStructure`: Off-street multi-tier parking structure.
+  * `offStreetSurface`: Off-street ground-level at grade parking.
+  * `onStreet`: On-street parking.
+enum:
+  - offStreetStructure
+  - offStreetSurface
+  - onStreet
+x-tags:
+  - enumeration
