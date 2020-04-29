@@ -1,5 +1,16 @@
 title: Marketing
 type: object
-description: ''
+description: Universal resource locator (URI) that points towards a web site carrying marketing material supplied.
 x-tags:
   - places
+properties:
+  imageAlbums:
+    type: array
+    description: Image albums associated
+    items:
+      $ref: ./ImageAlbum.yaml
+  webURLs:
+    format: uri
+    type: array
+    items:
+      $ref: ../../../common/Url.yaml

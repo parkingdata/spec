@@ -1,0 +1,46 @@
+type: string
+title: OperatingRestrictionsEnum
+enum:
+  - busOnly
+  - busStop
+  - carpoolOnly
+  - commercialVehicleOnly
+  - disabledPersonPermitOnly
+  - electricVehicleOnly
+  - freeParking
+  - governmentVehicleOnly
+  - loadingZone
+  - loadingZoneCommercial
+  - media
+  - noParking
+  - noWaiting
+  - parkingTimeLimit
+  - residentialPermitOnly
+  - snow
+  - streetCleaning
+  - taxiOnly
+  - valetOnly
+description: |-
+  Defines operating restrictions to use the of a facility.
+
+  * `busOnly`: Only buses are permitted.
+  * `busStop`: This is a stopping place of bus pick-up or drop-off; not to be used for parking.
+  * `carpoolOnly`: Only carpool vehicles are permitted.
+  * `commercialVehicleOnly`: Only commercial vehicles are permitted.
+  * `disabledPersonPermitOnly`: Only vehicles of registered disabled person permit holders permitted.
+  * `electricVehicleOnly`: Only electric vehicles permitted.
+  * `freeParking`: No fee for parking
+  * `governmentVehicleOnly`: Only government vehicles permitted.
+  * `loadingZone`: This is a loading zone; not to be used for parking.
+  * `loadingZoneCommercial`: Only government vehicles permitted.
+  * `media`: Only for use by the media
+  * `noParking`: No parking permitted
+  * `noWaiting`: No waiting or parking of vehicles is permitted
+  * `parkingTimeLimit`: Time limited parking.
+  * `residentialPermitOnly`: Only for use by residential permit holders only
+  * `snow`: Snow clearing zone; no parking
+  * `streetCleaning`: Street cleansing zone; no parking
+  * `taxiOnly`: Only taxis are permitted.
+  * `valetOnly`: Only valet service vehicles are permitted.
+x-tags:
+  - enumeration

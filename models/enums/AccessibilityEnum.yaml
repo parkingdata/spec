@@ -1,0 +1,26 @@
+type: string
+title: AccessibilityEnum
+description: |-
+  Special forms of accessibility, easements and marking for disabled people.
+
+  * `barrierFreeAccessible`: Accessible without any steps or other barriers. Does not ensure the same access as `disabledAccessible`.
+  * `disabledAccessible`: Accessible for disabled people. `wheelChairAccessible` is a special form of it.
+  * `disabledEasements`: There are special easements for disabled people, like handrails or disabled-friendly furniture.
+  * `disabledMarkedThere`: is a visible mark to support access by disabled people (e.g. a wheelchair symbol).
+  * `none`: No form of special accessibility, i.e. usually not convenient for disabled people, e.g. because of steps or barriers.
+  * `orientationSystemForBlindPeople`: There is some orientation system, which helps blind or visually impaired people. Examples might be some acoustic system or tactile paving.
+  * `other`: Other.
+  * `unknown`: It is unknown, whether there is a special form of accessibility.
+  * `wheelChairAccessible`: Accessible by people in a wheelchair.
+enum:
+  - barrierFreeAccessible
+  - disabledAccessible
+  - disabledEasements
+  - disabledMarkedThere
+  - none
+  - orientationSystemForBlindPeople
+  - other
+  - unknown
+  - wheelChairAccessible
+x-tags:
+  - enumeration

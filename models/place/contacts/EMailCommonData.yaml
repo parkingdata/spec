@@ -1,5 +1,13 @@
 title: EMailCommonData
 type: object
-description: ''
+description: A class defining information concerning an email point of contact.
 x-tags:
   - places
+properties:
+  primaryFlag:
+    description: |-
+      If [TRUE], this indicates that this is the
+      primary point of contact
+    type: boolean
+  typeCode:
+    $ref: ../../enums/EmailTypeEnum.yaml

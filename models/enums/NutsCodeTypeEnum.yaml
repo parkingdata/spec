@@ -1,0 +1,18 @@
+type: string
+title: NutsCodeTypeEnum
+description: |-
+  Types of NUTS codes (Nomenclature of territorial units for statistics) including LAU codes (Local Administrative Units).
+
+  * `lau1Code`: LAU 1 code
+  * `lau2Code`: LAU 2 code
+  * `nuts1Code`: NUTS 1 code
+  * `nuts2Code`: NUTS 2 code
+  * `nuts3Code`: NUTS 3 code
+enum:
+  - lau1Code
+  - lau2Code
+  - nuts1Code
+  - nuts2Code
+  - nuts3Code
+x-tags:
+  - enumeration

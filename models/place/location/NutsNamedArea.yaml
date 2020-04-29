@@ -1,3 +1,18 @@
 title: NutsNamedArea
-type: object
-description: ''
+description: |-
+  The NUTS-Code representation for the named area (Nomenclature
+  of territorial units for statistics) or its LAU code representation (Local
+  Administrative Unit).
+allOf:
+  - $ref: ./NamedArea.yaml
+  - type: object
+    properties:
+      nutsCode:
+        $ref: ../../common/MultilingualString.yaml
+      nutsCodeType:
+        $ref: ../../enums/NutsCodeTypeEnum.yaml
+    required:
+      - nutsCode
+      - nutsCodeType
+x-tags:
+  - places

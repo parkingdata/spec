@@ -1,0 +1,7 @@
+type: string
+title: LanguageCode
+description: 'ISO 639-1:2002 language code'
+example: en
+pattern: '^[a-z]{2}$'
+x-tags:
+  - common

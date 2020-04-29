@@ -1,5 +1,12 @@
 title: OperatingRestrictions
 type: object
-description: ''
+description: A class defining operating restrictions.
 x-tags:
   - places
+properties:
+  operatingRestriction:
+    $ref: ../../../enums/OperatingRestrictionsEnum.yaml
+  operatingRestrictionContext:
+    $ref: ../../../common/MultilingualString.yaml
+required:
+  - operatingRestriction

@@ -1,3 +1,31 @@
 title: PointCoordinates
 type: object
-description: ''
+description: |-
+  A pair of planar coordinates defining the geodetic position of a single
+  point using a defined Coordinate Reference System.
+x-tags:
+  - places
+properties:
+  epsgCode:
+    type: string
+    description: Code referencing a specific Coordinate Reference System in the EPSG (European Petroleum Survey Group) register
+    example: 'EPSG:3857'
+    pattern: "^EPSG:\\d{4}$"
+  x:
+    type: number
+    description: X coordinate in the defined Coordinate Referencing System indicated by the EPSG code
+    format: float
+  'y':
+    type: number
+    description: Y coordinate in the defined Coordinate Referencing System indicated by the EPSG code
+    format: float
+  heightCoordinates:
+    type: array
+    maxItems: 3
+    description: Height coordinate
+    items:
+      $ref: ./HeightCoordinate.yaml
+required:
+  - epsgCode
+  - x
+  - 'y'

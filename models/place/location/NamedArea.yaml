@@ -1,3 +1,12 @@
 title: NamedArea
 type: object
-description: ''
+description: 'An area defined by a name and/or in terms of known boundaries, such as country or county boundaries or allocated control area of particular authority. The attributes do not form a union; instead, the smallest intersection forms the resulting area.'
+properties:
+  areaName:
+    $ref: ../../common/MultilingualString.yaml
+  country:
+    $ref: ../../common/CountryCode.yaml
+required:
+  - areaName
+x-tags:
+  - places

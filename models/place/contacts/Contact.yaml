@@ -1,5 +1,16 @@
 title: Contact
 type: object
-description: ''
+description: 'Address and contact information about some person, service or the parking site, provided in detail or via reference.'
 x-tags:
   - places
+properties:
+  contactNotDefined:
+    type: boolean
+    description: |-
+      When [TRUE], there is currently no contact
+      defined for the selected role and/or timeframe. Don't use the specialisations in this case.
+  contactUnknown:
+    type: boolean
+    description: |-
+      When [TRUE], the contact for the selected
+      role and/or timeframe is unknown. Don't use the specialisations in this case.

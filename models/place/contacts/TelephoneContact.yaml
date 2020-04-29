@@ -1,5 +1,24 @@
 title: TelephoneContact
 type: object
-description: ''
+description: |-
+  A class defining information relating to a specific telephone point of
+  contact.
 x-tags:
   - places
+properties:
+  areaCode:
+    type: string
+    description: The area code element of a telephone number.
+  extensionNumbers:
+    type: array
+    description: "any extension number typically within a larger organisation's telephone exchange system."
+    items:
+      type: string
+  ituCountryCode:
+    type: string
+    description: Country calling codes or country dial in codes are telephone dialing prefixes for the member countries or regions of the International Telecommunication Union (ITU). They are defined by the ITU-T in standards E.123 and E.164.
+  localNumbers:
+    type: array
+    description: The local code element of a telephone number.
+    items:
+      type: string

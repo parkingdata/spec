@@ -1,5 +1,62 @@
 title: Characteristics
 type: object
-description: ''
+description: A class defining information concerning characteristics relating to a parking facility.
 x-tags:
   - places
+properties:
+  accessControlled:
+    type: boolean
+    description: |-
+      Indicates facility has physical access
+      control (e.g. barriers, gates) [TRUE] or no
+      access control [FALSE]
+  coveredType:
+    $ref: ../../../enums/CoveredEnum.yaml
+  disabledAccess:
+    type: boolean
+    description: |-
+      If [TRUE], there is provision of facilities for
+      disable access available.
+  disabledAccessTypes:
+    type: array
+    description: |-
+      Defines the type of provision of facilities for
+      disable access available
+    items:
+      $ref: ../../../enums/AccessibilityEnum.yaml
+  evChargingPoints:
+    type: integer
+    description: |-
+      Total number of electric vehicle charging
+      points
+    minimum: 0
+  openToPublic:
+    description: |-
+      identifies if this facility is accessible to
+      public use [TRUE] or private use only
+      [FALSE].
+    type: boolean
+  operatingModes:
+    type: array
+    description: |-
+      defines the mode of parking operation in
+      use
+    items:
+      $ref: ../../../enums/ParkingOperatingModeEnum.yaml
+  robotic:
+    type: boolean
+    description: 'Indicates existence of a robotic parking system - a parking structure where customer leaves vehicle at drop off area and robots move the vehicle to parking location in structure. Default or absence of value indicates [FALSE] = no robotic parking system.'
+  spacesNonDedicated:
+    type: integer
+    description: Number of parking spaces that are not assigned for a particular purpose.
+    minimum: 0
+  spacesTotal:
+    type: integer
+    description: Total number of parking spaces
+    minimum: 0
+  staffed:
+    $ref: ../../../enums/StaffEnum.yaml
+  structureGrade:
+    $ref: ../../../enums/StructureGradeEnum.yaml
+  structureType:
+    $ref: ../../../enums/StructureTypeEnum.yaml

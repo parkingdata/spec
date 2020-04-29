@@ -1,5 +1,15 @@
 title: ImageAlbum
 type: object
-description: ''
+description: A class defining information relating to images for a parking facility.
 x-tags:
   - places
+properties:
+  photo:
+    $ref: ../../../common/Url.yaml
+  caption:
+    $ref: ../../../common/MultilingualString.yaml
+  logoImage:
+    type: array
+    description: 'URL to location of logo(s) the parking operator wishes to associate with this parking facility (e.g. their logo, schemes [ParkMark])'
+    items:
+      $ref: ../../../common/Url.yaml

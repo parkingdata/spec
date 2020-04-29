@@ -1,0 +1,20 @@
+type: string
+title: ContactTypeEnum
+description: |-
+  Defines the supported lists of types of contact.
+
+  * `customerService`: Contact details for parking customer support for a facility or specific entity
+  * `emergencyContact`: Contact details for emergency assistance or support for a facility or specific entity specifically related to parking operations
+  * `operator`: Contact details for the parking operator for a facility or specific entity
+  * `owner`: Contact details for the owner of a facility or specific entity.
+  * `propertyManager`: Contact details for the property manager of a facility or related facility.
+  * `securityService`: Contact details for security services for a facility or specific entity
+enum:
+  - customerService
+  - emergencyContact
+  - operator
+  - owner
+  - propertyManager
+  - securityService
+x-tags:
+  - enumeration

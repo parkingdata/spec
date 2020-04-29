@@ -1,16 +1,17 @@
-type: object
+type: array
 title: MultilingualString
-description: 'Multilingual string, represented as a pair of attributes, using ISO 639-1:2002 language codes and the translated string'
-minProperties: 1
+description: 'Multilingual string, represented as an array of SpecificLanguageString objects, each containing a language code (using ISO 639-1:2002) and the translated string'
+minItems: 1
 x-tags:
   - common
-properties:
-  lang:
-    type: string
-    description: 'The property names should be lower case ISO 639-1:2002 language codes (e.g. en, es, de), and values should hold the respective strings'
-    pattern: '^[a-z]{2}'
-  string:
-    type: string
-required:
-  - lang
-  - string
+items:
+  type: object
+  properties:
+    language:
+      $ref: ./LanguageCode.yaml
+    string:
+      type: string
+      description: Translated string
+  required:
+    - language
+    - string
