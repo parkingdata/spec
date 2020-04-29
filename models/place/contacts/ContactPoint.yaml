@@ -1,5 +1,32 @@
 title: ContactPoint
 type: object
-description: ''
+description: "Defines contact details for specified role. \n\n**NB**: Organisation name attribute should not be used in combination with\nrole `parkingSiteAddress`."
 x-tags:
   - places
+properties:
+  organisationName:
+    $ref: ../../common/MultilingualString.yaml
+  type:
+    $ref: ../../enums/ContactTypeEnum.yaml
+  address:
+    type: array
+    description: Address
+    items:
+      $ref: ./Address.yaml
+  contactDetails:
+    type: array
+    description: Contact details
+    items:
+      $ref: ./ContactDetails.yaml
+  eMailCommonData:
+    type: array
+    description: E mail common data
+    items:
+      $ref: ./EMailCommonData.yaml
+  telephoneContacts:
+    type: array
+    description: Telephone contact
+    items:
+      $ref: ./TelephoneContact.yaml
+required:
+  - type

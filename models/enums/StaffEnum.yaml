@@ -1,0 +1,14 @@
+type: string
+title: StaffEnum
+description: |-
+  A list of supported values for staffing characteristics
+
+  * `staffed`: Normally staffed during operating hours
+  * `temporary`: Staffed on a temporary or parttime basis.
+  * `unstaffed`: Not normally staffed during operating hours
+enum:
+  - staffed
+  - temporary
+  - unstaffed
+x-tags:
+  - enumeration

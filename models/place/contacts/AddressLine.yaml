@@ -1,5 +1,18 @@
 title: AddressLine
 type: object
-description: ''
+description: A class defining information concerning one line of a postal address.
 x-tags:
   - places
+properties:
+  order:
+    type: integer
+    minimum: 0
+    description: the sequence order that the address line element should be displayed in
+  text:
+    $ref: ../../common/MultilingualString.yaml
+  type:
+    $ref: ../../enums/AccessibilityEnum.yaml
+required:
+  - order
+  - text
+  - type

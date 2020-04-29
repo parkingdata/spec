@@ -1,0 +1,114 @@
+type: string
+title: SubdivisionTypeEnum
+enum:
+  - administrativeAtoll
+  - administrativeRegion
+  - administrativeTerritory
+  - arcticRegion
+  - autonomousCity
+  - autonomousCityInNorthAfrica
+  - autonomousCommunity
+  - autonomousDistrict
+  - autonomousProvince
+  - autonomousRegion
+  - canton
+  - capitalCity
+  - city
+  - cityMunicipality
+  - cityOfCountyRight
+  - commune
+  - councilArea
+  - country
+  - county
+  - department
+  - dependency
+  - district
+  - districtMunicipality
+  - districtWithSpecialStatus
+  - entity
+  - geographicalEntity
+  - governorate
+  - laender
+  - localCouncil
+  - londonBorough
+  - metropolitanArea
+  - metropolitanDepartment
+  - metropolitanDistrict
+  - metropolitanRegion
+  - municipality
+  - other
+  - overseasDepartment
+  - overseasRegion
+  - overseasTerritorialCollectivity
+  - parish
+  - province
+  - quarter
+  - region
+  - republic
+  - republicanCity
+  - selfGovernedPart
+  - specialMunicipality
+  - state
+  - territorialUnit
+  - territory
+  - twoTierCounty
+  - unitaryAuthority
+  - ward
+description: |-
+  ISO 3166-2 subdivison types
+
+  * `administrativeAtoll`: Administrative atoll
+  * `administrativeRegion`: Administrative region
+  * `administrativeTerritory`: Administrative territory
+  * `arcticRegion`: Arctic region
+  * `autonomousCity`: Autonomous city
+  * `autonomousCityInNorthAfrica`: Autonomous city in North Africa
+  * `autonomousCommunity`: Autonomous community
+  * `autonomousDistrict`: Autonomous district
+  * `autonomousProvince`: Autonomous province
+  * `autonomousRegion`: Autonomous region
+  * `canton`: Canton
+  * `capitalCity`: Capital city
+  * `city`: City
+  * `cityMunicipality`: City municipality
+  * `cityOfCountyRight`: City of county right
+  * `commune`: Commune
+  * `councilArea`: Council area
+  * `country`: Country
+  * `county`: County
+  * `department`: Department
+  * `dependency`: Dependency
+  * `district`: District
+  * `districtMunicipality`: District municipality
+  * `districtWithSpecialStatus`: District with special status
+  * `entity`: Entity
+  * `geographicalEntity`: Geographical entity
+  * `governorate`: Governorate
+  * `laender`: Länder
+  * `localCouncil`: Local Council
+  * `londonBorough`: London borough
+  * `metropolitanArea`: Metropolitan area
+  * `metropolitanDepartment`: Metropolitan department
+  * `metropolitanDistrict`: Metropolitan district
+  * `metropolitanRegion`: Metropolitan region
+  * `municipality`: Municipality
+  * `other`: Other
+  * `overseasDepartment`: Overseas department
+  * `overseasRegion`: Overseas region
+  * `overseasTerritorialCollectivity`: Overseas territorial collectivity
+  * `parish`: Parish
+  * `province`: Province
+  * `quarter`: Quarter
+  * `region`: Region
+  * `republic`: Republic
+  * `republicanCity`: Republic city
+  * `selfGovernedPart`: Self-governed part
+  * `specialMunicipality`: Special Municipality
+  * `state`: State
+  * `territorialUnit`: Territorial unit
+  * `territory`: Territory
+  * `twoTierCounty`: Two tier country
+  * `unitaryAuthority`: Unitary Authority
+  * `ward`: Ward
+x-tags:
+  - enumeration

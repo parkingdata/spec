@@ -1,5 +1,18 @@
 title: Address
 type: object
-description: ''
+description: A street oriented addressing structure supporting delivery
 x-tags:
   - places
+properties:
+  addressLines:
+    type: array
+    description: Address lines
+    items:
+      $ref: ./AddressLine.yaml
+  city:
+    $ref: ../../common/MultilingualString.yaml
+  countryCode:
+    $ref: ../../common/CountryCode.yaml
+  postCode:
+    type: string
+    description: Postcode or postal code for the address.

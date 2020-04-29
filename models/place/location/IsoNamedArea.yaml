@@ -1,3 +1,18 @@
 title: IsoNamedArea
-type: object
-description: ''
+description: The ISO 3166-2 representation for the named area.
+allOf:
+  - $ref: ./NamedArea.yaml
+  - type: object
+    properties:
+      subdivisionCode:
+        type: string
+        description: ISO 3166-2 country sub-division code (up to 3 characters).
+        minLength: 0
+        maxLength: 3
+      subdivisionType:
+        $ref: ../../enums/SubdivisionTypeEnum.yaml
+    required:
+      - subdivisionCode
+      - subdivisionType
+x-tags:
+  - places

@@ -1,5 +1,27 @@
 title: RGBColour
 type: object
-description: ''
+description: 'An RGB colour described by values for red, green and blue (0..255) as well as an optional name.'
 x-tags:
   - places
+properties:
+  colourName:
+    $ref: ../../../common/MultilingualString.yaml
+  rgbBlueValue:
+    type: integer
+    description: The blue value of the RGB colour (0..255).
+    minimum: 0
+    maximum: 255
+  rgbGreenValue:
+    type: integer
+    description: The green value of the RGB colour (0..255).
+    minimum: 0
+    maximum: 255
+  rgbRedValue:
+    type: integer
+    description: The red value of the RGB colour (0..255).
+    minimum: 0
+    maximum: 255
+required:
+  - rgbBlueValue
+  - rgbGreenValue
+  - rgbRedValue

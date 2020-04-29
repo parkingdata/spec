@@ -1,5 +1,38 @@
 title: CommonComponents
+description: A class defining information concerning multiple features relating to parking hierarchy elements.
 type: object
-description: ''
 x-tags:
   - places
+properties:
+  characteristics:
+    type: array
+    description: Characteristics for hierarchy element
+    items:
+      $ref: ./Characteristics.yaml
+  contacts:
+    type: array
+    description: Contact info for hierarchy element
+    items:
+      anyOf:
+        - $ref: ../../contacts/Contact.yaml
+        - $ref: ../../contacts/ContactPoint.yaml
+        - $ref: ../../contacts/ContactByReference.yaml
+  marketing:
+    $ref: ./Marketing.yaml
+  operatingRestrictions:
+    type: array
+    description: Operating restrictions for hierarchy element
+    items:
+      $ref: ./OperatingRestrictions.yaml
+  rgbColours:
+    type: array
+    description: Colours associated with hierarchy element
+    items:
+      $ref: ./RGBColour.yaml
+  times:
+    $ref: ../../../times/Times.yaml
+  paymentMethods:
+    type: array
+    description: Accepted payment methods at hierarchy element
+    items:
+      $ref: ../../../payment_method/PaymentMethod.yaml

@@ -1,3 +1,15 @@
 title: HeightCoordinate
 type: object
-description: ''
+description: Third coordinate for points defined geodetically
+x-tags:
+  - places
+properties:
+  heightType:
+    $ref: ../../enums/HeightTypeEnum.yaml
+  heightValue:
+    type: string
+    description: |-
+      Value in defined unit (metres) for the height
+      measured vertically at to the planar coordinates the point corresponding. Note alteration from DATEXII definition.
+required:
+  - heightValue

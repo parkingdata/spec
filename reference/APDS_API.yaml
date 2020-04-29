@@ -786,8 +786,6 @@ components:
     HierarchyElementData:
       title: HierarchyElementData
       description: Represents an API data exchange model with any of the `Place` hierarchy types
-      x-tags:
-        - places
       anyOf:
         - $ref: ../models/place/hierarchy/Campus.yaml
         - $ref: ../models/place/hierarchy/Place.yaml
@@ -812,14 +810,10 @@ components:
         - id
         - className
       description: 'A reference to a deleted identifiable managed object where the identifier is unique. It is described by a string identifying the class of the referenced object (key name) with a unique string identifier as its value, and the deletion instant.'
-      x-tags:
-        - api
     PaginatedListMeta:
       title: PaginatedListMeta
       type: object
       description: Metadata for paginated list of results for Listing APIs
-      x-tags:
-        - api
       properties:
         meta:
           type: object
@@ -871,5 +865,3 @@ components:
         message:
           type: string
           description: Descriptive message for error statuses
-      x-tags:
-        - api

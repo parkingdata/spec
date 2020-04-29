@@ -1,0 +1,16 @@
+type: string
+title: EmailTypeEnum
+description: |-
+  Defines the supported lists of different email contact types
+
+  * `customerService`: The email contact is for customer service.
+  * `general`: The email contact is general in nature.
+  * `helpdesk`: The email contact is a helpdesk.
+  * `individual`: The email contact is for a specified individual.
+enum:
+  - customerService
+  - general
+  - helpdesk
+  - individual
+x-tags:
+  - enumeration

@@ -1,0 +1,14 @@
+type: string
+title: HeightTypeEnum
+description: |-
+  List of coded values for height types, as defined in GML.
+
+  * `ellipsoidalHeight`: Value measured vertically above the reference ellipsoid
+  * `gravityRelatedHeight`: Height type corresponding a value measured along direction of gravity above the reference geoid i.e. equipotential surface of the
+  Earth's gravity field which globally approximates mean sea level.
+  * `relativeHeight`: Height type corresponding to value measured vertically above
+  the ground level at this point.
+enum:
+  - ellipsoidalHeight
+  - gravityRelatedHeight
+  - relativeHeight

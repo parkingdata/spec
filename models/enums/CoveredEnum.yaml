@@ -1,0 +1,16 @@
+type: string
+title: CoveredEnum
+enum:
+  - covered
+  - notCovered
+  - partiallyCovered
+  - topLevelNotCovered
+description: |-
+  Defines the supported lists of different types describing roof coverage of the facility or entity
+
+  * `covered`: Indicates that the facility or specific entity has a roof to provide protection from direct overhead sun or adverse weather
+  * `notCovered`: Indicates that the facility or specific entity has no roof to provide protection from direct overhead sun or adverse weather
+  * `partiallyCovered`: Indicates that the facility or specific entity has a roof offering partial coverage to provide protection from direct overhead sun or adverse weather
+  * `topLevelNotCovered`: Indicates that in a multi-level facility or specific entity the top level(s) have no roof to provide protection from direct overhead sun or adverse weather
+x-tags:
+  - enumeration

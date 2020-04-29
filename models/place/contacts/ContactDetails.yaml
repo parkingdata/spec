@@ -1,5 +1,38 @@
 title: ContactDetails
 type: object
-description: ''
+description: |-
+  Details for some person, service or the parking site itself, especially
+  address information.
 x-tags:
   - places
+properties:
+  available24hours:
+    type: boolean
+    description: 'Specifies if the availability is 24 hours a day. If [TRUE] available 24 hours. If omitted, this information is unknown or heterogeneous.'
+  contactDetailsFax:
+    type: string
+    description: Fax of the contact.
+  contactDetailsLanguage:
+    type: array
+    description: Language(s) this contact is able to speak resp. understand.
+    items:
+      $ref: ../../common/LanguageCode.yaml
+  contactDetailsLogoUrl:
+    $ref: ../../common/Url.yaml
+  contactDetailsMoreInfo:
+    $ref: ../../common/MultilingualString.yaml
+  contactDetailsResponsibility:
+    $ref: ../../common/MultilingualString.yaml
+  contactPersonFirstName:
+    type: string
+    description: First name of the contact person.
+  contactPersonName:
+    type: string
+    description: Name of the contact person.
+  contactPersonPosition:
+    $ref: ../../common/MultilingualString.yaml
+  publishingAgreement:
+    type: boolean
+    description: 'Indication, whether the contact accepted publishing its contact information [TRUE]=accepted.'
+  urlLinkAddress:
+    $ref: ../../common/Url.yaml

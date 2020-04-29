@@ -1,0 +1,7 @@
+type: string
+title: CountryCode
+description: EN ISO 3166-1 two-character country code.
+example: es
+pattern: '^[a-z]{2}$'
+x-tags:
+  - common

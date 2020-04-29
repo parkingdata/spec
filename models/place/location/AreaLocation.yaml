@@ -1,3 +1,13 @@
 title: AreaLocation
-type: object
-description: ''
+description: Location representing a geographic or geometric defined area (using GeoJSON)
+x-tags:
+  - places
+allOf:
+  - type: object
+    properties:
+      namedArea:
+        oneOf:
+          - $ref: ./IsoNamedArea.yaml
+          - $ref: ./NutsNamedArea.yaml
+        description: Named area
+  - $ref: ./GeoJsonMultiPolygon.yaml

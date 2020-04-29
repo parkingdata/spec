@@ -1,3 +1,17 @@
 title: PointByCoordinates
 type: object
-description: ''
+description: |-
+  A single point defined only by a coordinate set with an optional
+  bearing direction
+x-tags:
+  - places
+properties:
+  pointCoordinates:
+    $ref: ./PointCoordinates.yaml
+  bearing:
+    type: integer
+    description: A bearing at the point measured in degrees (0 - 359). Unless otherwise specified the reference direction corresponding to 0 degrees is North.
+    minimum: 0
+    maximum: 359
+required:
+  - pointCoordinates
