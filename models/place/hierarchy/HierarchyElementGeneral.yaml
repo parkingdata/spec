@@ -37,6 +37,16 @@ allOf:
         description: RightSpecifications associated to the element
         items:
           $ref: ../../common/VersionedReference.yaml
+      occupancy:
+        type: object
+        properties:
+          supply:
+            type: array
+            description: Supply records for this hierarchy element
+            items:
+              $ref: ../../occupancy/Supply.yaml
+          demand:
+            $ref: ../../occupancy/DemandTable.yaml
     required:
       - name
       - layer

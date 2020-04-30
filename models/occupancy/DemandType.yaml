@@ -1,0 +1,24 @@
+title: DemandType
+type: object
+description: This table is dedicated to reporting on actual occupancy in an area.
+x-tags:
+  - occupancy
+properties:
+  count:
+    type: integer
+    minimum: 0
+    description: Number of occupied spaces.
+  occupancyCalculation:
+    $ref: ../enums/CalculationTypeEnum.yaml
+  percentage:
+    type: number
+    format: float
+    minimum: 0
+    maximum: 100
+    description: Percent of spaces occupied.
+  recordDateTime:
+    type: string
+    description: When data in the record was compiled.
+    format: date-time
+required:
+  - recordDateTime

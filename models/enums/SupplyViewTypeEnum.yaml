@@ -1,0 +1,13 @@
+type: string
+title: SupplyViewTypeEnum
+enum:
+  - spaceView
+  - vehicleView
+description: |-
+  Define if space quantity is demarcated or estimated.
+
+  * `spaceView`: Each space is physically marked and identifiable.
+  * `vehicleView`:  The vehicle capacity in an area is estimated based on calculating a capacity (i.e. curb length divided by a length of vehicle). The
+  distributing party decides on the appropriate length of vehicle to use.
+x-tags:
+  - enumeration

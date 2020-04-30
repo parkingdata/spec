@@ -1,0 +1,30 @@
+title: DemandSpaceType
+type: object
+description: Identifies when a space was occupied and for how long.
+x-tags:
+  - occupancy
+properties:
+  detectionUpdateTime:
+    type: string
+    description: 'Time of update, from detector.'
+    format: date-time
+  occupancyEndTime:
+    type: string
+    description: The actual Time space is vacated.
+    format: date-time
+  occupancyEstimatedEndTime:
+    type: string
+    description: The estimated time a space is expected to be vacated.
+    format: date-time
+  occupancyEstimatedStartTime:
+    type: string
+    description: The estimated time a space is expected to be occupied.
+    format: date-time
+  occupancyStartTime:
+    type: string
+    description: The actual time space is occupied
+    format: date-time
+  spaceId:
+    $ref: ../common/Reference.yaml
+required:
+  - detectionUpdateTime

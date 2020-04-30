@@ -1,0 +1,10 @@
+type: string
+title: CalculationTypeEnum
+description: "A list of the supported calculation types for demand.\n* `counted`: Physical determination if a space is occupied\n* `derived`: Space occupancy is estimated by using related data such as active payments or sold permits.\n* `expected`: Future prediction of occupancy levels.\n* `verified`: Defines an occupancy report that is considered a verified report. \n"
+enum:
+  - counted
+  - derived
+  - expected
+  - verified
+x-tags:
+  - enumeration

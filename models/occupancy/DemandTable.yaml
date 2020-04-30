@@ -1,0 +1,22 @@
+title: DemandTable
+type: object
+description: Table structure which defines the parameters of reporting actual usage of parking in a Hierarchy Element
+x-tags:
+  - occupancy
+properties:
+  frequency:
+    $ref: ../common/Duration.yaml
+  timestamp:
+    type: string
+    description: Timestamp when the demand table data was compiled.
+    format: date-time
+  demandType:
+    type: array
+    description: Occupancy for area
+    items:
+      $ref: ./DemandType.yaml
+  demandSpaceType:
+    type: array
+    description: Occupancy for single spaces
+    items:
+      $ref: ./DemandSpaceType.yaml

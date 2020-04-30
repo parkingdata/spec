@@ -1,0 +1,6 @@
+type: string
+title: Duration
+description: 'ISO8601 format definition of an interval of time - format [PnnYnnMnnDTnnHnnMnnS]'
+pattern: "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d)(\\d+H)?(\\d+M)?(\\d+S)?)?$"
+x-tags:
+  - common

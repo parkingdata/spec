@@ -1,0 +1,22 @@
+title: Supply
+type: object
+description: A class defining concepts relating the parameters of the supply of parking. This is the total number of spaces usable for parking or other mobility opertions. It can be defined as demarcated spaces or non-demarcated.
+x-tags:
+  - occupancy
+properties:
+  supplyViewType:
+    $ref: ../enums/SupplyViewTypeEnum.yaml
+  supplyQuantity:
+    type: integer
+    description: Indicates the numeric value of available parking or other space uses.
+  supplyValidityStart:
+    type: string
+    description: Valid start date/time for the supply
+    format: date-time
+  supplyValidityEnd:
+    type: string
+    description: Valid end date/time for the supply
+    format: date-time
+required:
+  - supplyQuantity
+  - supplyViewType
