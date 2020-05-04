@@ -64,7 +64,7 @@ paths:
       tags:
         - create
     get:
-      summary: List AssignedRights
+      summary: List and Search for AssignedRights
       operationId: list-assigned_rights
       responses:
         '200':
@@ -83,38 +83,34 @@ paths:
                         items:
                           $ref: ../models/right/AssignedRight.yaml
       description: |-
-        Lists `AssignedRights` and allows filtering by:
+        Lists `AssignedRights` and allows searching/filtering by:
 
-        * a combination of `HolderCredential` and `RightSpecification`, to check if a given credential has a given right to park
+        * one or more `HolderCredentials` and `RightSpecifications`, to check if given credentials have any of the given rights to park
         * latitude, longitude, radius: to check for `AssignedRights` within a geographic area
-        * a `Place`, to retrieve all assigned rights within a parking location
+        * a list of `Places`, to retrieve all assigned rights within a set of parking locations
         * a modification instant: to only display changed resources from that point onwards
 
         Additionally, supports providing a comma-separated list of optional object attributes associated to an `AssignedRight` that should be included in the result set. If unused or left blank, `none` will be assumed.
       tags:
         - list
       parameters:
-        - schema:
-            type: string
-          in: query
-          name: right_spec
-          description: Unique identifier for a `RightSpecification` (its latest version is assumed)
+        - $ref: '#/components/parameters/right_specs_list'
         - $ref: '#/components/parameters/cred_type'
         - schema:
-            type: string
+            type: array
           in: query
           name: credential_class
-          description: Specific class name for credential (a more generic option is to use `credential_type`)
+          description: Comma-separated list of specific class names for credentials (a more generic option is to use `credential_type`)
+          style: form
+          explode: false
         - schema:
-            type: string
+            type: array
           in: query
           name: credential_id
-          description: Unique identifier for credential in given class
-        - schema:
-            type: string
-          in: query
-          name: place
-          description: Unique identifier for an element in the `Place` hierarchy (its latest version is assumed)
+          description: Comma-separated list of unique identifiers for credentials in given classes
+          style: form
+          explode: false
+        - $ref: '#/components/parameters/place_list'
         - $ref: '#/components/parameters/assigned_expand'
         - $ref: '#/components/parameters/lat'
         - $ref: '#/components/parameters/long'
@@ -262,7 +258,7 @@ paths:
                 $ref: '#/components/schemas/ResponseStatus'
   /rights/specs:
     get:
-      summary: List RightSpecifications
+      summary: List and search for RightSpecifications
       tags:
         - list
       responses:
@@ -296,11 +292,7 @@ paths:
         - $ref: '#/components/parameters/specs_expand'
         - $ref: '#/components/parameters/mod'
         - $ref: '#/components/parameters/cred_type'
-        - schema:
-            type: string
-          in: query
-          name: place
-          description: Unique identifier for an element in the `Place` hierarchy
+        - $ref: '#/components/parameters/place_list'
     post:
       summary: Create a new RightSpecification
       operationId: post-rights-specs
@@ -325,7 +317,7 @@ paths:
           application/json:
             schema:
               $ref: ../models/right/RightSpecification.yaml
-        description: ''
+        description: The new RightSpec
   '/rights/specs/{id}':
     parameters:
       - schema:
@@ -466,9 +458,9 @@ paths:
             schema:
               $ref: ../models/common/VersionedReference.yaml
         description: 'The final version of the `RightSpecification` should be sent, to confirm the client is acting based on updated information'
-  /places:
+  /rates:
     get:
-      summary: List elements in the Place hierarchy
+      summary: List and Search for RateTables
       tags:
         - list
       responses:
@@ -484,66 +476,175 @@ paths:
                       data:
                         type: array
                         items:
-                          $ref: '#/components/schemas/HierarchyElementData'
-      operationId: get-places
-      description: |-
-        Lists `Places` and allows filtering by:
-
-        * `latitude`, `longitude`, `radius`: to check for elements in the `Place` hierarchy within a geographic area
-        * a modification instant (`modified_since`): to only display changed resources from that point onwards
-        * `layer`: maximum hierarchy element layer desired
-        * `type`: types of hierarchy elements
-        * `right_type`: types of `RightSpecifications` associated with Place hierarchy elements
-        * `structure_type`: types of structure
-        * `structure_grade`: grades of structures
-        * `name`: name of facilities
-
-        Additionally, supports providing a comma-separated list of optional object attributes associated to a `Place` hierarchy element that should be included in the result set. (see `expand` attribute). If unused or left blank, `none` will be assumed.
+                          $ref: ../models/rate/RateTable.yaml
+      operationId: get-rates
+      description: "Lists `RateTables` and allows searching/filtering by:\n\n* latitude, longitude, radius: to check for `AssignedRights` within a geographic area\n* a list of `Places`, to retrieve all rates connected to `AssignedRights` that belong to any of the given places\n* a list of `RightSpecifications`, to retrieve all the connected \n* a modification instant: to only display changed resources from that point onwards\n\nAdditionally, supports providing a comma-separated list of optional object attributes associated to a `RateTable` that should be included in the result set. If unused or left blank, `none` will be assumed."
       parameters:
         - $ref: '#/components/parameters/lat'
         - $ref: '#/components/parameters/long'
         - $ref: '#/components/parameters/radius'
-        - $ref: '#/components/parameters/places_expand'
-        - schema:
-            type: integer
-          in: query
-          name: layer
-          description: 'Most detailed (lower-level) layer of data desired. 0 (zero) being the first level (and higher numbers correspond to lower-levels of information). If left empty, the entire Place hierarchy that matches the remaining parameters will be returned'
-        - $ref: '#/components/parameters/place_type'
-        - $ref: '#/components/parameters/right_type'
-        - $ref: '#/components/parameters/structure_type'
-        - $ref: '#/components/parameters/structure_grade'
-        - schema:
-            type: string
-          in: query
-          name: name
-          description: Name of place hierarchy element (in any of its supported languages)
+        - $ref: '#/components/parameters/rates_expand'
         - $ref: '#/components/parameters/mod'
+        - $ref: '#/components/parameters/place_list'
+        - $ref: '#/components/parameters/right_specs_list'
     post:
-      summary: Create a new Place hierarchy element
-      operationId: post-places
+      summary: Create a new RateTable
+      operationId: post-rates
       responses:
-        '201':
-          description: Created
+        '200':
+          description: OK
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseStatus'
-              examples: {}
+      description: Create a `RateTable`
+      tags:
+        - create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/rate/RateTable.yaml
+        description: The new RateTable
+  '/rates/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Get a RateTable
+      tags:
+        - read
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../models/rate/RateTable.yaml
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+      operationId: get-rates-id
+      description: Get latest version of a given `RateTable` by its identifier
+      parameters:
+        - $ref: '#/components/parameters/version'
+        - $ref: '#/components/parameters/rates_expand'
+    put:
+      summary: Update a RateTable
+      operationId: put-rates-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseStatus'
+              examples:
+                missing-data:
+                  value:
+                    status: error
+                    code: 400
+                    message: Missing required attributes
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+              examples:
+                not-found:
+                  value:
+                    status: error
+                    code: 404
+                    message: Not found
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+              examples:
+                conflict:
+                  value:
+                    status: error
+                    code: 409
+                    message: Outdated version number provided
       tags:
-        - create
-      description: Create a new element in the `Place` hierarchy
+        - update
+      description: Update an existing `RateTable`
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/HierarchyElementData'
+              $ref: ../models/rate/RateTable.yaml
+        description: 'The new version of the `RateTable`, including only its changed attributes'
+    delete:
+      summary: Delete RateTable
+      operationId: delete-rates-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+              examples:
+                bad-request:
+                  value:
+                    status: error
+                    code: 400
+                    message: Did not provide version number
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+              examples:
+                not-found:
+                  value:
+                    status: error
+                    code: 404
+                    message: Not found
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+              examples:
+                conflict:
+                  value:
+                    status: error
+                    code: 409
+                    message: Outdated version number provided
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/common/VersionedReference.yaml
+        description: 'The final version of the `RateTable` should be sent, to confirm the client is acting based on updated information'
+      tags:
+        - delete
+      description: Delete an existing `RateTable`
   '/places/{id}':
     parameters:
       - schema:
@@ -642,146 +743,87 @@ paths:
         description: 'The final version of the `Place` hierarchy element should be sent, to confirm the client is acting based on updated information'
       tags:
         - delete
+  /places:
+    get:
+      summary: List and search for elements in the Place hierarchy
+      tags:
+        - list
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/PaginatedListMeta'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        description: Hierarchy elements matching filters
+                        items:
+                          $ref: '#/components/schemas/HierarchyElementData'
+                    description: Data response
+      operationId: get-places
+      description: |-
+        Lists `Places` and allows searching/filtering by:
+
+        * `latitude`, `longitude`, `radius`: to check for elements in the `Place` hierarchy within a geographic area
+        * a modification instant (`modified_since`): to only display changed resources from that point onwards
+        * `layer`: maximum hierarchy element layer desired
+        * `type`: types of hierarchy elements
+        * `right_type`: types of `RightSpecifications` associated with Place hierarchy elements
+        * `structure_type`: types of structure
+        * `structure_grade`: grades of structures
+        * `name`: name of facilities
+
+        Additionally, supports providing a comma-separated list of optional object attributes associated to a `Place` hierarchy element that should be included in the result set. (see `expand` attribute). If unused or left blank, `none` will be assumed.
+      parameters:
+        - $ref: '#/components/parameters/lat'
+        - $ref: '#/components/parameters/long'
+        - $ref: '#/components/parameters/radius'
+        - $ref: '#/components/parameters/places_expand'
+        - schema:
+            type: integer
+          in: query
+          name: layer
+          description: 'Most detailed (lower-level) layer of data desired. 0 (zero) being the first level (and higher numbers correspond to lower-levels of information). If left empty, the entire Place hierarchy that matches the remaining parameters will be returned'
+        - $ref: '#/components/parameters/place_type'
+        - $ref: '#/components/parameters/right_type'
+        - $ref: '#/components/parameters/structure_type'
+        - $ref: '#/components/parameters/structure_grade'
+        - schema:
+            type: string
+          in: query
+          name: name
+          description: Name of place hierarchy element (in any of its supported languages)
+        - $ref: '#/components/parameters/mod'
+    post:
+      summary: Create a new Place hierarchy element
+      operationId: post-places
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+      tags:
+        - create
+      description: Create a new element in the `Place` hierarchy
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HierarchyElementData'
+        description: The new Place
 components:
-  parameters:
-    lat:
-      schema:
-        type: number
-        format: float
-      in: query
-      name: latitude
-      description: Location latitude to use as filter (mandatory if longitude or radius are defined)
-    long:
-      schema:
-        type: number
-        format: float
-      in: query
-      name: longitude
-      description: Location longitude to use as filter (mandatory if longitude or radius are defined)
-    radius:
-      schema:
-        type: integer
-        minimum: 0
-      in: query
-      name: radius
-      description: Number of meters to use as search filter from given latitude and longitude (mandatory if latitude or longitude are defined)
-    mod:
-      schema:
-        type: integer
-        minimum: 0
-      in: query
-      name: modified_since
-      description: "Reference timestamp to only display resources that have changed after that instant (represented as seconds, in UTC, since epoch).\n\n* If `expand` attributes are requested, then this timestamp will also applyto those objects’ modifications \n* When this attribute is used, the result-set will also include a list of deleted resources’ IDs, so that the client can use this method to avoid storing stale data"
-    assigned_expand:
-      schema:
-        type: array
-        enum:
-          - all
-          - none
-          - plannedUses
-          - assignedRightIssuer
-      description: Comma-separated list of optional object attributes associated to an `AssignedRight` that should be included in the result set
-      name: expand
-      in: query
-    version:
-      schema:
-        type: integer
-        minimum: 1
-      in: query
-      name: version
-      description: 'Previous version number. Useful when a reference to a resource version is found in another dataset, and that version is no longer the latest one. Latest version is assumed when this parameter is not used.'
-    specs_expand:
-      schema:
-        type: array
-        enum:
-          - all
-          - none
-          - rateEligibility
-          - validity
-          - credentials
-          - rightPools
-      description: Comma-separated list of optional object attributes associated to an `RightSpecification` that should be included in the result set
-      name: expand
-      in: query
-    cred_type:
-      schema:
-        type: array
-        enum:
-          - hangtag
-          - permit
-          - licensePlate
-          - ticket
-          - eticket
-          - barcode
-          - bluetooth
-          - rfid
-      name: credential_type
-      in: query
-      description: Type of credential
-    places_expand:
-      schema:
-        type: array
-        enum:
-          - all
-          - none
-          - rightSpecifications
-          - occupancy
-          - areaLocation
-          - pointLocation
-          - contacts
-          - operatingRestrictions
-          - characteristics
-          - paymentMethods
-          - openingTimes
-          - streetAddress
-      description: Comma-separated list of optional object attributes associated to a `Place` hierarchy element that should be included in the result set
-      name: expand
-      in: query
-    right_type:
-      schema:
-        type: array
-        enum:
-          - accessPermission
-          - loadingUnloading
-          - oneTimeUseParking
-          - permitParking
-          - setdownPickup
-          - waiting
-      name: right_type
-      in: query
-      description: Comma-separated list of type of `RightSpecifications` associated with place hierarchy elements (all will be assumed if parameter is not used or left blank)
-    place_type:
-      schema:
-        type: array
-        enum:
-          - campus
-          - hierarchyElement
-          - identifiedArea
-          - parkingPlace
-          - space
-      name: type
-      in: query
-      description: Comma-separated list of type of `Place` hierarchy elements to consider (all will be assumed if parameter is not used or left blank)
-    structure_type:
-      schema:
-        type: array
-        enum:
-          - offStreetStructure
-          - offStreetSurface
-          - onStreet
-      name: structure_type
-      in: query
-      description: Comma-separated list of types of Structure in the hierarchy to consider (all will be assumed if parameter is not used or left blank)
-    structure_grade:
-      schema:
-        type: array
-        enum:
-          - aboveGround
-          - groundLevel
-          - underground
-      name: structure_grade
-      in: query
-      description: Comma-separated list of Structure grades in the hierarchy to consider (all will be assumed if parameter is not used or left blank)
   schemas:
     HierarchyElementData:
       title: HierarchyElementData
@@ -865,3 +907,127 @@ components:
         message:
           type: string
           description: Descriptive message for error statuses
+  parameters:
+    lat:
+      schema:
+        type: number
+        format: float
+      in: query
+      name: latitude
+      description: Location latitude to use as filter (mandatory if longitude or radius are defined)
+    long:
+      schema:
+        type: number
+        format: float
+      in: query
+      name: longitude
+      description: Location longitude to use as filter (mandatory if longitude or radius are defined)
+    radius:
+      schema:
+        type: integer
+        minimum: 0
+      in: query
+      name: radius
+      description: Number of meters to use as search filter from given latitude and longitude (mandatory if latitude or longitude are defined)
+    mod:
+      schema:
+        type: integer
+        minimum: 0
+      in: query
+      name: modified_since
+      description: "Reference timestamp to only display resources that have changed after that instant (represented as seconds, in UTC, since epoch).\n\n* If `expand` attributes are requested, then this timestamp will also applyto those objects’ modifications \n* When this attribute is used, the result-set will also include a list of deleted resources’ IDs, so that the client can use this method to avoid storing stale data"
+    assigned_expand:
+      schema:
+        type: array
+      description: Comma-separated list of optional object attributes associated to an `AssignedRight` that should be included in the result set
+      name: expand
+      in: query
+      style: form
+      explode: false
+    version:
+      schema:
+        type: integer
+        minimum: 1
+      in: query
+      name: version
+      description: 'Previous version number. Useful when a reference to a resource version is found in another dataset, and that version is no longer the latest one. Latest version is assumed when this parameter is not used.'
+    specs_expand:
+      schema:
+        type: array
+      description: Comma-separated list of optional object attributes associated to an `RightSpecification` that should be included in the result set
+      name: expand
+      in: query
+      style: form
+      explode: false
+    cred_type:
+      schema:
+        type: array
+      name: credential_type
+      in: query
+      description: Type of credential
+      style: form
+      explode: false
+    places_expand:
+      schema:
+        type: array
+      description: Comma-separated list of optional object attributes associated to a `Place` hierarchy element that should be included in the result set
+      name: expand
+      in: query
+      style: form
+      explode: false
+    right_type:
+      schema:
+        type: array
+      name: right_type
+      in: query
+      description: Comma-separated list of type of `RightSpecifications` associated with place hierarchy elements (all will be assumed if parameter is not used or left blank)
+      style: form
+      explode: false
+    place_type:
+      schema:
+        type: array
+      name: type
+      in: query
+      description: Comma-separated list of type of `Place` hierarchy elements to consider (all will be assumed if parameter is not used or left blank)
+      style: form
+      explode: false
+    structure_type:
+      schema:
+        type: array
+      name: structure_type
+      in: query
+      description: Comma-separated list of types of Structure in the hierarchy to consider (all will be assumed if parameter is not used or left blank)
+      style: form
+      explode: false
+    structure_grade:
+      schema:
+        type: array
+      name: structure_grade
+      in: query
+      description: Comma-separated list of Structure grades in the hierarchy to consider (all will be assumed if parameter is not used or left blank)
+      style: form
+      explode: false
+    rates_expand:
+      schema:
+        type: array
+      style: form
+      explode: false
+      description: Comma-separated list of optional object attributes associated to a `RateTable` that should be included in the result set
+      name: expand
+      in: query
+    place_list:
+      schema:
+        type: array
+      description: Comma-separated list of unique identifiers for elements in the `Place` hierarchy
+      name: place
+      in: query
+      explode: false
+      style: form
+    right_specs_list:
+      schema:
+        type: array
+      description: Comma-separated list of unique identifiers for `RightSpecifications`
+      name: right_spec
+      in: query
+      explode: false
+      style: form
