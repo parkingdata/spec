@@ -1,0 +1,55 @@
+title: RateLine
+type: object
+description: |-
+  A specific rate element of a rate line collection within a specific rate
+  table.
+
+  `incrementPeriod` is the time period for incrementing the rate line charge. If set to the same as the duration of the period between the `durationStart` and `durationEnd` the
+  increment will occur once per period, i.e. a flat rate time-based tier charge rate.
+properties:
+  description:
+    type: string
+    description: Free-text description associated with this rate line.
+  durationStart:
+    type: string
+    description: 'If used, indicates the end time for the applicability of the specific rate line, generally with respect to the start of the parking or other mobility session. e.g. the start of a time-based tier charge rate.'
+    format: time
+  durationEnd:
+    type: string
+    description: 'If used, indicates the start time for the applicability of the specific rate line, generally with respect to the start of the parking or other mobility session. e.g. the end of a time-based tier charge rate.'
+    format: time
+  incrementPeriod:
+    $ref: ../common/Duration.yaml
+  rateLineType:
+    $ref: ../enums/RateLineTypeEnum.yaml
+  sequence:
+    type: integer
+    minimum: 1
+    description: The position of this rate line within a RateLine collection
+  taxIncluded:
+    type: boolean
+    description: |-
+      [TRUE] Indication that tax to be applied is
+      included within the total rate associated
+      with this rate line. [FALSE] indicates that
+      the tax is added additionally to the total.
+  taxRate:
+    type: number
+    description: The percentage rate of tax to be applied.
+    minimum: 0
+    maximum: 100
+  taxValue:
+    type: number
+    description: The monetary amount of tax to be applied.
+    format: float
+  value:
+    type: number
+    description: the value of the fee to be charged in respect of this rate line
+    format: float
+required:
+  - rateLineType
+  - sequence
+  - taxIncluded
+  - value
+x-tags:
+  - rate

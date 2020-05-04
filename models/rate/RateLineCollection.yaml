@@ -1,0 +1,105 @@
+title: RateLineCollection
+type: object
+description: |-
+  A group of rate line elements that logically group together within one
+  rate table, e.g. such as the rate lines for the different tiers of a timebased
+  tier rate table.
+x-tags:
+  - rate
+properties:
+  applicableCurrency:
+    $ref: ../common/CurrencyCode.yaml
+  collectionSequence:
+    type: integer
+    description: |-
+      An indicator giving the place in sequence
+      of this rate line collection
+    minimum: 1
+  minTime:
+    $ref: ../common/Duration.yaml
+  maxTime:
+    $ref: ../common/Duration.yaml
+  minValue:
+    type: number
+    description: |-
+      FIXME: The minimum monetary amount to be
+      applied in conjunction with use of this rate
+      line collection.
+    format: float
+  maxValue:
+    type: number
+    description: |-
+      FIXME: The maximum monetary amount to be
+      applied in conjunction with use of this rate
+      line collection.
+    format: float
+  minValueCollection:
+    type: number
+    description: |-
+      FIXME: The minimum monetary amount to be
+      applied in conjunction with use of this rate
+      line collection.
+    format: float
+  maxValueCollection:
+    type: number
+    description: |-
+      FIXME: The maximum monetary amount to be
+      applied in conjunction with use of this rate
+      line collection.
+    format: float
+  relativeTimes:
+    type: boolean
+    description: |-
+      [TRUE] Indicates whether times relative to
+      the start of an event are used as the basis
+      for rate calculation. [FALSE] indicates that
+      parking rate calculation definitions are
+      done with respect to the parking sessions
+      and defined local or UTC times
+  resetTime:
+    type: string
+    format: time
+    description: Time that rate resets
+  taxIncluded:
+    type: boolean
+    description: |-
+      [TRUE] Indication that tax to be applied is
+      included within the total rate associated
+      with this rate line collection. [FALSE]
+      indicates that the tax is added additionally
+      to the total.
+  taxRate:
+    type: number
+    description: The percentage rate of tax to be applied.
+    format: float
+    minimum: 0
+    maximum: 100
+  taxValue:
+    type: number
+    description: The monetary amount of tax to be applied.
+    format: float
+  validStart:
+    type: string
+    description: the start time for the validity of this rate line collection
+    format: date-time
+  validEnd:
+    type: string
+    description: |-
+      the end time for the validity of this rate line
+      collection
+    format: date-time
+  rateLines:
+    type: array
+    minItems: 1
+    items:
+      $ref: ./RateLine.yaml
+required:
+  - collectionSequence
+  - minTime
+  - maxTime
+  - relativeTimes
+  - resetTime
+  - taxIncluded
+  - validStart
+  - validEnd
+  - rateLines

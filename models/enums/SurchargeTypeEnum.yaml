@@ -1,0 +1,14 @@
+type: string
+title: SurchargeTypeEnum
+enum:
+  - reservation
+  - mobilePayment
+  - deposit
+  - membershipFee
+description: |-
+  Reason for surchage:
+
+  * `reservation`
+  * `mobilePayment`
+  * `deposit`
+  * `membershipFee`

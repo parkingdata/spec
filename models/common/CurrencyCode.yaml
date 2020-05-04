@@ -1,0 +1,7 @@
+type: string
+title: CurrencyCode
+description: 'Code for the specified currency as defined in ISO 4217. '
+example: 'EUR, USD'
+pattern: '^[A-Z]{3}$'
+x-tags:
+  - common

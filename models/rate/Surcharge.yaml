@@ -1,0 +1,25 @@
+title: Surcharge
+type: object
+description: Free-text description of the condition that leads to a surcharge beingapplied
+properties:
+  rate:
+    type: number
+    format: float
+    minimum: 0
+    maximum: 100
+    description: the percentage rate surcharge to be applied
+  refund:
+    $ref: ../enums/RefundTypeEnum.yaml
+  surchargeType:
+    $ref: ../enums/SurchargeTypeEnum.yaml
+  trigger:
+    $ref: ../common/MultilingualString.yaml
+  value:
+    type: number
+    format: float
+    description: the monetary amount of the surcharge
+required:
+  - refund
+  - surchargeType
+x-tags:
+  - rate

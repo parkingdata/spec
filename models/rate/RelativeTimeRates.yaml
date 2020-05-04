@@ -1,0 +1,18 @@
+title: RelativeTimeRates
+description: A class supporting the specification of times for defining rate applicability that are relative to a defined `referenceTimeStart` of an event.
+x-tags:
+  - rate
+allOf:
+  - $ref: ./RateLineCollection.yaml
+  - type: object
+    properties:
+      referenceTimeStart:
+        type: string
+        format: date-time
+        description: Event-related reference start time
+      referenceTimeEnd:
+        type: string
+        format: date-time
+        description: Event-related reference end time
+    required:
+      - referenceTimeStart

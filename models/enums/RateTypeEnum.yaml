@@ -1,0 +1,14 @@
+type: string
+title: RateTypeEnum
+description: |-
+  * `contract`: Rate provided to contract holders only.
+  * `daily`: Rate provided on a daily rate, per calendar day.
+  * `event`: Rate provided in combination with a specific event.
+  * `hourly`: Rate provided on an hourly basis.
+enum:
+  - contract
+  - daily
+  - event
+  - hourly
+x-tags:
+  - enumeration

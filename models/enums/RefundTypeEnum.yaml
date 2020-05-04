@@ -1,0 +1,14 @@
+type: string
+title: RefundTypeEnum
+description: |-
+  A list of available refund categories.
+
+  * `surchargeFullyRefundable`: The surcharge amount is fully refundable, when termination conditions are met.
+  * `surchargeNonRefundable`: The surcharge amount is nonrefundable, when termination conditions are met.
+  * `surchargePartiallyRefundable`: The surcharge amount is partially but not fully refundable, when termination conditions are met.
+enum:
+  - surchargeFullyRefundable
+  - surchargeNonRefundable
+  - surchargePartiallyRefundable
+x-tags:
+  - enumeration

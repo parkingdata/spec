@@ -1,0 +1,9 @@
+type: string
+title: RateAvailabilityTypeEnum
+description: "* `private`: where parking access limited to known and authorized individuals.\n* `public`: Open to the public. \n* `restricted`: Open to the public but need a direct purpose or permission to use from owner (e.g. doctor's surgery, storefront)"
+enum:
+  - private
+  - public
+  - restricted
+x-tags:
+  - enumeration

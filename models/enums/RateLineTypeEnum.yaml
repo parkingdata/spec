@@ -1,0 +1,14 @@
+type: string
+title: RateLineTypeEnum
+description: |-
+  A list of rate line types.
+
+  * `flatRate`: A rate applied to the rate line which is not time/duration dependent. i.e. a single fixed payment.
+  * `flatRateTier`: A flat rate charge rate associated with a specific time-based tier. This is a special case of an incrementing rate.
+  * `incrementingRate`: A charge rate that increases by a defined amount in a defined time.
+enum:
+  - flatRate
+  - flatRateTier
+  - incrementingRate
+x-tags:
+  - enumeration

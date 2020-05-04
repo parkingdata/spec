@@ -1,0 +1,75 @@
+title: RateTable
+description: |-
+  A specific set of rate charges relating to one or more locations and optionally one set of eligibility criteria.
+
+  rateTableId refers to the internal identifier for the rate table provided by the data supplier, and not the resource's unique identifier itself
+x-tags:
+  - rate
+allOf:
+  - $ref: ../common/VersionedIdentity.yaml
+  - type: object
+    properties:
+      rateTableName:
+        $ref: ../common/MultilingualString.yaml
+      validityStart:
+        type: string
+        description: |-
+          Valid start date/time of rate table. This is
+          when the rate table and pricing becomes
+          active
+        format: date-time
+      validityEnd:
+        type: string
+        description: |-
+          Expiration of rate table in date/time. This
+          is when the rate table and pricing expires
+          and is no longer used.
+        format: date-time
+      validation:
+        type: boolean
+        description: |-
+          Are validations accepted when using this
+          rate table? [TRUE] = validations can be
+          applied to transactions using this rate
+          table; [FALSE] validations cannot be
+          applicated to transactions using this rate
+          table.
+      rateType:
+        $ref: ../enums/RateTypeEnum.yaml
+      rateTableID:
+        $ref: ../common/MultilingualString.yaml
+      activeTimes:
+        type: array
+        minItems: 1
+        description: Periods when the rate table is to be applied.
+        items:
+          $ref: ../common/Duration.yaml
+      availability:
+        $ref: ../enums/RateAvailabilityTypeEnum.yaml
+      rateResponsibleParty:
+        type: string
+        description: |-
+          Entity responsible for fee collection.
+          Identifies the entity that actually collects
+          payment (e.g. mobile payment provider,
+          online reservation firm, on-site operations)
+      rateSupersedeLink:
+        type: string
+        description: |-
+          Identify the rate table that this rate table
+          supersedes. Temporarily supersedes the
+          identified rate table. Use the Rate
+          expiration times to define duration.
+      rateLineCollections:
+        type: array
+        minItems: 1
+        items:
+          anyOf:
+            - $ref: ./RateLineCollection.yaml
+            - $ref: ./RelativeTimeRates.yaml
+    required:
+      - rateTableName
+      - validityStart
+      - activeTimes
+      - availability
+      - rateLineCollections
