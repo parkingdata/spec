@@ -1,0 +1,16 @@
+title: GeoJsonGeometry
+type: object
+description: GeoJSon geometry
+properties:
+  type:
+    type: string
+    enum:
+      - Point
+      - LineString
+      - Polygon
+      - MultiPoint
+      - MultiLineString
+      - MultiPolygon
+    description: the geometry type
+required:
+  - type

@@ -1,0 +1,7 @@
+title: GeoJson2DPoint
+type: array
+maxItems: 2
+minItems: 2
+items:
+  type: number
+description: GeoJson 2D Point

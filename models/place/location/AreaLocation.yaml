@@ -2,7 +2,7 @@ title: AreaLocation
 description: Location representing a geographic or geometric defined area (using GeoJSON)
 x-tags:
   - places
-allOf:
+oneOf:
   - type: object
     properties:
       namedArea:

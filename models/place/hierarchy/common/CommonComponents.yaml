@@ -13,7 +13,7 @@ properties:
     type: array
     description: Contact info for hierarchy element
     items:
-      anyOf:
+      oneOf:
         - $ref: ../../contacts/Contact.yaml
         - $ref: ../../contacts/ContactPoint.yaml
         - $ref: ../../contacts/ContactByReference.yaml

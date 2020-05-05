@@ -828,7 +828,7 @@ components:
     HierarchyElementData:
       title: HierarchyElementData
       description: Represents an API data exchange model with any of the `Place` hierarchy types
-      anyOf:
+      oneOf:
         - $ref: ../models/place/hierarchy/Campus.yaml
         - $ref: ../models/place/hierarchy/Place.yaml
         - $ref: ../models/place/hierarchy/HierarchyElement.yaml

@@ -1,6 +1,12 @@
+title: GeoJsonMultiPolygon
+description: GeoJson MultiPolygon
+x-tags:
+  - places
+  - geojson
 allOf:
-  - $ref: 'https://gist.githubusercontent.com/bubbobne/fe5f2db65acf039be6a9fd92fc9c7233/raw/2ab0540c6ecdc487ea74855d24c45741f57abe7f/geometry_geojson.yaml#/definitions/Geometry'
-  - properties:
+  - $ref: ./GeoJsonGeometry.yaml
+  - type: object
+    properties:
       coordinates:
         type: array
         items:
@@ -8,9 +14,4 @@ allOf:
           items:
             type: array
             items:
-              $ref: 'https://gist.githubusercontent.com/bubbobne/fe5f2db65acf039be6a9fd92fc9c7233/raw/2ab0540c6ecdc487ea74855d24c45741f57abe7f/geometry_geojson.yaml#/definitions/Point2D'
-title: GeoJsonMultiPolygon
-description: GeoJson MultiPolygon
-x-tags:
-  - places
-  - geojson
+              $ref: ./GeoJsonPoint2D.yaml
