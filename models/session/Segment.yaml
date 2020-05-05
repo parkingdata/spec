@@ -1,0 +1,47 @@
+title: Segment
+x-tags:
+  - session
+description: |-
+  Segments enable a single Session to capture and report changes in Rate and AssignedRight during a Session.
+  A Segment can only have one AssignedRight and Rate associated to it.
+
+  A `Segment`...
+
+  * Is associated to a Session.
+  * Is associated to an AssignedRight.
+  * Is associated to a specific Rate via the AssignedRight.
+  * Has a start and end time.
+  * Has a credential via the AssignedRight.
+  * Is associated to basic financial data.
+  * Has version control on the AssignedRight (i.e. a segment starts with one AssignedRight and then is updated to a new AssignedRight at the end of the Segment, replacing the original).
+  * Has a Place reference or Space ID.
+allOf:
+  - $ref: ../common/VersionedIdentity.yaml
+  - type: object
+    properties:
+      actualStart:
+        type: string
+        format: date-time
+      actualEnd:
+        type: string
+        format: date-time
+      assignedRight:
+        $ref: ../common/VersionedReference.yaml
+      space:
+        $ref: ../common/VersionedReference.yaml
+      validationType:
+        type: array
+        description: The form of validation (the nature of credential) that is used in conjunction with the specific segment.
+        minItems: 1
+        items:
+          $ref: ../enums/CredentialTypeEnum.yaml
+      validationValue:
+        $ref: ../common/Reference.yaml
+      financialTransactions:
+        type: array
+        description: Financial transactions associated with this segment
+        items:
+          $ref: ./FinancialTransaction.yaml
+    required:
+      - actualStart
+      - validationType

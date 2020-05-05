@@ -1,0 +1,46 @@
+title: Session
+description: |-
+  A Session captures the **actual** use of an `AssignedRight` and includes start time, end time, credential, and other relevant data related to an operational transaction. A Session is not used for future activities.
+
+  A `Session` is broken into one or multiple `Segments`.
+
+  `Segments` enable a single `Session` to capture and report changes in `Rate` and `AssignedRight` during a `Session`.
+allOf:
+  - $ref: ../common/VersionedIdentity.yaml
+  - type: object
+    properties:
+      actualStart:
+        type: string
+        format: date-time
+        description: The date/time of the start of the session.
+      actualEnd:
+        type: string
+        format: date-time
+        description: The date/time of the end of the session.
+      initiator:
+        type: string
+        description: |-
+          Identification of the party initiating the
+          session.
+        minLength: 1
+      credentials:
+        type: array
+        minItems: 1
+        items:
+          $ref: ../right/HolderCredential.yaml
+      segments:
+        type: array
+        minItems: 1
+        items:
+          $ref: ./Segment.yaml
+      hierachyElement:
+        $ref: ../common/VersionedReference.yaml
+      vehicleAncilliaryIdentification:
+        $ref: ../common/VehicleAncilliaryIdentification.yaml
+    required:
+      - actualStart
+      - initiator
+      - credentials
+      - segments
+x-tags:
+  - session

@@ -1,0 +1,59 @@
+title: FinancialTransaction
+type: object
+description: |-
+  Financial transaction data will be expanded upon in future releases of the APDS specification. To allow basic sharing of financial data immediately, certain financial data is associated to the Segment. Each Segment has its own financial data defined. An entity is able to sum the financial data of each Segment to determine total Session financial data.
+
+  Minimum financial data to include in a Segment includes:
+
+  1. Total value of Segment based on expected value to be received by Place owner or operator (ie amount of calculated Rate Table based on Session times).
+  1. Entity name of the service provider that is responsible for selling/collecting fees associated to the Segment.
+  1. Tax included in value - Yes/No (Boolean).
+  1. Country currency.
+
+  Optional data to include in Segment
+
+  1. Date Segment fees are collected by service provider.
+  1. Transaction ID (reservation #, credit card transaction #, etc) as agreed upon by
+  the two entities sharing data.
+
+  The financial data collected under Release 2.1 of the APDS specification is the value of a transaction based on a defined RateTable that is associated to a Segment via the AssignedRight. The transaction value shared in the Segment is the amount of the transaction that is expected by the owner or operator of the Place.
+x-tags:
+  - session
+properties:
+  dateCollected:
+    type: string
+    description: |-
+      The date / time that the payment related to
+      this financial transaction is recorded as
+      being paid and collected.
+    format: date-time
+  rateLineId:
+    $ref: ../common/VersionedReference.yaml
+  segmentValue:
+    type: number
+    format: double
+    description: |-
+      The total monetary value associated with
+      this financial transaction, based on
+      expected value to be received by PLACE
+      owner or operator (i.e. amount of
+      calculated rate table based on segment
+      times).
+  serviceProvider:
+    $ref: ../common/MultilingualString.yaml
+  taxIncluded:
+    type: boolean
+    description: |-
+      Whether tax included in monetary value, if
+      yes (TRUE), if not (FALSE).
+  transactionId:
+    type: string
+    description: |-
+      Identifier for the transaction (e.g.
+      reservation number, credit card transaction
+      reference) as agreed upon by the two
+      entities sharing data.
+required:
+  - segmentValue
+  - serviceProvider
+  - taxIncluded

@@ -1,0 +1,25 @@
+title: VehicleAncilliaryIdentification
+type: object
+properties:
+  color:
+    type: string
+    description: The predominant colour of the vehicle.
+  country:
+    $ref: ./CountryCode.yaml
+  description:
+    type: string
+    description: Free-text description of other distinguishing features of the vehicle
+  make:
+    type: string
+    description: "The branded manufacturer's name for the vehicle (e.g. Ford, Audi, BMW, Mazda)"
+  model:
+    type: string
+    description: 'The model name for the vehicle type (e.g. Ford "Mondeo", Citroen "C-Zero")'
+  stateProvince:
+    type: string
+    description: 'State, province or other administrative subdivision where a nation state permits registration of vehicles on a lower administrative level basis.'
+required:
+  - country
+description: Information relating to a specific vehicle
+x-tags:
+  - common
