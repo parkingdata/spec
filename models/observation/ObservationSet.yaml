@@ -1,0 +1,25 @@
+title: ObservationSet
+description: Details of the collection of a set of related recorded observations.
+allOf:
+  - $ref: ../common/VersionedIdentity.yaml
+  - type: object
+    properties:
+      creationDateTime:
+        type: string
+        description: |-
+          The date and time of the creation of the
+          observation set.
+        format: date-time
+      setCreator:
+        type: string
+        description: The individual creating the observation set.
+      observationElements:
+        type: array
+        description: Individual observations in the set
+        items:
+          $ref: ./ObservationElement.yaml
+    required:
+      - creationDateTime
+      - setCreator
+x-tags:
+  - observation

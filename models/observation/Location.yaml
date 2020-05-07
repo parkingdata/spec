@@ -1,0 +1,14 @@
+title: Location
+type: object
+description: "Positional information relating to an observation for both the observation target ('observed') and the source ('observer')."
+properties:
+  observedLocation:
+    $ref: ../place/location/PointLocation.yaml
+  observedLocationTextual:
+    $ref: ../common/MultilingualString.yaml
+  observerLocation:
+    $ref: ../place/location/PointLocation.yaml
+required:
+  - observerLocation
+x-tags:
+  - observation

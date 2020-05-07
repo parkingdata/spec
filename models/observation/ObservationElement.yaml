@@ -1,0 +1,55 @@
+title: ObservationElement
+allOf:
+  - $ref: ../common/VersionedIdentity.yaml
+  - type: object
+    properties:
+      method:
+        $ref: ../enums/ObservationTypeEnum.yaml
+      observer:
+        type: string
+        description: |-
+          The individual person making the
+          observation recorded in this observation
+          element.
+      type:
+        $ref: ../enums/CredentialTypeEnum.yaml
+      observedCredentialId:
+        type: string
+        description: |-
+          Specific identifier to the referenced
+          observed credential.
+      observationStartTime:
+        type: string
+        format: date-time
+        description: The initial date and time of the observation.
+      observationEndTime:
+        type: string
+        format: date-time
+        description: 'The ending date and time of the observation, when it was continous since `observationStartTime`.'
+      description:
+        $ref: ../common/MultilingualString.yaml
+      creationDateTime:
+        type: string
+        format: date-time
+        description: The date and time stamp for the creation of the observation element.
+      location:
+        $ref: ./Location.yaml
+      images:
+        type: array
+        description: still or moving images observation evidence or a reference to such observation evidence
+        items:
+          $ref: ./Image.yaml
+      hierarchyElement:
+        $ref: ../common/VersionedIdentity.yaml
+      vehicleAncilliaryIdentification:
+        $ref: ../common/VehicleAncilliaryIdentification.yaml
+    required:
+      - method
+      - observationStartTime
+      - creationDateTime
+      - location
+description: |-
+  A specific collection of observation details intended to be used for
+  one specific observation instance.
+x-tags:
+  - observation

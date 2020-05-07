@@ -1,0 +1,18 @@
+type: string
+title: ObservationTypeEnum
+description: |-
+  A list of the supported observation types.
+
+  * `anpr`: Automatic vehicle license plate recognition
+  * `chalk`: Chalk-mark observation or similar
+  * `rfTransponder`: Rf transponder radio frequency transponder device, for toll tag or similar radio based devices
+  * `scanner`: Handheld or fixed scanning device (optical)
+  * `visual`: Visual (human) observation
+enum:
+  - anpr
+  - chalk
+  - rfTransponder
+  - scanner
+  - visual
+x-tags:
+  - enumeration
