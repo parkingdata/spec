@@ -26,7 +26,10 @@ allOf:
         type: string
         format: date-time
       assignedRight:
-        $ref: ../common/VersionedReference.yaml
+        oneOf:
+          - $ref: ../common/VersionedReference.yaml
+          - $ref: ../right/AssignedRight.yaml
+        description: 'Allows either referencing an existing `AssignedRight`, or specifying one to create along with the `Segment` (only when the message is conveying a new Segment creation)'
       space:
         $ref: ../common/VersionedReference.yaml
       validationType:
@@ -44,4 +47,5 @@ allOf:
           $ref: ./FinancialTransaction.yaml
     required:
       - actualStart
+      - assignedRight
       - validationType

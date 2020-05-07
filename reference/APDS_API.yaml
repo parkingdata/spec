@@ -88,6 +88,10 @@ paths:
         * one or more `HolderCredentials` and `RightSpecifications`, to check if given credentials have any of the given rights to park
         * latitude, longitude, radius: to check for `AssignedRights` within a geographic area
         * a list of `Places`, to retrieve all assigned rights within a set of parking locations
+        * start_before: to get sessions starting before a given instant
+        * end_before: to get sessions ending before a given instant
+        * start_after: to get sessions starting after a given instant
+        * end_after: to get sessions ending after a given instant
         * a modification instant: to only display changed resources from that point onwards
 
         Additionally, supports providing a comma-separated list of optional object attributes associated to an `AssignedRight` that should be included in the result set. If unused or left blank, `none` will be assumed.
@@ -96,26 +100,18 @@ paths:
       parameters:
         - $ref: '#/components/parameters/right_specs_list'
         - $ref: '#/components/parameters/cred_type'
-        - schema:
-            type: array
-          in: query
-          name: credential_class
-          description: Comma-separated list of specific class names for credentials (a more generic option is to use `credential_type`)
-          style: form
-          explode: false
-        - schema:
-            type: array
-          in: query
-          name: credential_id
-          description: Comma-separated list of unique identifiers for credentials in given classes
-          style: form
-          explode: false
+        - $ref: '#/components/parameters/cred_class_list'
+        - $ref: '#/components/parameters/cred_id_list'
         - $ref: '#/components/parameters/place_list'
         - $ref: '#/components/parameters/assigned_expand'
         - $ref: '#/components/parameters/lat'
         - $ref: '#/components/parameters/long'
         - $ref: '#/components/parameters/radius'
         - $ref: '#/components/parameters/mod'
+        - $ref: '#/components/parameters/start_before'
+        - $ref: '#/components/parameters/end_before'
+        - $ref: '#/components/parameters/start_after'
+        - $ref: '#/components/parameters/end_after'
   '/rights/assigned/{id}':
     parameters:
       - schema:
@@ -237,7 +233,7 @@ paths:
     get:
       summary: Get an AssignedRight
       operationId: read-assigned_right
-      description: Get latest version of a given `AssignedRight` by its identifier
+      description: Get latest version of a given `AssignedRight` by its identifier (or a particular previous version when provided as a query parameter)
       tags:
         - read
       parameters:
@@ -344,7 +340,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResponseStatus'
       operationId: get-rights-specs-id
-      description: Get latest version of a given `RightSpecification` by its identifier
+      description: Get latest version of a given `RightSpecification` by its identifier (or a particular previous version when provided as a query parameter)
       parameters:
         - $ref: '#/components/parameters/version'
         - $ref: '#/components/parameters/specs_expand'
@@ -513,6 +509,7 @@ paths:
         name: id
         in: path
         required: true
+        description: Identifier for the `RateTable`
     get:
       summary: Get a RateTable
       tags:
@@ -665,7 +662,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/HierarchyElementData'
       operationId: get-places-id
-      description: Get latest version of a given place hierarchy element by its identifier
+      description: Get latest version of a given place hierarchy element by its identifier (or a particular previous version when provided as a query parameter)
       parameters:
         - $ref: '#/components/parameters/version'
         - $ref: '#/components/parameters/places_expand'
@@ -823,6 +820,214 @@ paths:
             schema:
               $ref: '#/components/schemas/HierarchyElementData'
         description: The new Place
+  /sessions:
+    get:
+      summary: List and Search for Sessions
+      tags:
+        - list
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/PaginatedListMeta'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: ../models/session/Session.yaml
+      operationId: get-sessions
+      description: |-
+        Lists `Sessions` and allows searching/filtering by a combination of:
+
+        * latitude, longitude, radius: to check for `Sessions` ocurring in a geographic area (via the associated Place hierarchy element)
+        * a list of `Places`, to retrieve all sessions connected to the given elements in the place hierarchy
+        * a list of `RightSpecifications`, to retrieve all sessions with segments using any of the given rights
+        * one or more `HolderCredentials` to get sessions linked to the given credentials
+        * startBefore: to get sessions starting before a given instant
+        * endBefore: to get sessions ending before a given instant
+        * startAfter: to get sessions starting after a given instant
+        * endAfter: to get sessions ending after a given instant
+        * a modification instant: to only display changed resources from that point onwards
+
+        Additionally, supports providing a comma-separated list of optional object attributes associated to a `Session` or `Segment` that should be included in the result set. If unused or left blank, `none` will be assumed.
+      parameters:
+        - $ref: '#/components/parameters/right_specs_list'
+        - $ref: '#/components/parameters/cred_type'
+        - $ref: '#/components/parameters/cred_class_list'
+        - $ref: '#/components/parameters/cred_id_list'
+        - $ref: '#/components/parameters/place_list'
+        - $ref: '#/components/parameters/sessions_expand'
+        - $ref: '#/components/parameters/lat'
+        - $ref: '#/components/parameters/long'
+        - $ref: '#/components/parameters/radius'
+        - $ref: '#/components/parameters/mod'
+        - $ref: '#/components/parameters/start_before'
+        - $ref: '#/components/parameters/end_before'
+        - $ref: '#/components/parameters/start_after'
+        - $ref: '#/components/parameters/end_after'
+    post:
+      summary: Create a new Session
+      operationId: post-sessions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+      description: 'Allows the creation of a new Session, along with one or more Segments. It also allows the creation of an AssignedRight, for scenarios in which the Session and the AssignedRight are created simultaneously (e.g. off-street and on-street short stays)'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/session/Session.yaml
+        description: 'The Session, Segments (and potentially AssignedRight) to create'
+      tags:
+        - create
+  '/sessions/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: Identifier for the `Session`
+    get:
+      summary: Get a Session
+      tags:
+        - read
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../models/session/Session.yaml
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+      operationId: get-sessions-id
+      description: Get latest version of a given `Session` by its identifier (or a particular previous version when provided as a query parameter)
+      parameters:
+        - $ref: '#/components/parameters/version'
+        - $ref: '#/components/parameters/sessions_expand'
+    put:
+      summary: Update an existing Session
+      operationId: put-sessions-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+              examples:
+                missing-data:
+                  value:
+                    status: error
+                    code: 400
+                    message: Missing required attributes
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+              examples:
+                not-found:
+                  value:
+                    status: error
+                    code: 404
+                    message: Not found
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+              examples:
+                conflict:
+                  value:
+                    status: error
+                    code: 409
+                    message: Outdated version number provided
+      description: 'Update an existing Session (or Segment). Segments may also be deleted using this method, by removing them from the list of segments under the Session'
+      tags:
+        - update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/session/Session.yaml
+        description: 'The `Session` (and `Segments`) to update, including only their changed attributes'
+    delete:
+      summary: Delete a Session
+      operationId: delete-sessions-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+              examples:
+                missing-data:
+                  value:
+                    status: error
+                    code: 400
+                    message: Missing required attributes
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+              examples:
+                not-found:
+                  value:
+                    status: error
+                    code: 404
+                    message: Not found
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+              examples:
+                conflict:
+                  value:
+                    status: error
+                    code: 409
+                    message: Outdated version number provided
+      tags:
+        - delete
+      description: 'Delete an existing `Session`. `Segments` should be deleted by using the `PUT` operation, and removing them from the list of segments under the session'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/common/VersionedReference.yaml
+        description: 'The final version of the `Session` should be sent, to confirm the client is acting based on updated information'
 components:
   schemas:
     HierarchyElementData:
@@ -1031,3 +1236,55 @@ components:
       in: query
       explode: false
       style: form
+    cred_id_list:
+      schema:
+        type: array
+      in: query
+      name: credential_id
+      description: Comma-separated list of unique identifiers for credentials in given classes
+      style: form
+      explode: false
+    cred_class_list:
+      schema:
+        type: array
+      in: query
+      name: credential_class
+      description: Comma-separated list of specific class names for credentials (a more generic option is to use `credential_type`)
+      style: form
+      explode: false
+    end_after:
+      schema:
+        type: integer
+        minimum: 0
+      in: query
+      name: end_after
+      description: 'Unix epoch instant in UTC, to filter sessions ending after the given instant'
+    start_after:
+      schema:
+        type: integer
+        minimum: 0
+      in: query
+      name: start_after
+      description: 'Unix epoch instant in UTC, to filter sessions starting after the given instant'
+    end_before:
+      schema:
+        type: integer
+        minimum: 0
+      in: query
+      name: end_before
+      description: 'Unix epoch instant in UTC, to filter sessions ending before the given instant'
+    start_before:
+      schema:
+        type: integer
+        minimum: 0
+      in: query
+      name: start_before
+      description: 'Unix epoch instant in UTC, to filter sessions starting before the given instant'
+    sessions_expand:
+      schema:
+        type: array
+      description: Comma-separated list of optional object attributes associated to an `Session` (or `Segment`) that should be included in the result set
+      name: expand
+      in: query
+      style: form
+      explode: false
