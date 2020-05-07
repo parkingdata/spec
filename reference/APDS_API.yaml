@@ -1028,6 +1028,210 @@ paths:
             schema:
               $ref: ../models/common/VersionedReference.yaml
         description: 'The final version of the `Session` should be sent, to confirm the client is acting based on updated information'
+  /observations:
+    get:
+      summary: List and search Observations
+      tags:
+        - list
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/PaginatedListMeta'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: ../models/observation/ObservationElement.yaml
+      operationId: get-observations
+      description: |-
+        Lists `Observations` and allows searching/filtering by:
+
+        * latitude, longitude, radius: to check for `Observations` within a geographic area
+        * a list of `Places`, to retrieve all Observations within a set of parking locations
+        * start_before: to get observations starting before a given instant
+        * end_before: to get observations ending before a given instant
+        * start_after: to get observations starting after a given instant
+        * end_after: to get observations ending after a given instant
+        * a modification instant: to only display changed resources from that point onwards
+
+        Additionally, supports providing a comma-separated list of optional object attributes associated to an `Observation` that should be included in the result set. If unused or left blank, `none` will be assumed.
+      parameters:
+        - $ref: '#/components/parameters/place_list'
+        - $ref: '#/components/parameters/observations_expand'
+        - $ref: '#/components/parameters/lat'
+        - $ref: '#/components/parameters/long'
+        - $ref: '#/components/parameters/radius'
+        - $ref: '#/components/parameters/mod'
+        - $ref: '#/components/parameters/start_before'
+        - $ref: '#/components/parameters/end_before'
+        - $ref: '#/components/parameters/start_after'
+        - $ref: '#/components/parameters/end_after'
+    post:
+      summary: Create an Observation or Observation Set
+      operationId: post-observations
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+      description: Create a singular Observation or an Observation Set
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: ../models/observation/ObservationElement.yaml
+                - $ref: ../models/observation/ObservationSet.yaml
+        description: The ObservationElement or ObservationSet to create
+      tags:
+        - create
+  '/observations/{id}':
+    get:
+      summary: Get an Observation
+      tags:
+        - read
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../models/observation/ObservationElement.yaml
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+      operationId: get-observations-id
+      description: Get latest version of a given `Observation` by its identifier (or a particular previous version when provided as a query parameter)
+      parameters:
+        - $ref: '#/components/parameters/version'
+        - $ref: '#/components/parameters/observations_expand'
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: Unique identifier for `Observation`
+    put:
+      summary: Update an existing Observation
+      operationId: put-observations-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+              examples:
+                missing-data:
+                  value:
+                    status: error
+                    code: 400
+                    message: Missing required attributes
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+              examples:
+                not-found:
+                  value:
+                    status: error
+                    code: 404
+                    message: Not found
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+              examples:
+                conflict:
+                  value:
+                    status: error
+                    code: 409
+                    message: Outdated version number provided
+      description: Update an existing Observation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/observation/ObservationElement.yaml
+        description: 'The new version of the `Observation`, including only its changed attributes'
+      tags:
+        - update
+    delete:
+      summary: Delete an `Observation`
+      operationId: delete-observations-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+              examples:
+                missing-data:
+                  value:
+                    status: error
+                    code: 400
+                    message: Missing required attributes
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+              examples:
+                not-found:
+                  value:
+                    status: error
+                    code: 404
+                    message: Not found
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseStatus'
+              examples:
+                conflict:
+                  value:
+                    status: error
+                    code: 409
+                    message: Outdated version number provided
+      description: Delete an existing `Observation`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/common/VersionedReference.yaml
+        description: 'The final version of the `Observation` should be sent, to confirm the client is acting based on updated information'
+      tags:
+        - delete
 components:
   schemas:
     HierarchyElementData:
@@ -1258,32 +1462,40 @@ components:
         minimum: 0
       in: query
       name: end_after
-      description: 'Unix epoch instant in UTC, to filter sessions ending after the given instant'
+      description: 'Unix epoch instant in UTC, to filter results ending after the given instant'
     start_after:
       schema:
         type: integer
         minimum: 0
       in: query
       name: start_after
-      description: 'Unix epoch instant in UTC, to filter sessions starting after the given instant'
+      description: 'Unix epoch instant in UTC, to filter results starting after the given instant'
     end_before:
       schema:
         type: integer
         minimum: 0
       in: query
       name: end_before
-      description: 'Unix epoch instant in UTC, to filter sessions ending before the given instant'
+      description: 'Unix epoch instant in UTC, to filter results ending before the given instant'
     start_before:
       schema:
         type: integer
         minimum: 0
       in: query
       name: start_before
-      description: 'Unix epoch instant in UTC, to filter sessions starting before the given instant'
+      description: 'Unix epoch instant in UTC, to filter results starting before the given instant'
     sessions_expand:
       schema:
         type: array
       description: Comma-separated list of optional object attributes associated to an `Session` (or `Segment`) that should be included in the result set
+      name: expand
+      in: query
+      style: form
+      explode: false
+    observations_expand:
+      schema:
+        type: array
+      description: Comma-separated list of optional object attributes associated to an `Observation` that should be included in the result set
       name: expand
       in: query
       style: form
