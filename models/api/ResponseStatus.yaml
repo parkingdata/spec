@@ -1,0 +1,20 @@
+title: ResponseStatus
+type: object
+description: 'Codifies responses following some creation, update or delete operation'
+required:
+  - status
+properties:
+  status:
+    type: string
+    enum:
+      - ok
+      - error
+    description: Type of status
+  code:
+    type: integer
+    description: Same numbering and semantics as HTTP status codes
+  message:
+    type: string
+    description: Descriptive message for error statuses
+x-tags:
+  - api

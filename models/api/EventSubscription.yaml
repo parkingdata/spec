@@ -1,0 +1,31 @@
+title: EventSubscription
+type: object
+description: "Describes a subscription, which is composed of:\n\n* A list of event `topics` to subscribe (see list below for meaning)\n* A destination `endpoint` to be notified when that event occurs in the source system\n* A list of hierarchyElements where those events might occur. \n* An option to choose to receive events ocurring only directly at the given hierarchyElements or if those occurring at any children elements as well should be included as well. Default is not to include children events"
+properties:
+  includeChildrenEvents:
+    type: boolean
+    default: 'false'
+    description: 'An option to choose to receive events ocurring only directly at the given hierarchyElements (FALSE) or if those occurring at any children elements as well should be included as well (TRUE). FALSE is the default, if the field is left blank'
+  hierarchyElements:
+    type: array
+    description: 'A list of hierarchyElements where events might occur. '
+    uniqueItems: true
+    minItems: 1
+    items:
+      $ref: ../common/Reference.yaml
+  endpoint:
+    type: string
+    format: uri
+    description: API endpoint expecting JSON POST messages with payloads corresponding to the type of event
+  topics:
+    type: array
+    description: The event topic (must be one of the supported enumeration options)
+    uniqueItems: true
+    minItems: 1
+    items:
+      $ref: ./EventTypeEnum.yaml
+required:
+  - endpoint
+  - topics
+x-tags:
+  - api

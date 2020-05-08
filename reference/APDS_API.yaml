@@ -14,15 +14,17 @@ info:
   contact: {}
 tags:
   - name: create
-    description: Create an assigned right
+    description: Create a resource
   - name: read
-    description: Read an assigned right
+    description: Read a resource
   - name: update
-    description: Update an assigned right
+    description: Update a resource
   - name: delete
-    description: Delete an assigned right
+    description: Delete a resource
   - name: list
-    description: List (search) assigned rights
+    description: Search and list resources
+  - name: example
+    description: An example endpoint that data consumers should implement
 servers:
   - url: ''
 paths:
@@ -36,7 +38,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 created:
                   value:
@@ -46,7 +48,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 missing-data:
                   value:
@@ -73,7 +75,7 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/PaginatedListMeta'
+                  - $ref: ../models/api/PaginatedListMeta.yaml
                   - type: object
                     description: ''
                     properties:
@@ -129,13 +131,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 bad-request:
                   value:
@@ -147,7 +149,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 not-found:
                   value:
@@ -159,7 +161,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 conflict:
                   value:
@@ -184,13 +186,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 missing-data:
                   value:
@@ -202,7 +204,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 not-found:
                   value:
@@ -214,7 +216,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 conflict:
                   value:
@@ -251,7 +253,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
   /rights/specs:
     get:
       summary: List and search for RightSpecifications
@@ -264,7 +266,7 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/PaginatedListMeta'
+                  - $ref: ../models/api/PaginatedListMeta.yaml
                   - type: object
                     properties:
                       data:
@@ -298,13 +300,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
       tags:
         - create
       description: Create a new `RightSpecification`
@@ -338,7 +340,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
       operationId: get-rights-specs-id
       description: Get latest version of a given `RightSpecification` by its identifier (or a particular previous version when provided as a query parameter)
       parameters:
@@ -353,13 +355,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 missing-data:
                   value:
@@ -371,7 +373,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 not-found:
                   value:
@@ -383,7 +385,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 conflict:
                   value:
@@ -408,13 +410,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 bad-request:
                   value:
@@ -426,7 +428,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 not-found:
                   value:
@@ -438,7 +440,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 conflict:
                   value:
@@ -466,7 +468,7 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/PaginatedListMeta'
+                  - $ref: ../models/api/PaginatedListMeta.yaml
                   - type: object
                     properties:
                       data:
@@ -492,7 +494,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
       description: Create a `RateTable`
       tags:
         - create
@@ -526,7 +528,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
       operationId: get-rates-id
       description: Get latest version of a given `RateTable` by its identifier
       parameters:
@@ -541,13 +543,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 missing-data:
                   value:
@@ -559,7 +561,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 not-found:
                   value:
@@ -571,7 +573,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 conflict:
                   value:
@@ -596,13 +598,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 bad-request:
                   value:
@@ -614,7 +616,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 not-found:
                   value:
@@ -626,7 +628,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 conflict:
                   value:
@@ -660,7 +662,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HierarchyElementData'
+                $ref: ../models/api/HierarchyElementData.yaml
       operationId: get-places-id
       description: Get latest version of a given place hierarchy element by its identifier (or a particular previous version when provided as a query parameter)
       parameters:
@@ -675,25 +677,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
         '404':
           description: Not Found
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
         '409':
           description: Conflict
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
       description: Update an element in the `Place` hierarchy (or one of its associated attributes like `Occupancy`)
       tags:
         - update
@@ -701,7 +703,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/HierarchyElementData'
+              $ref: ../models/api/HierarchyElementData.yaml
         description: "The new version of the `Place` hierarchy element, including only its changed attributes. In the case of Occupancy updates, the Place version doesn't need to change."
     delete:
       summary: Delete Place hierarchy element
@@ -712,25 +714,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
         '404':
           description: Not Found
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
         '409':
           description: Conflict
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
       description: Delete Place hierarchy element
       requestBody:
         content:
@@ -752,14 +754,14 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/PaginatedListMeta'
+                  - $ref: ../models/api/PaginatedListMeta.yaml
                   - type: object
                     properties:
                       data:
                         type: array
                         description: Hierarchy elements matching filters
                         items:
-                          $ref: '#/components/schemas/HierarchyElementData'
+                          $ref: ../models/api/HierarchyElementData.yaml
                     description: Data response
       operationId: get-places
       description: |-
@@ -804,13 +806,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
       tags:
         - create
       description: Create a new element in the `Place` hierarchy
@@ -818,7 +820,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/HierarchyElementData'
+              $ref: ../models/api/HierarchyElementData.yaml
         description: The new Place
   /sessions:
     get:
@@ -832,7 +834,7 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/PaginatedListMeta'
+                  - $ref: ../models/api/PaginatedListMeta.yaml
                   - type: object
                     properties:
                       data:
@@ -878,7 +880,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
       description: 'Allows the creation of a new Session, along with one or more Segments. It also allows the creation of an AssignedRight, for scenarios in which the Session and the AssignedRight are created simultaneously (e.g. off-street and on-street short stays)'
       requestBody:
         content:
@@ -912,7 +914,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
       operationId: get-sessions-id
       description: Get latest version of a given `Session` by its identifier (or a particular previous version when provided as a query parameter)
       parameters:
@@ -927,13 +929,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 missing-data:
                   value:
@@ -945,7 +947,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 not-found:
                   value:
@@ -957,7 +959,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 conflict:
                   value:
@@ -982,13 +984,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 missing-data:
                   value:
@@ -1000,7 +1002,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 not-found:
                   value:
@@ -1012,7 +1014,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 conflict:
                   value:
@@ -1040,7 +1042,7 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/PaginatedListMeta'
+                  - $ref: ../models/api/PaginatedListMeta.yaml
                   - type: object
                     properties:
                       data:
@@ -1080,7 +1082,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
       description: Create a singular Observation or an Observation Set
       requestBody:
         content:
@@ -1109,7 +1111,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
       operationId: get-observations-id
       description: Get latest version of a given `Observation` by its identifier (or a particular previous version when provided as a query parameter)
       parameters:
@@ -1131,13 +1133,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 missing-data:
                   value:
@@ -1149,7 +1151,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 not-found:
                   value:
@@ -1161,7 +1163,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 conflict:
                   value:
@@ -1186,13 +1188,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
         '400':
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 missing-data:
                   value:
@@ -1204,7 +1206,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 not-found:
                   value:
@@ -1216,7 +1218,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResponseStatus'
+                $ref: ../models/api/ResponseStatus.yaml
               examples:
                 conflict:
                   value:
@@ -1232,90 +1234,136 @@ paths:
         description: 'The final version of the `Observation` should be sent, to confirm the client is acting based on updated information'
       tags:
         - delete
+  /webhooks:
+    post:
+      summary: Subscribe to event topics
+      operationId: post-webhooks
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - type: object
+                    properties:
+                      id:
+                        type: string
+                        description: Unique identifier for the event subscription
+                    required:
+                      - id
+                  - $ref: ../models/api/ResponseStatus.yaml
+      description: Allows an entity with an accessible API endpoint to subscribe to a set of event topics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/api/EventSubscription.yaml
+        description: The event subscription configuration
+      tags:
+        - create
+  '/webhooks/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: The unique identifier for the event subscription
+    get:
+      summary: Get an event subscription
+      tags:
+        - read
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - type: object
+                    properties:
+                      id:
+                        type: string
+                        description: Unique identifier for the event
+                      lastModified:
+                        type: string
+                        description: Last modified timestamp
+                        format: date-time
+                    required:
+                      - id
+                      - lastModified
+                  - $ref: ../models/api/EventSubscription.yaml
+      operationId: get-webhooks-id
+      description: Get current configuration for an event subscription
+    put:
+      summary: Update an event subscription
+      operationId: put-webhooks-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../models/api/ResponseStatus.yaml
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: ../models/api/ResponseStatus.yaml
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: ../models/api/ResponseStatus.yaml
+      description: Update an existing event subscription to a different set of settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/api/EventSubscription.yaml
+        description: The new settings for the event subscription
+      tags:
+        - update
+    delete:
+      summary: Delete an event subscription
+      operationId: delete-webhooks-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../models/api/ResponseStatus.yaml
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: ../models/api/ResponseStatus.yaml
+      description: Delete an event subscription
+      tags:
+        - delete
+  /wh-subscription-example:
+    post:
+      summary: An example endpoint for webhook subscribers
+      operationId: post-wh-subscription-example
+      responses:
+        '200':
+          description: OK
+      description: This endpoint describes the payloads that webhook subscribers should expect to receive
+      tags:
+        - example
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/api/EventData.yaml
+        description: The event payload
 components:
-  schemas:
-    HierarchyElementData:
-      title: HierarchyElementData
-      description: Represents an API data exchange model with any of the `Place` hierarchy types
-      oneOf:
-        - $ref: ../models/place/hierarchy/Campus.yaml
-        - $ref: ../models/place/hierarchy/Place.yaml
-        - $ref: ../models/place/hierarchy/HierarchyElement.yaml
-        - $ref: ../models/place/hierarchy/IdentifiedArea.yaml
-        - $ref: ../models/place/hierarchy/Space.yaml
-    DeletedReference:
-      title: DeletedReference
-      type: object
-      properties:
-        id:
-          type: string
-        className:
-          type: string
-          pattern: '^([A-Z][a-z0-9]+)+'
-        deleteTimestamp:
-          type: string
-          format: date-time
-          description: The instant when the reference was deleted
-      required:
-        - deleteTimestamp
-        - id
-        - className
-      description: 'A reference to a deleted identifiable managed object where the identifier is unique. It is described by a string identifying the class of the referenced object (key name) with a unique string identifier as its value, and the deletion instant.'
-    PaginatedListMeta:
-      title: PaginatedListMeta
-      type: object
-      description: Metadata for paginated list of results for Listing APIs
-      properties:
-        meta:
-          type: object
-          required:
-            - referenceInstant
-            - offset
-            - pageSize
-            - total
-          properties:
-            referenceInstant:
-              type: integer
-              description: 'Allows a consistent view of data across multiple paged requests. Unix epoch time to be used as reference for offset > 0 (corresponds to query instant, as returned by server on first call) - should be the same for all pages'
-              minimum: 0
-            offset:
-              type: integer
-              minimum: 0
-              description: Index of the first item returned in the page
-            pageSize:
-              type: integer
-              description: Maximum number of items that can be returned per page
-              minimum: 0
-            total:
-              type: integer
-              description: Total number of items contained in all pages
-              minimum: 0
-        deletedReferences:
-          type: array
-          description: 'This attribute will returned when the `modified_since` query parameter is used. It will contain references to deleted resources since the provided instant, that would have otherwise been included in the dataset (either at the top-level or as associated objects)'
-          items:
-            $ref: '#/components/schemas/DeletedReference'
-      required:
-        - meta
-    ResponseStatus:
-      title: ResponseStatus
-      type: object
-      description: 'Codifies responses following some creation, update or delete operation'
-      required:
-        - status
-      properties:
-        status:
-          type: string
-          enum:
-            - ok
-            - error
-          description: Type of status
-        code:
-          type: integer
-          description: Same numbering and semantics as HTTP status codes
-        message:
-          type: string
-          description: Descriptive message for error statuses
+  schemas: {}
   parameters:
     lat:
       schema:

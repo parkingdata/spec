@@ -9,10 +9,13 @@ x-tags:
 properties:
   className:
     type: string
-    description: 'The property should be the class name of the referenced object (e.g. "UKNumberPlate") in PascalCase, and the value should be the unique identifier within that class (e.g. "LA51ABC")'
+    description: The class name of the referenced object in PascalCase
+    example: UKNumberPlate
     minLength: 1
   id:
     type: string
+    description: 'The unique identifier within the given class '
+    example: LA51ABC
 required:
   - className
   - id

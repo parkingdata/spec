@@ -1,0 +1,31 @@
+title: EventData
+type: object
+description: "Describes the data payload that an event subscriber should expect to receive. \n\nEvent data can be grouped into a single event publication, if they share the same topic and instant of ocurrence. This allows both publishers and subscribers to improve their communication efficiency when mass-updates occur."
+properties:
+  data:
+    type: array
+    description: The fully expanded object about which this event is referring to
+    minItems: 1
+    items:
+      oneOf:
+        - $ref: ./HierarchyElementData.yaml
+        - $ref: ../right/RightSpecification.yaml
+        - $ref: ../right/AssignedRight.yaml
+        - $ref: ../session/Session.yaml
+        - $ref: ../rate/RateTable.yaml
+  eventSubscriptionId:
+    type: string
+    description: The unique identifier for the event subscription that triggered this event
+  eventTime:
+    type: string
+    description: When the event ocurred in the source system
+    format: date-time
+  topic:
+    $ref: ./EventTypeEnum.yaml
+required:
+  - data
+  - eventSubscriptionId
+  - eventTime
+  - topic
+x-tags:
+  - api

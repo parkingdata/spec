@@ -1,0 +1,44 @@
+type: string
+title: EventTypeEnum
+description: |-
+  Describes the possible types of event subscriptions
+
+  Supported event types:
+
+  - `place:create`: A child place hierarchy element was created
+  - `place:update`: A place hierarchy element was updated
+  - `place:delete`: A place hierarchy element was deleted
+  - `assigned_right:create`: An assigned right was created at any of scoped place hierarchy elements
+  - `assigned_right:update`: An assigned right was updated at any of scoped place hierarchy elements
+  - `assigned_right:delete`: An assigned right was deleted at any of scoped place hierarchy elements
+  - `session:create`: A session was created at any of scoped place hierarchy elements
+  - `session:update`: A session was updated at any of scoped place hierarchy elements
+  - `session:delete`: A session was deleted at any of scoped place hierarchy elements
+  - `observation:create`: An observation was created at any of scoped place hierarchy elements
+  - `observation:update`: An observation was updated at any of scoped place hierarchy elements
+  - `observation:delete`: An observation was deleted at any of scoped place hierarchy elements
+  - `right_specification:create`: A right specification was created and associated with any of scoped place hierarchy elements
+  - `right_specification:update`: A right specification associated with any of scoped place hierarchy elements was updated
+  - `right_specification:delete`: A right specification associated with any of scoped place hierarchy elements was deleted
+  - `rate_table:update`: A rate table associated with a right specification in turn associated with any of scoped place hierarchy elements was updated
+  - `rate_table:delete`: A rate table associated with a right specification in turn associated with any of scoped place hierarchy elements was updated
+enum:
+  - 'place:create'
+  - 'place:update'
+  - 'place:delete'
+  - 'assigned_right:create'
+  - 'assigned_right:update'
+  - 'assigned_right:delete'
+  - 'session:create'
+  - 'session:update'
+  - 'session:delete'
+  - 'observation:create'
+  - 'observation:update'
+  - 'observation:delete'
+  - 'right_specification:create'
+  - 'right_specification:update'
+  - 'right_specification:delete'
+  - 'rate_table:update'
+  - 'rate_table:delete'
+x-tags:
+  - api
