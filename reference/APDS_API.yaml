@@ -1495,11 +1495,13 @@ components:
     assigned_expand:
       schema:
         type: array
-        enum:
-          - all
-          - none
-          - plannedUses
-          - assignedRightIssuer
+        items: 
+          type: string
+          enum:
+            - all
+            - none
+            - plannedUses
+            - assignedRightIssuer
       description: Comma-separated list of optional object attributes associated to an `AssignedRight` that should be included in the result set
       name: expand
       in: query
@@ -1515,13 +1517,15 @@ components:
     specs_expand:
       schema:
         type: array
-        enum:
-          - all
-          - none
-          - rateEligibility
-          - validity
-          - credentials
-          - rightPools
+        items: 
+          type: string
+          enum:
+            - all
+            - none
+            - rateEligibility
+            - validity
+            - credentials
+            - rightPools
       description: Comma-separated list of optional object attributes associated to an `RightSpecification` that should be included in the result set
       name: expand
       in: query
@@ -1538,19 +1542,21 @@ components:
     places_expand:
       schema:
         type: array
-        enum:
-          - all
-          - none
-          - rightSpecifications
-          - occupancy
-          - areaLocation
-          - pointLocation
-          - contacts
-          - operatingRestrictions
-          - characteristics
-          - paymentMethods
-          - openingTimes
-          - streetAddress
+        items: 
+          type: string
+          enum:
+            - all
+            - none
+            - rightSpecifications
+            - occupancy
+            - areaLocation
+            - pointLocation
+            - contacts
+            - operatingRestrictions
+            - characteristics
+            - paymentMethods
+            - openingTimes
+            - streetAddress
       description: Comma-separated list of optional object attributes associated to a `Place` hierarchy element that should be included in the result set
       name: expand
       in: query
@@ -1591,11 +1597,13 @@ components:
     rates_expand:
       schema:
         type: array
-        enum:
-          - all
-          - none
-          - rateLineCollections
-          - rateLineCollections.rateLines
+        items: 
+          type: string
+          enum:
+            - all
+            - none
+            - rateLineCollections
+            - rateLineCollections.rateLines
       style: form
       explode: false
       description: Comma-separated list of optional object attributes associated to a `RateTable` that should be included in the result set
@@ -1664,15 +1672,17 @@ components:
     sessions_expand:
       schema:
         type: array
-        enum:
-          - all
-          - none
-          - credentials
-          - segments
-          - segments.financialTransactions
-          - segments.space
-          - segments.assignedRight
-          - vehicleAncilliaryIdentification
+        items: 
+          type: string
+          enum:
+            - all
+            - none
+            - credentials
+            - segments
+            - segments.financialTransactions
+            - segments.space
+            - segments.assignedRight
+            - vehicleAncilliaryIdentification
       description: Comma-separated list of optional object attributes associated to an `Session` (or `Segment`) that should be included in the result set
       name: expand
       in: query
@@ -1681,12 +1691,14 @@ components:
     observations_expand:
       schema:
         type: array
-        enum:
-          - all
-          - none
-          - images
-          - hierarchyElement
-          - vehicleAncilliaryIdentification
+        items: 
+          type: string
+          enum:
+            - all
+            - none
+            - images
+            - hierarchyElement
+            - vehicleAncilliaryIdentification
       description: Comma-separated list of optional object attributes associated to an `Observation` that should be included in the result set
       name: expand
       in: query
