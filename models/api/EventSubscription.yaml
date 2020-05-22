@@ -1,6 +1,8 @@
 title: EventSubscription
 type: object
 description: "Describes a subscription, which is composed of:\n\n* A list of event `topics` to subscribe (see list below for meaning)\n* A destination `endpoint` to be notified when that event occurs in the source system\n* A list of hierarchyElements where those events might occur. \n* An option to choose to receive events ocurring only directly at the given hierarchyElements or if those occurring at any children elements as well should be included as well. Default is not to include children events"
+x-tags:
+  - api
 properties:
   includeChildrenEvents:
     type: boolean
@@ -17,6 +19,7 @@ properties:
     type: string
     format: uri
     description: API endpoint expecting JSON POST messages with payloads corresponding to the type of event
+    example: 'https://myapi.com/apds-events'
   topics:
     type: array
     description: The event topic (must be one of the supported enumeration options)
@@ -27,5 +30,3 @@ properties:
 required:
   - endpoint
   - topics
-x-tags:
-  - api
