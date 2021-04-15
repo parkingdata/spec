@@ -1,0 +1,14 @@
+type: string
+title: VehicleToGridCommunicationTypeEnum
+description: |
+  * `iec619802`: Communication according to IEC 61980-2.
+  * `iso15118`: Communication according to ISO15118.
+  * `none`: No communication between vehicle and the grid.
+  * `other`: Communication according to other guidelines/specifications.
+  * `unknown`: The type of communication is unknown.
+enum:
+  - iec619802
+  - iso15118
+  - none
+  - other
+  - unknown

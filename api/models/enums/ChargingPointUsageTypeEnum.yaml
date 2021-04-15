@@ -1,0 +1,18 @@
+type: string
+title: ChargingPointUsageTypeEnum
+description: |-
+  Type of usage for an electric charging point
+
+  * `electricalDevices`: Provides a plug for electrical devices (e.g. shaver, mobile phones, hair dryer, ...)
+  * `electricBikeOrMotorcycle`: Charging of E-Bikes or E-Motorcycles.
+  * `electricVehicle`: Charging of electric vehicles.
+  * `lorryPowerConsumption`: Supply for lorries with power consumption, e.g. for refrigerated goods transports.
+  * `motorhomeOrCaravanSupply`: Supply for motorhomes or caravans.
+  * `other`: Other usage for the electric charging stations.
+enum:
+  - electricalDevices
+  - electricBikeOrMotorcycle
+  - electricVehicle
+  - lorryPowerConsumption
+  - motorhomeOrCaravanSupply
+  - other
