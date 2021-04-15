@@ -1,0 +1,22 @@
+title: UserDefinedCodeList
+type: object
+description: Class providing structure to support a user-defined code list.
+properties:
+  creator:
+    $ref: ../common/VersionedReference.yaml
+  includeNilReasonType:
+    type: string
+    description: 'Boolean: [TRUE] indicates the NilReasonType list shall be included in this user defined code list.'
+  locator:
+    $ref: ../common/Url.yaml
+  userDefinedCodeListEntries:
+    type: array
+    minItems: 1
+    description: User defined code list entries
+    items:
+      $ref: ./UserDefinedCodeListEntry.yaml
+required:
+  - creator
+  - includeNilReasonType
+  - locator
+  - userDefinedCodeListEntries
