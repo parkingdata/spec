@@ -1,0 +1,13 @@
+title: Currency
+type: object
+description: A class supporting the definition of a unit of currency in a defined currency.
+properties:
+  currencyUsed:
+    $ref: ./CurrencyCode.yaml
+  monetaryAmount:
+    type: number
+    description: The amount of currency specified in the given currency code type.
+    format: float
+required:
+  - currencyUsed
+  - monetaryAmount
