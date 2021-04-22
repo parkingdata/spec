@@ -15,3 +15,7 @@ allOf:
         description: Criteria to be eligible
         items:
           $ref: ./Qualification.yaml
+      rightHolders:
+        type: array
+        items:
+          $ref: ../right/RightHolder.yaml

@@ -1,0 +1,8 @@
+title: OccupancyLevel
+type: object
+description: Defines an occupancy level as specified by the data supplier.
+properties:
+  occupancyIndicator:
+    $ref: ../code_lists/ReferencedCodeListEntry.yaml
+required:
+  - occupancyIndicator

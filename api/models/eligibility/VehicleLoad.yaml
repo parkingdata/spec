@@ -1,0 +1,6 @@
+title: VehicleLoad
+type: object
+properties:
+  id:
+    type: string
+description: Class defining load types carried by vehicles
