@@ -1,0 +1,70 @@
+type: string
+title: ServiceFacilityTypeEnum
+enum:
+  - bikeGarage
+  - bikeSharing
+  - cafe
+  - carWash
+  - docstop
+  - foodShopping
+  - hotel
+  - kiosk
+  - laundry
+  - leisureActivities
+  - medicalFacility
+  - motel
+  - motorcycleGarage
+  - motorwayRestaurant
+  - motorwayRestaurantSmall
+  - other
+  - overnightAccommodation
+  - payDesk
+  - petrolStation
+  - pharmacy
+  - police
+  - restaurant
+  - restaurantSelfService
+  - shop
+  - snackBar
+  - sparePartsShopping
+  - touristInformation
+  - truckRepair
+  - truckWash
+  - tyreRepair
+  - unknown
+  - vehicleMaintenance
+description: |
+  A service facility. In distinction to equipment, a service is usually manned.
+
+  * `bikeGarage`: A place where bikes are repaired.
+  * `bikeSharing`: Bike Sharing.
+  * `cafe`: Cafe.
+  * `carWash`: Car wash.
+  * `docstop`: The site is part of the Docstop project, http://www.docstoponline.eu, which means medical assistance for professional drivers.
+  * `foodShopping`: Food shopping.
+  * `hotel`: A hotel.
+  * `kiosk`: Kiosk.
+  * `laundry`: A possibility for washing clothes (might also be a laundromat with coins).
+  * `leisureActivities`: There are leisure activities offered on the site or in the very near surrounding. Use the additional description attribute to give details.
+  * `medicalFacility`: Medical facility.
+  * `motel`: Hotel located aside a motorway.
+  * `motorcycleGarage`: A place where motorcycles are repaired.
+  * `motorwayRestaurant`: Restaurant located on a motorway rest area.
+  * `motorwayRestaurantSmall`: Smaller type of restaurant located on a motorway rest area. Might be with limited offers.
+  * `other`: Some other service facility. Use 'otherEquipmentOrServiceFacility' to specify it.
+  * `overnightAccommodation`: An accommodation to stay overnight.
+  * `payDesk`: A manned possibility to pay.
+  * `petrolStation`: Indicates whether it is possible to get petrol.
+  * `pharmacy`: Pharmacy.
+  * `police`: Indicates whether a police station is on site or very close.
+  * `restaurant`: Restaurant.
+  * `restaurantSelfService`: A restaurant where people arrange and fetch their meal themselves, this might enclose a buffet.
+  * `shop`: A shop of unspecified kind.
+  * `snackBar`: A snack bar.
+  * `sparePartsShopping`: Spare parts shopping.
+  * `touristInformation`: Tourist information with employees.
+  * `truckRepair`: Truck repair.
+  * `truckWash`: Truck wash.
+  * `tyreRepair`: A tyre repair service.
+  * `unknown`: Unknown.
+  * `vehicleMaintenance`: Garage repair service.

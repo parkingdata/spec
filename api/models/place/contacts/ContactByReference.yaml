@@ -1,10 +1,12 @@
 title: ContactByReference
-type: object
 description: Contact information that is addressed via a reference.
 x-tags:
   - places
-properties:
-  contactReference:
-    $ref: ../../common/VersionedReference.yaml
-required:
-  - contactReference
+allOf:
+  - type: object
+    properties:
+      contactReference:
+        $ref: ../../common/VersionedReference.yaml
+    required:
+      - contactReference
+  - $ref: ./Contact.yaml
