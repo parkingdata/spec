@@ -6,3 +6,5 @@ x-tags:
 properties:
   contactReference:
     $ref: ../../common/VersionedReference.yaml
+required:
+  - contactReference

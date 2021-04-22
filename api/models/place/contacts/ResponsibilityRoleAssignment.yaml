@@ -1,0 +1,12 @@
+title: ResponsibilityRoleAssignment
+type: object
+description: 'The assignment of one or more roles to an ORGANISATION regarding the responsbility it will have regarding the identified Place (e.g. owner, operators, etc.)'
+properties:
+  type:
+    $ref: ../../enums/ContactTypeEnum.yaml
+  contactPoints:
+    type: array
+    items:
+      $ref: ./ContactPoint.yaml
+required:
+  - type

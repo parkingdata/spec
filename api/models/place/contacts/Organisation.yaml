@@ -1,0 +1,27 @@
+title: Organisation
+type: object
+description: 'A legally incorporated body (e.g. company, business, government entity)'
+properties:
+  linkToGeneralInformation:
+    $ref: ../../common/Url.yaml
+  linkToLogo:
+    $ref: ../../common/Url.yaml
+  name:
+    type: string
+    description: Name of the organisation or service.
+  shortName:
+    type: string
+    description: 'Supplier-defined short abbreviated name for the organisation or service. '
+  tradingName:
+    type: string
+    description: Trading or brand name for organisation or service
+  validFromDate:
+    type: string
+    format: date
+    description: Date from which this organisation instance is considered to be valid
+  validToDate:
+    type: string
+    description: Date to which this organisation instance is considered to be valid
+    format: date
+required:
+  - name
