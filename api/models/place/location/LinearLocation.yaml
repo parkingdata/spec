@@ -1,0 +1,4 @@
+title: LinearLocation
+oneOf:
+  - $ref: ./GeoJsonLineString.yaml
+description: 'Describes linear locations (eg. stretches of road). Only GeoJSON supported in this document, but should be extended to support OpenLr and GML, as per the APDS documentation'

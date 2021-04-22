@@ -1,0 +1,10 @@
+title: GeoJsonLineString
+allOf:
+  - $ref: ./GeoJsonGeometry.yaml
+  - type: object
+    properties:
+      coordinates:
+        type: array
+        minItems: 2
+        items:
+          $ref: ./GeoJsonPoint2D.yaml

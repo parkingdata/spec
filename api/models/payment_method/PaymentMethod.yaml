@@ -1,14 +1,9 @@
 title: PaymentMethod
-type: object
 x-tags:
   - payment_method
 description: Provides information on the means of payment available
+type: object
 properties:
-  freeToPark:
-    type: boolean
-    description: |-
-      Specific parking is free or not. [TRUE] =
-      free to park
   paymentMeans:
     type: array
     description: The means of payment available
@@ -21,8 +16,14 @@ properties:
       mobility related payment
     items:
       $ref: ../enums/PaymentTimingEnum.yaml
-  brandsAccepted:
+  brandsAcceptedCodeList:
     type: array
-    description: List of accepted brands for payment cards
+    description: List of accepted brands for payment cards (by code)
     items:
-      type: string
+      $ref: ./BrandsAcceptedCodeList.yaml
+  brandsAcceptedText:
+    type: array
+    description: |
+      List of accepted brands for payment cards (by name)
+    items:
+      $ref: ./BrandsAcceptedText.yaml

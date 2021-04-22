@@ -43,11 +43,14 @@ allOf:
         $ref: ../common/VersionedIdentity.yaml
       vehicleAncilliaryIdentification:
         $ref: ../common/VehicleAncilliaryIdentification.yaml
+      observerOrganisation:
+        $ref: ../common/VersionedReference.yaml
     required:
       - method
       - observationStartTime
       - creationDateTime
       - location
+      - observerOrganisation
 description: |-
   A specific collection of observation details intended to be used for
   one specific observation instance.

@@ -1,0 +1,8 @@
+title: BrandsAcceptedCodeList
+type: object
+description: Use this class to describe details of the brands that are accepted.
+properties:
+  brandsAcceptedList:
+    $ref: ../code_lists/ReferencedCodeListEntry.yaml
+required:
+  - brandsAcceptedList
