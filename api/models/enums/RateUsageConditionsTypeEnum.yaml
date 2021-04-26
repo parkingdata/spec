@@ -1,0 +1,14 @@
+type: string
+title: RateUsageConditionsTypeEnum
+description: |
+  A list of supported rate usage condition types.
+
+  * `fixedDuration`: Fixed duration - check Rate Usage Duration Limitation field
+  * `fixedNumber`: check Rate Usage Count Limitation field
+  * `once`: Permit can be used once
+  * `unlimited`: Unlimited usage.
+enum:
+  - fixedDuration
+  - fixedNumber
+  - once
+  - unlimited

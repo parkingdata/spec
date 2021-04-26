@@ -19,20 +19,6 @@ properties:
     $ref: ../common/Duration.yaml
   maxTime:
     $ref: ../common/Duration.yaml
-  minValue:
-    type: number
-    description: |-
-      FIXME: The minimum monetary amount to be
-      applied in conjunction with use of this rate
-      line collection.
-    format: float
-  maxValue:
-    type: number
-    description: |-
-      FIXME: The maximum monetary amount to be
-      applied in conjunction with use of this rate
-      line collection.
-    format: float
   minValueCollection:
     type: number
     description: |-

@@ -47,12 +47,7 @@ allOf:
       availability:
         $ref: ../enums/RateAvailabilityTypeEnum.yaml
       rateResponsibleParty:
-        type: string
-        description: |-
-          Entity responsible for fee collection.
-          Identifies the entity that actually collects
-          payment (e.g. mobile payment provider,
-          online reservation firm, on-site operations)
+        $ref: ../common/VersionedReference.yaml
       rateSupersedeLink:
         type: string
         description: |-
@@ -67,6 +62,8 @@ allOf:
           anyOf:
             - $ref: ./RateLineCollection.yaml
             - $ref: ./RelativeTimeRates.yaml
+      additionalInformation:
+        $ref: ../common/Url.yaml
     required:
       - rateTableName
       - validityStart
