@@ -1,0 +1,13 @@
+title: QuoteExpiration
+type: object
+description: Class defining conditions indicating the end of the validity of a Quote
+properties:
+  expiresDateTime:
+    type: string
+    format: date-time
+    description: 'defines a specific date/time that the Option and thus the FinancialQuote is valid '
+  firstComeFirstServed:
+    type: boolean
+    description: 'a Boolean value shows that the availability of an Option and thus FinancialQuote are available to the requester on a first come first served basis, with no assurance that the advertised RightSpecification will be available based on actual demand'
+required:
+  - firstComeFirstServed

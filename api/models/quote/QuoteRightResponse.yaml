@@ -1,0 +1,36 @@
+title: QuoteRightResponse
+description: class containing data to support response to request for quote for a new transaction
+allOf:
+  - $ref: ../common/VersionedIdentity.yaml
+  - type: object
+    properties:
+      start:
+        type: string
+        description: date/time for the start of the proposed new transaction
+        format: date-time
+      end:
+        type: string
+        description: date/time for the end of the proposed new transaction
+        format: date-time
+      requestTime:
+        type: string
+        description: date/time at which the request for a quote was recorded/registered by the supplier
+        format: date-time
+      reason:
+        $ref: ../enums/ResponseReasonEnum.yaml
+      quoteRequestId:
+        $ref: ../common/VersionedReference.yaml
+      responseTime:
+        description: date/time at which the response is made by the supplier
+        format: date-time
+        type: string
+      options:
+        type: array
+        items:
+          $ref: ./Option.yaml
+    required:
+      - start
+      - end
+      - requestTime
+      - quoteRequestId
+      - responseTime

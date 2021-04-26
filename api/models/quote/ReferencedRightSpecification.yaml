@@ -1,0 +1,10 @@
+title: ReferencedRightSpecification
+type: object
+description: class to support reference to a RightSpecification
+properties:
+  elementId:
+    $ref: ../common/VersionedReference.yaml
+  rightSpecificationId:
+    $ref: ../common/VersionedReference.yaml
+required:
+  - rightSpecificationId

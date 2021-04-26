@@ -1,0 +1,11 @@
+title: Identifiers
+type: object
+description: Class containing information referencing one rateTable and one related rightSpecification
+properties:
+  rateTableId:
+    $ref: ../common/VersionedReference.yaml
+  rightSpecificationId:
+    $ref: ../common/VersionedReference.yaml
+required:
+  - rateTableId
+  - rightSpecificationId

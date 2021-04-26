@@ -1,0 +1,16 @@
+type: string
+title: ResponseReasonEnum
+description: |
+  A list of supported reasons if a requested quote response is not provided
+
+  * `eligibilityRequirementNotMet`: a stated eligibility requirement is not considered to be met
+  * `noAvailability`: No availability for request
+  * `noMatchingSpecification`: No matching rights specification found
+  * `other`: other reason (reason not given)
+  * `rightSpecificationNotAvailableAtRequestedTimes`: the requested specification is not available at the requested time
+enum:
+  - eligibilityRequirementNotMet
+  - noAvailability
+  - noMatchingSpecification
+  - other
+  - rightSpecificationNotAvailableAtRequestedTimes

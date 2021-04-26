@@ -1,0 +1,12 @@
+type: string
+title: QuoteRightResponseExtensionReasonEnum
+description: |
+  A list of supported reasons if a requested session extension request is not provided
+
+  * `existingSessionNotFound`: Error – the existing session referenced is not found
+  * `incorrectCredentialsSupplied`: Error – credential details supplied are incorrect
+  * `noExtensionPossible`: Error – the requested extension is not possible
+enum:
+  - existingSessionNotFound
+  - incorrectCredentialsSupplied
+  - noExtensionPossible
