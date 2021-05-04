@@ -1,0 +1,18 @@
+type: string
+title: ReservationTypeEnum
+enum:
+  - mandatory
+  - notAvailable
+  - optional
+  - partly
+  - unknown
+  - unspecified
+description: |-
+  Different types of reservation.
+
+  * `mandatory`: Reservation is mandatory.
+  * `notAvailable`: Reservation is not possible.
+  * `optional`: Reservation is optional.
+  * `partly`: There is a specific contingent, that can be reserved.
+  * `unknown`: Possibility of reservation is unknown,
+  * `unspecified`: Possibility of reservation is not specified.

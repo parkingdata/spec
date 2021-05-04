@@ -60,6 +60,13 @@ allOf:
         description: Planned future uses of this `AssignedRight`
         items:
           $ref: ./PlannedUse.yaml
+      payments:
+        type: array
+        description: Payments made for this AssignedRight
+        items:
+          $ref: ./Payment.yaml
+      monetaryValue:
+        $ref: ./MonetaryValue.yaml
     required:
       - rightHolder
       - rightSpecification

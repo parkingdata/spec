@@ -1,0 +1,14 @@
+type: string
+title: ConnectorFormatTypeEnum
+description: |
+  A list of cable types used during the charging process.
+
+  * `cableMode2`: The connector is an attached cable; the EV users car needs to have a fitting inlet for a mode 2 cable, common for most domestic sockets
+  * `cableMode3`: The connector is an attached cable; the EV users car needs to have a fitting inlet for a mode 3 cable, can be used for Type 1 and Type 2 sockets.
+  * `otherCable`: The connector is an attached cable; the EV users car needs to have a fitting inlet.
+  * `socket`: The connector is a socket; the EV user needs to bring a fitting plug
+enum:
+  - cableMode2
+  - cableMode3
+  - otherCable
+  - socket

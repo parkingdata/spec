@@ -1,0 +1,26 @@
+type: string
+title: PaymentBrandsEnum
+enum:
+  - americanExpress
+  - applePay
+  - cirrus
+  - dinersClub
+  - discoverCard
+  - giroCard
+  - maestro
+  - masterCard
+  - other
+  - visa
+  - vpay
+description: |-
+  * `americanExpress`: American express
+  * `applePay`: Apple pay
+  * `cirrus`: Cirrus
+  * `dinersClub`: Diners club
+  * `discoverCard`: Discover card
+  * `giroCard`: Giro card
+  * `maestro`: Maestro
+  * `masterCard`: Master card
+  * `other`: Other
+  * `visa`: Visa
+  * `vpay`: Vpay

@@ -1,37 +1,37 @@
 title: ElectricChargingPoint
-type: object
 description: A charging point for electric vehicles (EV).
-properties:
-  chargingPower:
-    type: array
-    description: Possible degrees of charging power in Watts.
-    items:
-      $ref: ../common/Watt.yaml
-  chargingSolutionMode:
-    $ref: ../enums/ChargingSolutionModeEnum.yaml
-  externalIdentifier:
-    type: string
-    description: A unique string to identify the charging point.
-  greenEnergyPercentage:
-    type: number
-    format: float
-    minimum: 0
-    maximum: 100
-    description: To be indicated as percentage of green energy
-  maximumCurrent:
-    $ref: ../common/Ampere.yaml
-  usageType:
-    type: array
-    description: Usage type of the electric charging point.
-    items:
-      $ref: ../enums/ChargingPointUsageTypeEnum.yaml
-  vehicleToGridCommunicationType:
-    type: array
-    description: Type of vehicle to grid communication used
-    items:
-      $ref: ../enums/VehicleToGridCommunicationTypeEnum.yaml
-  voltage:
-    type: array
-    description: Possible degrees of voltage
-    items:
-      $ref: ../common/Volt.yaml
+allOf:
+  - type: object
+    properties:
+      availableChargingPower:
+        type: array
+        description: Possible degrees of charging power in Watts.
+        items:
+          $ref: ../common/Watt.yaml
+      externalIdentifier:
+        type: string
+        description: A unique string to identify the charging point.
+      usageType:
+        type: array
+        description: Usage type of the electric charging point.
+        items:
+          $ref: ../enums/ChargingPointUsageTypeEnum.yaml
+      vehicleToGridCommunicationType:
+        type: array
+        description: Type of vehicle to grid communication used
+        items:
+          $ref: ../enums/VehicleToGridCommunicationTypeEnum.yaml
+      availableVoltage:
+        type: array
+        description: Possible degrees of voltage
+        items:
+          $ref: ../common/Volt.yaml
+      connectors:
+        type: array
+        minItems: 1
+        description: Specify the connector(s).
+        items:
+          $ref: ./Connector.yaml
+    required:
+      - connectors
+  - $ref: ./RefillPoint.yaml

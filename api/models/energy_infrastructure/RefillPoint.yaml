@@ -1,0 +1,39 @@
+title: RefillPoint
+type: object
+description: Technical infrastructure at a specific location that facilitates an energy refilling process being connected to max. one vehicle at a time
+properties:
+  authenticationAndIdentificationMethods:
+    type: array
+    description: Information on what methods of identification and/or authentication are accepted
+    items:
+      $ref: ../enums/AuthenticationAndIdentificationEnum.yaml
+  currencyOverride:
+    type: array
+    description: Information on which currency/currencies can be used to pay
+    items:
+      $ref: ../common/CurrencyCode.yaml
+  deliveryUnit:
+    $ref: ../enums/DeliveryUnitEnum.yaml
+  maximumDeliveryAmount:
+    $ref: ../common/Units.yaml
+  minimumDeliveryAmount:
+    $ref: ../common/Units.yaml
+  modelType:
+    $ref: ../common/MultilingualString.yaml
+  refillPointIndex:
+    type: integer
+    description: An index to link this element between the static and dynamic publications.
+  reservability:
+    $ref: ../enums/ReservationTypeEnum.yaml
+  serviceType:
+    type: array
+    description: Information on different service types for the fuelling/charging and payment process.
+    items:
+      $ref: ../enums/ServiceTypeEnum.yaml
+  userInterfaceLanguage:
+    type: array
+    description: 'Languages, in which a user interface is available, if any'
+    items:
+      $ref: ../common/LanguageCode.yaml
+required:
+  - refillPointIndex

@@ -1,0 +1,14 @@
+type: string
+title: UserGroupEnum
+enum:
+  - disabled
+  - employees
+  - seniors
+  - students
+  - tourists
+description: |-
+  * `disabled`: class of user identified as disabled or handicapped travellers. Local defiinitions may apply
+  * `employees`: class of user identified as employees associated with the Place. Local defiinitions may apply
+  * `seniors`: class of user identified as senior citizens. Local defiinitions may apply
+  * `students`: class of user identified as registered students. Local defiinitions may apply
+  * `tourists`: class of user identified as tourists (non-local users) associated with the Place. Local defiinitions may apply

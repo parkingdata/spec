@@ -1,6 +1,8 @@
 title: VehicleType
 type: object
-properties:
-  id:
-    type: string
 description: Class supporting the definition of user group characteristics
+properties:
+  vehicleType:
+    $ref: ../code_lists/ReferencedCodeListEntry.yaml
+required:
+  - vehicleType

@@ -2,9 +2,11 @@ title: HierarchyElementData
 oneOf:
   - $ref: ../place/hierarchy/Campus.yaml
   - $ref: ../place/hierarchy/Place.yaml
-  - $ref: ../place/hierarchy/HierarchyElement.yaml
+  - $ref: ../place/hierarchy/SubplaceElement.yaml
   - $ref: ../place/hierarchy/IdentifiedArea.yaml
   - $ref: ../place/hierarchy/Space.yaml
+  - $ref: ../place/hierarchy/SupplementalEquipment.yaml
+  - $ref: ../place/hierarchy/SupplementalServiceFacility.yaml
 description: Represents an API data exchange model with any of the `Place` hierarchy types
 x-tags:
   - api

@@ -85,3 +85,9 @@ properties:
   freeToPark:
     type: boolean
     description: 'specific parking is free or not. [TRUE] = free to park'
+  vehicleTypes:
+    type: array
+    description: |
+      The types of vehicles that qualify
+    items:
+      $ref: ./VehicleType.yaml

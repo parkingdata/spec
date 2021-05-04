@@ -1,0 +1,22 @@
+title: Road
+type: object
+description: 'Identification of a road by its name,identifier,type ...'
+properties:
+  distanceToThisRoad:
+    $ref: ../../common/LinearDimension.yaml
+  nameOfRoad:
+    $ref: ../../common/MultilingualString.yaml
+  roadDestination:
+    type: array
+    description: 'Name of some city, area, compass direction or other identification the road is leading to (to determine the direction in question).'
+    items:
+      $ref: ../../common/MultilingualString.yaml
+  roadIdentifier:
+    $ref: ../../common/MultilingualString.yaml
+  roadOrigination:
+    type: array
+    description: 'Name of some city, area, compass direction or other identification this road comes from.'
+    items:
+      $ref: ../../common/MultilingualString.yaml
+  typeOfRoad:
+    $ref: ../../enums/RoadTypeEnum.yaml

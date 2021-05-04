@@ -1,0 +1,10 @@
+type: string
+title: HeightGradeEnum
+enum:
+  - aboveGrade
+  - atGrade
+  - belowGrade
+description: |-
+  * `aboveGrade`: Above or over the normal road grade elevation.
+  * `atGrade`: At the normal road grade elevation.
+  * `belowGrade`: Below or under the normal road grade elevation.

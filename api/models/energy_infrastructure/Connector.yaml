@@ -1,0 +1,27 @@
+title: Connector
+type: object
+description: Parameters and description of an interface that is available at the given electric charging point to connect vehicles
+properties:
+  chargingMode:
+    $ref: ../enums/ChargingModeEnum.yaml
+  connectorFormat:
+    $ref: ../enums/ConnectorFormatTypeEnum.yaml
+  connectorType:
+    $ref: ../enums/ConnectorTypeEnum.yaml
+  countryOfDomesticSocket:
+    type: array
+    description: Countries for which the domestic socket is applicable. Only needed if explicit type of a domestic socket is not specified.
+    items:
+      $ref: ../common/CountryCode.yaml
+  maximumCurrent:
+    $ref: ../common/Ampere.yaml
+  maxPowerAtSocket:
+    $ref: ../common/Watt.yaml
+  otherConnector:
+    type: string
+    description: Some other connector / charging interface
+  voltage:
+    $ref: ../common/Volt.yaml
+required:
+  - connectorType
+  - maxPowerAtSocket

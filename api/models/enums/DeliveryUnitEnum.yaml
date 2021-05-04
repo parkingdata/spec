@@ -1,0 +1,20 @@
+type: string
+title: DeliveryUnitEnum
+description: |-
+  Table with different units in which the delivery is measured.
+
+  * `gasGallonEquivalent`: The amount of alternative fuel it takes to equal the energy content of one liquid gallon of gasoline. Used mostly in the US.
+  * `imperialGallon`: Imperial Gallon (4.54609 litres)
+  * `kg`: kilogram
+  * `kWh`: kilowatt hour
+  * `litre`: Litre
+  * `m3`: cubic meter
+  * `usGallon`: US-Gallon (3.785411784 litres)
+enum:
+  - gasGallonEquivalent
+  - imperialGallon
+  - kg
+  - kWh
+  - litre
+  - m3
+  - usGallon

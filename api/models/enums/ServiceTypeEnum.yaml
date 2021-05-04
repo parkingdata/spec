@@ -1,0 +1,12 @@
+type: string
+title: ServiceTypeEnum
+description: |-
+  A table of different service levels to be expected for fuelling/charging and payment.
+
+  * `fullService`: Full fuelling service carried out by an employee.
+  * `selfService`: Self Service for fuelling
+  * `unattended`: Unattended station, fuelling and payment to be done without assistance.
+enum:
+  - fullService
+  - selfService
+  - unattended

@@ -1,0 +1,24 @@
+title: Payment
+description: Lightweight record of payment for associated AssignedRight (temporary)
+allOf:
+  - $ref: ../common/VersionedIdentity.yaml
+  - type: object
+    properties:
+      dateCollected:
+        type: string
+        description: Date / time that the payment related to this financial transaction is recorded as being paid and collected
+        format: date-time
+      paymentType:
+        $ref: ../enums/PaymentTypeEnum.yaml
+      serviceProvider:
+        $ref: ../common/VersionedReference.yaml
+      taxIncluded:
+        type: boolean
+        description: 'Whether tax included in monetary value, if yes (TRUE), if not (FALSE).'
+      transactionID:
+        type: string
+        description: 'Identifier for the transaction (e.g. reservation number, credit card transaction reference) as agreed upon by the two entities sharing data.'
+    required:
+      - paymentType
+      - serviceProvider
+      - taxIncluded

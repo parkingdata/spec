@@ -1,0 +1,8 @@
+title: ReferenceQuoteNew
+type: object
+description: Class providing a versioned reference to a new quote
+properties:
+  quoteResponseId:
+    $ref: ../common/VersionedReference.yaml
+  optionId:
+    $ref: ../common/VersionedReference.yaml

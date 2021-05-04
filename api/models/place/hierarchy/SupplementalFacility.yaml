@@ -1,0 +1,48 @@
+title: SupplementalFacility
+description: One type of supplemental facility which can be supplemental equipment or a supplemental service facility.
+allOf:
+  - $ref: ./IdentifiedArea.yaml
+  - type: object
+    properties:
+      accessibilities:
+        type: array
+        description: 'Information on accessibility, easements and marking for handicapped people.'
+        items:
+          $ref: ../../enums/AccessibilityEnum.yaml
+      additionalDescription:
+        $ref: ../../common/MultilingualString.yaml
+      applicableForUsers:
+        type: array
+        description: Limitation to a set of special users.
+        items:
+          $ref: ../../enums/UserTypeEnum.yaml
+      comment:
+        $ref: ../../common/MultilingualString.yaml
+      externalIdentifiers:
+        type: array
+        description: 'An external identifier for the supplemental facility, e.g. an inventory number. This attribute has an unbounded multiplicity to support identifiers for multiple occurrences of this element.'
+        items:
+          type: string
+      nameOrBrand:
+        $ref: ../../common/MultilingualString.yaml
+      otherSupplementalFacility:
+        $ref: ''
+      photoUrl:
+        $ref: ../../common/Url.yaml
+      quantity:
+        type: integer
+        minimum: 0
+        description: 'Number of the supplemental facility (e.g. number of toilets, restaurants, park & ride places, etc.) with respect to given restrictions. Dynamic overridable.'
+      regularlyCleaned:
+        type: boolean
+        description: 'Indication, if the supplemental facility is cleaned on a regular basis.'
+      rightSpecificationIds:
+        type: array
+        description: ''
+        items:
+          $ref: ../../common/VersionedReference.yaml
+      supplementalFacilityIndex:
+        type: integer
+        description: An index to link this supplemental facility between the static and dynamic publications.
+    required:
+      - supplementalFacilityIndex

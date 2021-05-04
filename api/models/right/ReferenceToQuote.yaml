@@ -1,0 +1,5 @@
+title: ReferenceToQuote
+description: Class defining a reference to a specific Quote
+oneOf:
+  - $ref: ./ReferenceQuoteExtension.yaml
+  - $ref: ./ReferenceQuoteNew.yaml

@@ -18,12 +18,8 @@ allOf:
         format: date-time
         description: The date/time of the end of the session.
       initiator:
-        type: string
-        description: |-
-          Identification of the party initiating the
-          session.
-        minLength: 1
-      credentials:
+        $ref: ../common/VersionedReference.yaml
+      identifiedCredentials:
         type: array
         minItems: 1
         items:
@@ -35,12 +31,12 @@ allOf:
           $ref: ./Segment.yaml
       hierachyElement:
         $ref: ../common/VersionedReference.yaml
-      vehicleAncilliaryIdentification:
+      identifiedVehicle:
         $ref: ../common/VehicleAncilliaryIdentification.yaml
     required:
       - actualStart
       - initiator
-      - credentials
+      - identifiedCredentials
       - segments
 x-tags:
   - session

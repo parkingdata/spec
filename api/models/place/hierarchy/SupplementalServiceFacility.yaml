@@ -1,0 +1,18 @@
+allOf:
+  - $ref: ./SupplementalFacility.yaml
+  - type: object
+    properties:
+      distanceFromOriginFacility:
+        type: integer
+        minimum: 0
+        description: 'Approximate distance (given in metres) between this supplemental facility and some origin facility to which it is clearly related (typically a larger facility, e.g. a parking site).'
+      numberOfSubitems:
+        type: integer
+        description: 'The quantity of sub items to this service facility type, e.g. the total number of restaurant places or fuel dispensers etc.'
+        minimum: 0
+      serviceFacilityType:
+        $ref: ../../enums/ServiceFacilityTypeEnum.yaml
+    required:
+      - serviceFacilityType
+description: One type of supplemental service facility. You can specify the number of this service facility type (e.g. 5 restaurants) as well as the number of subitems (e.g. 200 restaurant places).
+title: SupplementalServiceFacility

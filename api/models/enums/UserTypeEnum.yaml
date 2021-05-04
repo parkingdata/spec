@@ -1,0 +1,44 @@
+title: UserTypeEnum
+type: object
+properties:
+  id:
+    type: string
+description: |-
+  Types of different users,for example used in the context of parking.
+
+  * `allUsers`: All users.
+  * `commuters`: Commuters.
+  * `customers`: Customers.
+  * `disabled`: Physically impaired people.
+  * `elderlyUsers`: Elderly users.
+  * `employees`: Employees.
+  * `families`: Families.
+  * `handicapped`: Persons with deficiencies in their daily life.
+  * `hearingImpaired`: People with difficulties to hear.
+  * `hotelGuests`: Hotel guests.
+  * `longTermParkers`: Long-term parker.
+  * `members`: Members.
+  * `men`: Men.
+  * `other`: Other.
+  * `overnightParkers`: Overnight parker.
+  * `parkAndCycleUser`: Park and cycle user.
+  * `parkAndRideUsers`: Users that are exchanging into public transport at a park and ride station.
+  * `parkAndWalkUser`: Park and walk user.
+  * `pensioners`: Pensioners.
+  * `pregnantWomen`: Pregnant women.
+  * `registeredDisabledUsers`: Registered disabled persons.
+  * `reservationHolders`: Those who have a valid reservation, e.g. for the duration of parking.
+  * `residents`: Local residents.
+  * `seasonTicketHolders`: Season ticket holders.
+  * `shoppers`: Shoppers.
+  * `shortTermParkers`: Short-term parker.
+  * `sportEventAwaySupporters`: Sport event away supporters.
+  * `sportEventHomeSupporters`: Sport event home supporters.
+  * `staff`: Staff.
+  * `students`: Students.
+  * `subscribers`: Subscribers.
+  * `unknown`: Unknown.
+  * `visitors`: Visitors.
+  * `visuallyImpaired`: People with difficulties to see.
+  * `wheelchairUsers`: Wheelchair users.
+  * `women`: Women.
