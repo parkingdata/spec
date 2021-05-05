@@ -58,10 +58,7 @@ paths:
                     code: 400
                     message: Missing required attributes
       operationId: create-assigned_right
-      description: |-
-        Create a new `AssignedRight` based on a given object or referencing a `Quote`
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Create a new `AssignedRight` based on a given object or referencing a `Quote`
       requestBody:
         description: This method allows an issuer to assign a parking right to a holder
         content:
@@ -104,8 +101,6 @@ paths:
         * a modification instant: to only display changed resources from that point onwards
 
         Additionally, supports providing a comma-separated list of optional object attributes associated to an `AssignedRight` that should be included in the result set. If unused or left blank, `none` will be assumed.
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
       tags:
         - list
       parameters:
@@ -179,10 +174,7 @@ paths:
                     message: Outdated version number provided
       tags:
         - delete
-      description: |-
-        Delete an existing `Assigned Right`
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Delete an existing `Assigned Right`
       requestBody:
         content:
           application/json:
@@ -235,10 +227,7 @@ paths:
                     status: error
                     code: 409
                     message: Outdated version number provided
-      description: |-
-        Update an existing `AssignedRight` based on its object or with reference to a `Quote`. If the Quote refers to a Session Extension, this request shall also update the referenced Session
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: 'Update an existing `AssignedRight` based on its object or with reference to a `Quote`. If the Quote refers to a Session Extension, this request shall also update the referenced Session'
       requestBody:
         content:
           application/json:
@@ -252,10 +241,7 @@ paths:
     get:
       summary: Get an AssignedRight
       operationId: read-assigned_right
-      description: |-
-        Get latest version of a given `AssignedRight` by its identifier (or a particular previous version when provided as a query parameter)
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Get latest version of a given `AssignedRight` by its identifier (or a particular previous version when provided as a query parameter)
       tags:
         - read
       parameters:
@@ -303,8 +289,6 @@ paths:
         * a modification instant: to only display changed resources from that point onwards
 
         Additionally, supports providing a comma-separated list of optional object attributes associated to an `RightSpecification` that should be included in the result set. If unused or left blank, `none` will be assumed.
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
       parameters:
         - $ref: '#/components/parameters/lat'
         - $ref: '#/components/parameters/long'
@@ -331,10 +315,7 @@ paths:
                 $ref: ../models/api/ResponseStatus.yaml
       tags:
         - create
-      description: |-
-        Create a new `RightSpecification`
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Create a new `RightSpecification`
       requestBody:
         content:
           application/json:
@@ -367,10 +348,7 @@ paths:
               schema:
                 $ref: ../models/api/ResponseStatus.yaml
       operationId: get-rights-specs-id
-      description: |-
-        Get latest version of a given `RightSpecification` by its identifier (or a particular previous version when provided as a query parameter)
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Get latest version of a given `RightSpecification` by its identifier (or a particular previous version when provided as a query parameter)
       parameters:
         - $ref: '#/components/parameters/version'
         - $ref: '#/components/parameters/specs_expand'
@@ -426,10 +404,7 @@ paths:
             schema:
               $ref: ../models/right/RightSpecification.yaml
         description: 'The new version of the `RightSpecification`, including only its changed attributes'
-      description: |-
-        Update an existing `RightSpecification`
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Update an existing `RightSpecification`
       tags:
         - update
     delete:
@@ -480,10 +455,7 @@ paths:
                     message: Outdated version number provided
       tags:
         - delete
-      description: |-
-        Delete a `RightSpecification`
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Delete a `RightSpecification`
       requestBody:
         content:
           application/json:
@@ -519,8 +491,6 @@ paths:
         * a modification instant: to only display changed resources from that point onwards
 
         Additionally, supports providing a comma-separated list of optional object attributes associated to a `RateTable` that should be included in the result set. If unused or left blank, `none` will be assumed.
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
       parameters:
         - $ref: '#/components/parameters/lat'
         - $ref: '#/components/parameters/long'
@@ -539,10 +509,7 @@ paths:
             application/json:
               schema:
                 $ref: ../models/api/ResponseStatus.yaml
-      description: |-
-        Create a `RateTable`
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Create a `RateTable`
       tags:
         - create
       requestBody:
@@ -577,10 +544,7 @@ paths:
               schema:
                 $ref: ../models/api/ResponseStatus.yaml
       operationId: get-rates-id
-      description: |-
-        Get latest version of a given `RateTable` by its identifier
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Get latest version of a given `RateTable` by its identifier
       parameters:
         - $ref: '#/components/parameters/version'
         - $ref: '#/components/parameters/rates_expand'
@@ -632,10 +596,7 @@ paths:
                     message: Outdated version number provided
       tags:
         - update
-      description: |-
-        Update an existing `RateTable`
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Update an existing `RateTable`
       requestBody:
         content:
           application/json:
@@ -696,10 +657,7 @@ paths:
         description: 'The final version of the `RateTable` should be sent, to confirm the client is acting based on updated information'
       tags:
         - delete
-      description: |-
-        Delete an existing `RateTable`
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Delete an existing `RateTable`
   '/places/{id}':
     parameters:
       - schema:
@@ -720,10 +678,7 @@ paths:
               schema:
                 $ref: ../models/api/HierarchyElementData.yaml
       operationId: get-places-id
-      description: |-
-        Get latest version of a given place hierarchy element by its identifier (or a particular previous version when provided as a query parameter)
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Get latest version of a given place hierarchy element by its identifier (or a particular previous version when provided as a query parameter)
       parameters:
         - $ref: '#/components/parameters/version'
         - $ref: '#/components/parameters/places_expand'
@@ -755,10 +710,7 @@ paths:
             application/json:
               schema:
                 $ref: ../models/api/ResponseStatus.yaml
-      description: |-
-        Update an element in the `Place` hierarchy (or one of its associated attributes like `Occupancy`)
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Update an element in the `Place` hierarchy (or one of its associated attributes like `Occupancy`)
       tags:
         - update
       requestBody:
@@ -795,10 +747,7 @@ paths:
             application/json:
               schema:
                 $ref: ../models/api/ResponseStatus.yaml
-      description: |-
-        Delete Place hierarchy element
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Delete Place hierarchy element
       requestBody:
         content:
           application/json:
@@ -842,8 +791,6 @@ paths:
         * `name`: name of facilities
 
         Additionally, supports providing a comma-separated list of optional object attributes associated to a `Place` hierarchy element that should be included in the result set. (see `expand` attribute). If unused or left blank, `none` will be assumed.
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
       parameters:
         - $ref: '#/components/parameters/lat'
         - $ref: '#/components/parameters/long'
@@ -882,10 +829,7 @@ paths:
                 $ref: ../models/api/ResponseStatus.yaml
       tags:
         - create
-      description: |-
-        Create a new element in the `Place` hierarchy
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Create a new element in the `Place` hierarchy
       requestBody:
         content:
           application/json:
@@ -926,8 +870,6 @@ paths:
         * a modification instant: to only display changed resources from that point onwards
 
         Additionally, supports providing a comma-separated list of optional object attributes associated to a `Session` or `Segment` that should be included in the result set. If unused or left blank, `none` will be assumed.
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
       parameters:
         - $ref: '#/components/parameters/right_specs_list'
         - $ref: '#/components/parameters/cred_type'
@@ -953,10 +895,7 @@ paths:
             application/json:
               schema:
                 $ref: ../models/api/ResponseStatus.yaml
-      description: |-
-        Allows the creation of a new Session, along with one or more Segments. It also allows the creation of an AssignedRight, for scenarios in which the Session and the AssignedRight are created simultaneously (e.g. off-street and on-street short stays)
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: 'Allows the creation of a new Session, along with one or more Segments. It also allows the creation of an AssignedRight, for scenarios in which the Session and the AssignedRight are created simultaneously (e.g. off-street and on-street short stays)'
       requestBody:
         content:
           application/json:
@@ -991,10 +930,7 @@ paths:
               schema:
                 $ref: ../models/api/ResponseStatus.yaml
       operationId: get-sessions-id
-      description: |-
-        Get latest version of a given `Session` by its identifier (or a particular previous version when provided as a query parameter)
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Get latest version of a given `Session` by its identifier (or a particular previous version when provided as a query parameter)
       parameters:
         - $ref: '#/components/parameters/version'
         - $ref: '#/components/parameters/sessions_expand'
@@ -1044,10 +980,7 @@ paths:
                     status: error
                     code: 409
                     message: Outdated version number provided
-      description: |-
-        Update an existing Session (or Segment). Segments may also be deleted using this method, by removing them from the list of segments under the Session. Session may also be updated by referencing a `Quote` through a `ReferenceQuoteExtension`
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: 'Update an existing Session (or Segment). Segments may also be deleted using this method, by removing them from the list of segments under the Session. Session may also be updated by referencing a `Quote` through a `ReferenceQuoteExtension`'
       tags:
         - update
       requestBody:
@@ -1106,10 +1039,7 @@ paths:
                     message: Outdated version number provided
       tags:
         - delete
-      description: |-
-        Delete an existing `Session`. `Segments` should be deleted by using the `PUT` operation, and removing them from the list of segments under the session
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: 'Delete an existing `Session`. `Segments` should be deleted by using the `PUT` operation, and removing them from the list of segments under the session'
       requestBody:
         content:
           application/json:
@@ -1148,8 +1078,6 @@ paths:
         * a modification instant: to only display changed resources from that point onwards
 
         Additionally, supports providing a comma-separated list of optional object attributes associated to an `Observation` that should be included in the result set. If unused or left blank, `none` will be assumed.
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
       parameters:
         - $ref: '#/components/parameters/place_list'
         - $ref: '#/components/parameters/observations_expand'
@@ -1171,10 +1099,7 @@ paths:
             application/json:
               schema:
                 $ref: ../models/api/ResponseStatus.yaml
-      description: |-
-        Create a singular `Observation` or an `Observation Set`
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Create a singular `Observation` or an `Observation Set`
       requestBody:
         content:
           application/json:
@@ -1204,10 +1129,7 @@ paths:
               schema:
                 $ref: ../models/api/ResponseStatus.yaml
       operationId: get-observations-id
-      description: |-
-        Get latest version of a given `Observation` by its identifier (or a particular previous version when provided as a query parameter)
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Get latest version of a given `Observation` by its identifier (or a particular previous version when provided as a query parameter)
       parameters:
         - $ref: '#/components/parameters/version'
         - $ref: '#/components/parameters/observations_expand'
@@ -1264,10 +1186,7 @@ paths:
                     status: error
                     code: 409
                     message: Outdated version number provided
-      description: |-
-        Update an existing `Observation`
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Update an existing `Observation`
       requestBody:
         content:
           application/json:
@@ -1322,10 +1241,7 @@ paths:
                     status: error
                     code: 409
                     message: Outdated version number provided
-      description: |-
-        Delete an existing `Observation`
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Delete an existing `Observation`
       requestBody:
         content:
           application/json:
@@ -1353,10 +1269,7 @@ paths:
                     required:
                       - id
                   - $ref: ../models/api/ResponseStatus.yaml
-      description: |-
-        Allows an entity with an accessible API endpoint to subscribe to a set of event topics
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Allows an entity with an accessible API endpoint to subscribe to a set of event topics
       requestBody:
         content:
           application/json:
@@ -1416,10 +1329,7 @@ paths:
                       - lastModified
                   - $ref: ../models/api/EventSubscription.yaml
       operationId: get-webhooks-id
-      description: |-
-        Get current configuration for an event subscription
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Get current configuration for an event subscription
     put:
       summary: Update an event subscription
       operationId: put-webhooks-id
@@ -1442,10 +1352,7 @@ paths:
             application/json:
               schema:
                 $ref: ../models/api/ResponseStatus.yaml
-      description: |-
-        Update an existing event subscription to a different set of settings
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Update an existing event subscription to a different set of settings
       requestBody:
         content:
           application/json:
@@ -1470,10 +1377,7 @@ paths:
             application/json:
               schema:
                 $ref: ../models/api/ResponseStatus.yaml
-      description: |-
-        Delete an event subscription
-
-        **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+      description: Delete an event subscription
       tags:
         - delete
   /quotes:
