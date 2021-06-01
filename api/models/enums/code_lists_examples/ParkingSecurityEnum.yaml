@@ -1,0 +1,30 @@
+type: string
+title: ParkingSecurityEnum
+enum:
+  - areaSeperatedFromSurroundings
+  - cctv
+  - dog
+  - externalSecurity
+  - fences
+  - floodLight
+  - guard24hours
+  - lighting
+  - none
+  - other
+  - securityStaff
+  - socialControl
+  - unknown
+description: |-
+  * `areaSeperatedFromSurroundings`: Site is separated from its surroundings. Can also be used to express a space for noise-producing vehicles, e.g. lorries with cooling generators.
+  * `cctv`: CCTV (camera observation).
+  * `dog`: Dog.
+  * `externalSecurity`: External security, e.g. police or staff not directly belonging to the parking.
+  * `fences`: Fences.
+  * `floodLight`: Flood light (stronger than lighting).
+  * `guard24hours`: 24/24 guard.
+  * `lighting`: Site is illuminated in a normal way (but not as strong as 'floodLight').
+  * `none`: There are no security measures.
+  * `other`: None of the values in this enumeration applies. Use 'parkingAdditionalSecurity' instead.
+  * `securityStaff`: Security staff.
+  * `socialControl`: Social control e.g. parking situated in a neighbourhood.
+  * `unknown`: Unknown.

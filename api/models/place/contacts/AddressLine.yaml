@@ -11,7 +11,7 @@ properties:
   text:
     $ref: ../../common/MultilingualString.yaml
   type:
-    $ref: ../../enums/AccessibilityEnum.yaml
+    $ref: ../../enums/AddressLineTypeEnum.yaml
 required:
   - order
   - text

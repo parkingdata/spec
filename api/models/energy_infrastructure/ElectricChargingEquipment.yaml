@@ -1,0 +1,10 @@
+title: ElectricChargingEquipment
+description: A specialisation to the SupplementalFacility class adding an ElectricChargingPoint.
+allOf:
+  - $ref: ../place/hierarchy/SupplementalFacility.yaml
+  - type: object
+    properties:
+      electricChargingPoint:
+        $ref: ./ElectricChargingPoint.yaml
+    required:
+      - electricChargingPoint

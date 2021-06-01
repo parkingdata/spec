@@ -6,6 +6,8 @@ description: |-
 
   `incrementPeriod` is the time period for incrementing the rate line charge. If set to the same as the duration of the period between the `durationStart` and `durationEnd` the
   increment will occur once per period, i.e. a flat rate time-based tier charge rate.
+x-tags:
+  - rate
 properties:
   description:
     type: string
@@ -26,30 +28,23 @@ properties:
     type: integer
     minimum: 1
     description: The position of this rate line within a RateLine collection
-  taxIncluded:
-    type: boolean
-    description: |-
-      [TRUE] Indication that tax to be applied is
-      included within the total rate associated
-      with this rate line. [FALSE] indicates that
-      the tax is added additionally to the total.
-  taxRate:
-    type: number
-    description: The percentage rate of tax to be applied.
-    minimum: 0
-    maximum: 100
-  taxValue:
-    type: number
-    description: The monetary amount of tax to be applied.
-    format: float
   value:
     type: number
     description: the value of the fee to be charged in respect of this rate line
     format: float
+  usageCondition:
+    $ref: ../enums/RateUsageConditionsTypeEnum.yaml
+  rateLineTax:
+    $ref: ./RateLineTax.yaml
+  minValue:
+    type: number
+    format: float
+    description: The minimum monetary amount to be applied in conjunction with use of this rate line collection.
+  maxValue:
+    type: number
+    format: float
+    description: The maximum monetary amount to be applied in conjunction with use of this rate line collection.
 required:
   - rateLineType
   - sequence
-  - taxIncluded
   - value
-x-tags:
-  - rate

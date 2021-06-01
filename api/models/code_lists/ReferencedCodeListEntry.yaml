@@ -1,0 +1,13 @@
+title: ReferencedCodeListEntry
+type: object
+description: Class providing structure to support reference to an entry in a previously defined user-defined code list.
+properties:
+  codeListEntryId:
+    $ref: ../common/Reference.yaml
+  codeListId:
+    $ref: ../common/VersionedReference.yaml
+  entryDefinedValue:
+    type: string
+    description: free-text defined text (name) for the code list entry being referenced
+required:
+  - entryDefinedValue

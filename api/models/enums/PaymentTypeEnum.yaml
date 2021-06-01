@@ -1,0 +1,10 @@
+type: string
+title: PaymentTypeEnum
+enum:
+  - payment
+  - validation
+description: |-
+  Indicates the nature of the payment made against an AssignedRight.
+
+  * `payment`: Indicates financial payment made
+  * `validation`: Indicates financial value offset through use of validation coupon or similar

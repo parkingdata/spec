@@ -1,0 +1,14 @@
+type: string
+title: AreaFacilityPointLocationEnum
+enum:
+  - assistanceLocation
+  - entranceAndExitLocation
+  - entranceLocation
+  - exitLocation
+  - sellingPointLocation
+description: |-
+  * `assistanceLocation`: indicating the nature of the location point where assistance is available
+  * `entranceAndExitLocation`: indicating the nature of the location is both an entrance and an exit from the Facility
+  * `entranceLocation`: indicating the nature of the location is an entrance to the Facility
+  * `exitLocation`: indicating the nature of the location is an exit from the Facility
+  * `sellingPointLocation`: indicating the nature of the location is a position for the access to ticket machines, or similar vending facilities

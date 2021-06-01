@@ -6,8 +6,7 @@ allOf:
   - type: object
     properties:
       assignedRightsIssuer:
-        type: string
-        description: 'Identification of the issuer of an `AssignedRight` FIXME: should it be a Reference instead, as in AssignedRights?'
+        $ref: ../common/VersionedReference.yaml
       availableAssignedRights:
         description: The number of Assigned Rights that have been issued by the Rights creator to a specific Rights Issuer that are still available to be assigned.
         type: integer

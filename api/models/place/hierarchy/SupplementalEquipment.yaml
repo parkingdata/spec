@@ -1,0 +1,16 @@
+title: SupplementalEquipment
+allOf:
+  - $ref: ./SupplementalFacility.yaml
+  - type: object
+    properties:
+      equipmentType:
+        $ref: ../../enums/EquipmentTypeEnum.yaml
+      refillPoints:
+        type: array
+        items:
+          anyOf:
+            - $ref: ../../energy_infrastructure/RefillPoint.yaml
+            - $ref: ../../energy_infrastructure/ElectricChargingPoint.yaml
+    required:
+      - equipmentType
+description: 'One type of supplemental equipment, which is available on some site, for example on a rest area.'

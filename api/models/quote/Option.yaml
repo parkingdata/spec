@@ -1,0 +1,23 @@
+title: Option
+description: Class providing one option to a quote request
+allOf:
+  - $ref: ../common/VersionedIdentity.yaml
+  - type: object
+    properties:
+      elementId:
+        $ref: ../common/VersionedReference.yaml
+      boolean:
+        type: boolean
+        description: indicates the supplied Option fully covers the time period requested
+      quoteExpiration:
+        $ref: ./QuoteExpiration.yaml
+      identifiers:
+        type: array
+        minItems: 1
+        items:
+          $ref: ./Identifiers.yaml
+      financialQuote:
+        $ref: ./FinancialQuote.yaml
+    required:
+      - quoteExpiration
+      - financialQuote

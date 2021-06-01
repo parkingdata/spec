@@ -1,0 +1,16 @@
+title: HierarchyElementReference
+type: object
+description: 'A class providing a unique reference identifier for a discrete part of the parking place hierarchy. This can indicate a campus, parking place, hierarchy element, identifiable area or space.'
+properties:
+  elementId:
+    $ref: ../../common/VersionedReference.yaml
+  demandTable:
+    type: array
+    items:
+      $ref: ../../occupancy/DemandTable.yaml
+  supply:
+    type: array
+    items:
+      $ref: ../../occupancy/Supply.yaml
+required:
+  - elementId

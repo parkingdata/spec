@@ -36,3 +36,8 @@ properties:
     description: Accepted payment methods at hierarchy element
     items:
       $ref: ../../../payment_method/PaymentMethod.yaml
+  safetyStandardClassifications:
+    type: array
+    description: Safety standard classifications
+    items:
+      $ref: ../../../common/SafetyStandardClassification.yaml

@@ -1,32 +1,44 @@
 title: ContactPoint
-type: object
-description: "Defines contact details for specified role. \n\n**NB**: Organisation name attribute should not be used in combination with\nrole `parkingSiteAddress`."
+description: |-
+  Defines contact details for specified role. 
+
+  **NB**: Organisation name attribute should not be used in combination with
+  role `parkingSiteAddress`.
 x-tags:
   - places
-properties:
-  organisationName:
-    $ref: ../../common/MultilingualString.yaml
-  type:
-    $ref: ../../enums/ContactTypeEnum.yaml
-  address:
-    type: array
-    description: Address
-    items:
-      $ref: ./Address.yaml
-  contactDetails:
-    type: array
-    description: Contact details
-    items:
-      $ref: ./ContactDetails.yaml
-  eMailCommonData:
-    type: array
-    description: E mail common data
-    items:
-      $ref: ./EMailCommonData.yaml
-  telephoneContacts:
-    type: array
-    description: Telephone contact
-    items:
-      $ref: ./TelephoneContact.yaml
-required:
-  - type
+allOf:
+  - type: object
+    properties:
+      organisationName:
+        $ref: ../../common/MultilingualString.yaml
+      type:
+        $ref: ../../enums/ContactTypeEnum.yaml
+      address:
+        type: array
+        description: Address
+        items:
+          $ref: ./Address.yaml
+      contactDetails:
+        type: array
+        description: Contact details
+        items:
+          $ref: ./ContactDetails.yaml
+      eMailCommonData:
+        type: array
+        description: E mail common data
+        items:
+          $ref: ./EMailCommonData.yaml
+      telephoneContacts:
+        type: array
+        description: Telephone contact
+        items:
+          $ref: ./TelephoneContact.yaml
+      pointLocations:
+        type: array
+        description: Contact point location
+        items:
+          $ref: ../location/PointLocation.yaml
+    required:
+      - type
+  - $ref: ../../common/VersionedIdentity.yaml
+  - $ref: ./Contact.yaml

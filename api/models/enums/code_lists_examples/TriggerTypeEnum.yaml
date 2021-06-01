@@ -1,0 +1,8 @@
+type: string
+title: TriggerTypeEnum
+enum:
+  - firstUse
+  - withTransaction
+description: |-
+  * `firstUse`: Trigger is applied on first use of the facility.
+  * `withTransaction`: Trigger condition is met when the transaction is completed.

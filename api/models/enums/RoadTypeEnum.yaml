@@ -1,0 +1,14 @@
+type: string
+title: RoadTypeEnum
+enum:
+  - mainRoad
+  - motorway
+  - other
+  - trunkRoad
+description: |-
+  Categorisation of the  road type (motorway,main road,...).
+
+  * `mainRoad`: Main road.
+  * `motorway`: Motorway.
+  * `other`: Other.
+  * `trunkRoad`: Trunk road.

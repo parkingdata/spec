@@ -1,0 +1,15 @@
+title: MonetaryValue
+type: object
+description: Lightweight record of the monetary financial value of the associated AssignedRight (temporary). Service provider is entity responsible for selling/collecting fees associated to the AR.
+properties:
+  taxIncluded:
+    type: boolean
+    description: 'Whether tax included in monetary value, if yes (TRUE), if not (FALSE).'
+  serviceProvider:
+    $ref: ../common/VersionedReference.yaml
+  value:
+    $ref: ../common/AmountInCurrency.yaml
+required:
+  - taxIncluded
+  - serviceProvider
+  - value

@@ -1,0 +1,32 @@
+title: QuoteRightRequest
+description: class containing data elements required to request a quote for a new transaction
+allOf:
+  - $ref: ../common/VersionedIdentity.yaml
+  - type: object
+    properties:
+      eligibility:
+        $ref: ../eligibility/Eligibility.yaml
+      referencedRightSpecifications:
+        type: array
+        items:
+          $ref: ./ReferencedRightSpecification.yaml
+      periodStart:
+        type: string
+        description: requested date/time for the start of a proposed new transaction
+        format: date-time
+      periodEnd:
+        type: string
+        description: requested date/time for the end of a proposed new transaction
+        format: date-time
+      requestTime:
+        type: string
+        format: date-time
+        description: date/time at which the request for a quote was made
+      timePeriods:
+        type: array
+        description: requested duration for the proposed new transaction
+        items:
+          $ref: ../common/Duration.yaml
+    required:
+      - periodStart
+      - requestTime

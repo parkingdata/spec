@@ -1,0 +1,16 @@
+title: UserDefinedCodeListEntry
+type: object
+description: Class providing structure to support a specific entry within a user-defined code list.
+properties:
+  definedValue:
+    type: string
+    description: free-text defined text (name) for the code list entry being referenced
+  entryDescription:
+    type: string
+    description: free-text description (explanation) for the code list entry being referenced
+  entryIndex:
+    type: integer
+    description: index number (integer) for the code list entry being referenced
+required:
+  - definedValue
+  - entryIndex

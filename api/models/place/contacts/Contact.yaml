@@ -14,3 +14,8 @@ properties:
     description: |-
       When [TRUE], the contact for the selected
       role and/or timeframe is unknown. Don't use the specialisations in this case.
+  shareWithPublic:
+    type: boolean
+    description: 'When [TRUE], the details of this contact may be shared with the public. If FALSE these contacts details are for internal purposes only.'
+  validityOfContact:
+    $ref: ../../times/OverallPeriod.yaml

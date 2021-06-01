@@ -1,0 +1,26 @@
+type: string
+title: ChargingModeEnum
+description: |-
+  Charging mode according to IEC-61851 terminology
+
+  * `ccs`: Charging with a combined charging solution (CCS). AC and DC are used simultaneously.
+  * `legacyInductive`: Legacy-Inductive
+  * `mode1AC1p`: Mode 1, AC 1 phase
+  * `mode1AC3p`: Mode 1, AC 3 phases
+  * `mode2AC1p`: Mode 2, AC 1 phase
+  * `mode2AC3p`: Mode 2, AC 3 phases
+  * `mode3AC3p`: Mode 3, AC 3 phases
+  * `mode4DC`: Mode 4, DC
+  * `other`: Some other charging mode
+  * `unknown`: The type of the charging mode is unknown
+enum:
+  - ccs
+  - legacyInductive
+  - mode1AC1p
+  - mode1AC3p
+  - mode2AC1p
+  - mode2AC3p
+  - mode3AC3p
+  - mode4DC
+  - other
+  - unknown

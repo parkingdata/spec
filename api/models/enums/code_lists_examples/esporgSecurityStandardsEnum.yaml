@@ -1,0 +1,12 @@
+type: string
+title: esporgSecurityStandardsEnum
+description: |-
+  * `bronze`: class of user identified as employees associated with the Place. Local defiinitions may apply
+  * `gold`: class of user identified as disabled or handicapped travellers. Local defiinitions may apply
+  * `platinium`: class of user identified as registered students. Local defiinitions may apply
+  * `silver`: class of user identified as tourists (non-local users) associated with the Place. Local defiinitions may apply
+enum:
+  - bronze
+  - gold
+  - platinium
+  - silver

@@ -39,15 +39,18 @@ allOf:
         description: still or moving images observation evidence or a reference to such observation evidence
         items:
           $ref: ./Image.yaml
-      hierarchyElement:
-        $ref: ../common/VersionedIdentity.yaml
+      elementIds:
+        $ref: ../common/VersionedReference.yaml
       vehicleAncilliaryIdentification:
         $ref: ../common/VehicleAncilliaryIdentification.yaml
+      observerOrganisation:
+        $ref: ../common/VersionedReference.yaml
     required:
       - method
       - observationStartTime
       - creationDateTime
       - location
+      - observerOrganisation
 description: |-
   A specific collection of observation details intended to be used for
   one specific observation instance.

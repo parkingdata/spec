@@ -1,0 +1,44 @@
+type: string
+title: AuthenticationAndIdentificationEnum
+enum:
+  - activeRFIDChip
+  - apps
+  - calypso
+  - cashPayment
+  - creditCard
+  - debitCard
+  - mifareClassic
+  - mifareDesfire
+  - nfc
+  - noAccess
+  - overTheAir
+  - phoneDialog
+  - phoneSMS
+  - pinpad
+  - plc
+  - prepaidCard
+  - rfid
+  - unlimitedAccess
+  - website
+description: |-
+  A table of authentication and/or identification methods: 
+
+  * `activeRFIDChip`: Phone (active RFID chip)
+  * `apps`: Apps
+  * `calypso`: RFID Calypso
+  * `cashPayment`: No specific authentification by using cash
+  * `creditCard`: Credit card
+  * `debitCard`: Debit card
+  * `mifareClassic`: RFID Card / Phone NFC - Mifare Classic
+  * `mifareDesfire`: RFID Card / Phone NFC - Mifare Desfire
+  * `nfc`: Nearfield communication
+  * `noAccess`: No access granted
+  * `overTheAir`: Over the air according to ISO 15118
+  * `phoneDialog`: phone (dialog with platform)
+  * `phoneSMS`: Phone (SMS)
+  * `pinpad`: PINPAD
+  * `plc`: PLC according to ISO 15118
+  * `prepaidCard`: Pre-Paid card
+  * `rfid`: RFID
+  * `unlimitedAccess`: No authentication/identification required.
+  * `website`: Using a website

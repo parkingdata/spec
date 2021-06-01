@@ -26,5 +26,7 @@ properties:
     format: date-time
   spaceId:
     $ref: ../common/Reference.yaml
+  occupancyLevel:
+    $ref: ./OccupancyLevel.yaml
 required:
   - detectionUpdateTime

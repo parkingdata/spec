@@ -1,18 +1,18 @@
 type: string
 title: HierarchyElementTypeEnum
-enum:
-  - campus
-  - hierarchyElement
-  - identifiedArea
-  - parkingPlace
-  - space
 description: |-
   Defines the supported lists of types of parking hierarchy elements permissible
 
-  * `campus`: A data structure holding information about a large, often ill-defined area, which may contain many parking structures.
-  * `hierarchyElement`: A reusable data structure holding information about a collection of IdentifiableAreas
-  * `identifiedArea`: A data structure holding information about a coherent feature, such as a set of parking spaces that all share the same characteristics
-  * `parkingPlace`: A data structure holding information about a single identifiable facility
-  * `space`: A data structure holding information about a single space for parking, usually designed for one vehicle, which may be denoted by painted or other road surface markers
+  * `campus`: a data structure holding information about a large, often ill-defined area, which may contain many parking structures.
+  * `identifiedArea`: a data structure holding information about a coherent feature, such as a set of parking spaces that all share the same characteristics
+  * `parkingPlace`: a data structure holding information about a single identifiable facility
+  * `space`: a data structure holding information about a single space for parking, usually designed for one vehicle, which may be denoted by painted or other road surface markers
+  * `subplaceElement`: a reusable data structure holding information about a collection of IdentifiableAreas
 x-tags:
   - enumeration
+enum:
+  - campus
+  - identifiedArea
+  - parkingPlace
+  - space
+  - subplaceElement

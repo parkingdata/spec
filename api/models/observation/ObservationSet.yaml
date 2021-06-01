@@ -10,9 +10,8 @@ allOf:
           The date and time of the creation of the
           observation set.
         format: date-time
-      setCreator:
-        type: string
-        description: The individual creating the observation set.
+      creator:
+        $ref: ../common/VersionedReference.yaml
       observationElements:
         type: array
         description: Individual observations in the set
@@ -20,6 +19,6 @@ allOf:
           $ref: ./ObservationElement.yaml
     required:
       - creationDateTime
-      - setCreator
+      - creator
 x-tags:
   - observation

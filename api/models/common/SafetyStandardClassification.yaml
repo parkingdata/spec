@@ -1,0 +1,8 @@
+title: SafetyStandardClassification
+type: object
+properties:
+  securityFeature:
+    $ref: ../code_lists/ReferencedCodeListEntry.yaml
+  securityLevel:
+    $ref: ../code_lists/ReferencedCodeListEntry.yaml
+description: Use this class to classification type/level for security schemes for a place

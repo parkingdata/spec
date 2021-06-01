@@ -23,5 +23,10 @@ allOf:
           $ref: ../../times/AccessAndEgress.yaml
       accessType:
         $ref: ../../enums/AccessTypeEnum.yaml
+      primaryRoads:
+        type: array
+        description: Primary road
+        items:
+          $ref: ../road/Road.yaml
     required:
       - accessType

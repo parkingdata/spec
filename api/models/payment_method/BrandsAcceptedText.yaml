@@ -1,0 +1,6 @@
+title: BrandsAcceptedText
+type: object
+description: Use this class to describe details of the brands that are accepted.
+properties:
+  brandsAcccepted:
+    $ref: ../common/MultilingualString.yaml

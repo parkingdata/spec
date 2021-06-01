@@ -1,0 +1,30 @@
+type: string
+title: RefillPointStatusEnum
+enum:
+  - available
+  - blocked
+  - charging
+  - faulted
+  - inoperative
+  - occupied
+  - outOfOrder
+  - outOfStock
+  - planned
+  - removed
+  - reserved
+  - unavailable
+  - unknown
+description: |-
+  * `available`: The refill point is not occupied, has got enough energy resources and can be used.
+  * `blocked`: The refill point is not accessible because of a physical barrier, e.g. a car.
+  * `charging`: The refill point is currently in use for charging.
+  * `faulted`: The refill point has got a fault.
+  * `inoperative`: The refill point is not yet active or it is no longer available (deleted).
+  * `occupied`: The refill point is in use, this might include vehicle charging activity.
+  * `outOfOrder`: The refill point is currently out of order.
+  * `outOfStock`: The refill point is out of stock, i.e. energy resources are empty.
+  * `planned`: The refill point is planned, will be operating soon.
+  * `removed`: The refill point was discontinued/removed.
+  * `reserved`: The refill point is reserved by a customer, i.e. it is not available for other users right now.
+  * `unavailable`: There is no energy available at this refill point. This could be because of a failure or damage or a longer lasting delivery failure (note that there is a literal 'outOfStock' for a short-term shortage).
+  * `unknown`: The status of the refill point is unknown (can also be offline).

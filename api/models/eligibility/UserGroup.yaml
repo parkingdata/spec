@@ -1,0 +1,8 @@
+title: UserGroup
+type: object
+description: Class providing references to a specific user group with reference to enumerations available in the UserGroupEnum enumerated list.
+properties:
+  userType:
+    $ref: ../code_lists/ReferencedCodeListEntry.yaml
+required:
+  - userType

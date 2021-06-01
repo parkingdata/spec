@@ -1,0 +1,14 @@
+type: string
+title: NilReasonType
+enum:
+  - inapplicable
+  - missing
+  - template
+  - unknown
+  - withheld
+description: |-
+  * `inapplicable`: there is no value
+  * `missing`: the correct value is not readily available to the sender of this data. Furthermore, a correct value may not exist
+  * `template`: the value will be available later
+  * `unknown`: the correct value is not known to, and not computable by, the sender of this data. However, a correct value probably exists
+  * `withheld`: the value is not divulged

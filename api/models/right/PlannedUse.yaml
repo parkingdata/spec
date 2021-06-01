@@ -1,6 +1,8 @@
 title: PlannedUse
 type: object
 description: A specific future instance when an `AssignedRight` is to be used/initiated.
+x-tags:
+  - rights
 properties:
   startTime:
     type: string
@@ -29,7 +31,7 @@ properties:
   issueMethod:
     $ref: ../enums/IssueMethodEnum.yaml
   issuer:
-    $ref: ../common/MultilingualString.yaml
+    $ref: ../common/VersionedReference.yaml
   credentialsAssigned:
     type: array
     minItems: 1
@@ -38,5 +40,3 @@ properties:
       $ref: ./CredentialAssigned.yaml
 required:
   - startTime
-x-tags:
-  - rights

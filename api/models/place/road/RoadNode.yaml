@@ -1,0 +1,10 @@
+title: RoadNode
+description: A road node as part of the specialised road identified by the name of a junction on this road.
+allOf:
+  - $ref: ./Road.yaml
+  - type: object
+    properties:
+      junctionName:
+        $ref: ../../common/MultilingualString.yaml
+    required:
+      - junctionName

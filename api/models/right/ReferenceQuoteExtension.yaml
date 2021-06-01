@@ -1,0 +1,8 @@
+title: ReferenceQuoteExtension
+type: object
+description: Class providing a versioned reference to a quote for a session extension
+properties:
+  quoteResponseId:
+    $ref: ../common/VersionedReference.yaml
+  optionId:
+    $ref: ../common/VersionedReference.yaml

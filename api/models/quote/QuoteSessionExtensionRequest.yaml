@@ -1,0 +1,23 @@
+title: QuoteSessionExtensionRequest
+description: class containing detail required to initiate a request for a quote to extend an existing session
+allOf:
+  - $ref: ../common/VersionedIdentity.yaml
+  - type: object
+    properties:
+      requestedEndTime:
+        type: string
+        description: proposed date/time at which the proposed extended Session would end
+        format: date-time
+      requestTime:
+        type: string
+        description: reference date/time at which the request for a quote for a session extension is made
+        format: date-time
+      sessionId:
+        $ref: ../common/VersionedReference.yaml
+      suppliedCredential:
+        $ref: ../common/VersionedReference.yaml
+    required:
+      - requestedEndTime
+      - requestTime
+      - sessionId
+      - suppliedCredential

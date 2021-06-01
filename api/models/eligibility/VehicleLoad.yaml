@@ -1,0 +1,8 @@
+title: VehicleLoad
+type: object
+description: Class defining load types carried by vehicles
+properties:
+  loadType:
+    $ref: ../code_lists/ReferencedCodeListEntry.yaml
+required:
+  - loadType

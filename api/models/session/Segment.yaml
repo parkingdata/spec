@@ -30,21 +30,21 @@ allOf:
           - $ref: ../common/VersionedReference.yaml
           - $ref: ../right/AssignedRight.yaml
         description: 'Allows either referencing an existing `AssignedRight`, or specifying one to create along with the `Segment` (only when the message is conveying a new Segment creation)'
-      space:
-        $ref: ../common/VersionedReference.yaml
+      spaceId:
+        $ref: ../common/Reference.yaml
       validationType:
         type: array
         description: The form of validation (the nature of credential) that is used in conjunction with the specific segment.
         minItems: 1
         items:
           $ref: ../enums/CredentialTypeEnum.yaml
-      validationValue:
+      validationId:
+        type: string
+        description: Specific validation identification associated to the segment.
+      notes:
+        $ref: ../common/MultilingualString.yaml
+      credentialId:
         $ref: ../common/Reference.yaml
-      financialTransactions:
-        type: array
-        description: Financial transactions associated with this segment
-        items:
-          $ref: ./FinancialTransaction.yaml
     required:
       - actualStart
       - assignedRight

@@ -4,8 +4,8 @@ x-tags:
   - eligibility
 description: Emission characteristics of vehicles.
 properties:
-  emissionClassificationEuro:
-    $ref: ../enums/EmissionClassificationEuroEnum.yaml
+  emissionClassification:
+    $ref: ../code_lists/ReferencedCodeListEntry.yaml
   emissionClassificationOthers:
     type: array
     description: Some other (probably locally defined) value(s) for emission classification.

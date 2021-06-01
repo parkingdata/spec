@@ -7,8 +7,7 @@ allOf:
   - type: object
     properties:
       description:
-        type: string
-        description: Free-text description
+        $ref: ../common/MultilingualString.yaml
       expiry:
         type: string
         format: date-time
@@ -19,8 +18,7 @@ allOf:
           Creator defined free-text reference to financial transactions associated to the
           specific Right Specification.
       issuer:
-        type: string
-        description: Text string identification of the entity issuing the RightsSpecification.
+        $ref: ../common/VersionedReference.yaml
       transferable:
         type: boolean
       transferableConditions:

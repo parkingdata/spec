@@ -9,8 +9,9 @@ properties:
     format: date-time
     description: Date/time that this version of the place facility record was created.
   creator:
-    $ref: ../../common/MultilingualString.yaml
+    $ref: ../../common/VersionedReference.yaml
   creatorEmail:
-    $ref: ../../common/MultilingualString.yaml
+    type: string
+    format: email
 required:
   - creationTime
