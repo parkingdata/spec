@@ -80,6 +80,7 @@ properties:
     items:
       $ref: ./RateLine.yaml
 required:
+  - applicableCurrency
   - collectionSequence
   - minTime
   - maxTime

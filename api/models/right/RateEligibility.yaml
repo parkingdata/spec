@@ -20,5 +20,7 @@ allOf:
         $ref: ../eligibility/Eligibility.yaml
       rateTable:
         $ref: ../common/VersionedReference.yaml
+      rateDiscount:
+        $ref: ./RateDiscount.yaml
     required:
       - eligibility

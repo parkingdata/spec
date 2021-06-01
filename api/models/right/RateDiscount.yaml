@@ -1,0 +1,12 @@
+title: RateDiscount
+type: object
+description: Class defining discount rates to be applied to a RateTable
+properties:
+  fixedValue:
+    $ref: ../common/AmountInCurrency.yaml
+  discountRate:
+    type: number
+    minimum: 0
+    maximum: 100
+    format: float
+    description: 'proportionate discount (-) or surcharge (+) to be applied to all values in the referenced RateTable '

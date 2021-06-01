@@ -1490,7 +1490,7 @@ components:
         minimum: 0
       in: query
       name: radius
-      description: Number of meters to use as search filter from given latitude and longitude (mandatory if latitude or longitude are defined)
+      description: Number of metres to use as search filter from given latitude and longitude (mandatory if latitude or longitude are defined)
     mod:
       schema:
         type: integer

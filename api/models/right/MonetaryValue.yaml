@@ -7,3 +7,9 @@ properties:
     description: 'Whether tax included in monetary value, if yes (TRUE), if not (FALSE).'
   serviceProvider:
     $ref: ../common/VersionedReference.yaml
+  value:
+    $ref: ../common/AmountInCurrency.yaml
+required:
+  - taxIncluded
+  - serviceProvider
+  - value

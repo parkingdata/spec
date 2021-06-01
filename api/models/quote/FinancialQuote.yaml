@@ -11,7 +11,7 @@ properties:
     type: string
     description: 'Identifier for the transaction (e.g. reservation number, credit card transaction reference) as agreed upon by the two entities sharing data.'
   value:
-    $ref: ../common/Currency.yaml
+    $ref: ../common/AmountInCurrency.yaml
 required:
   - taxIncluded
   - value
