@@ -88,5 +88,4 @@ required:
   - resetTime
   - taxIncluded
   - validStart
-  - validEnd
   - rateLines
