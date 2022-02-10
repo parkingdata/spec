@@ -8,4 +8,4 @@ allOf:
     properties:
       validity:
         $ref: ./Validity.yaml
-    description: ''
+    description: 'specific validity information'

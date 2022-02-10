@@ -1,6 +1,6 @@
 type: string
 title: Url
 description: Represents a Url for an internet accessible resource
-format: uri
+format: url
 x-tags:
   - common

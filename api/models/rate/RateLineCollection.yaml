@@ -44,7 +44,6 @@ properties:
       and defined local or UTC times
   resetTime:
     type: string
-    format: time
     description: Time that rate resets
   taxIncluded:
     type: boolean

@@ -7,17 +7,12 @@ allOf:
         $ref: ../enums/ObservationTypeEnum.yaml
       observer:
         type: string
-        description: |-
-          The individual person making the
-          observation recorded in this observation
-          element.
+        description: The individual person making the observation recorded in this observation element.
       type:
         $ref: ../enums/CredentialTypeEnum.yaml
       observedCredentialId:
         type: string
-        description: |-
-          Specific identifier to the referenced
-          observed credential.
+        description: Specific identifier to the referenced observed credential.
       observationStartTime:
         type: string
         format: date-time
@@ -51,8 +46,6 @@ allOf:
       - creationDateTime
       - location
       - observerOrganisation
-description: |-
-  A specific collection of observation details intended to be used for
-  one specific observation instance.
+description: A specific collection of observation details intended to be used for one specific observation instance.
 x-tags:
   - observation

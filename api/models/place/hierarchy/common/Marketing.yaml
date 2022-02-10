@@ -10,7 +10,7 @@ properties:
     items:
       $ref: ./ImageAlbum.yaml
   webURLs:
-    format: uri
+    format: url
     type: array
     items:
       $ref: ../../../common/Url.yaml

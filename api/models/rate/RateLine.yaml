@@ -15,11 +15,9 @@ properties:
   durationStart:
     type: string
     description: 'If used, indicates the end time for the applicability of the specific rate line, generally with respect to the start of the parking or other mobility session. e.g. the start of a time-based tier charge rate.'
-    format: time
   durationEnd:
     type: string
     description: 'If used, indicates the start time for the applicability of the specific rate line, generally with respect to the start of the parking or other mobility session. e.g. the end of a time-based tier charge rate.'
-    format: time
   incrementPeriod:
     $ref: ../common/Duration.yaml
   rateLineType:

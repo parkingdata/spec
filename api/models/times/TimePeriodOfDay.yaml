@@ -7,11 +7,9 @@ properties:
   startTimeOfPeriod:
     type: string
     description: Start of time period
-    format: time
   endTimeOfPeriod:
     type: string
     description: End time of period
-    format: time
 required:
   - startTimeOfPeriod
   - endTimeOfPeriod

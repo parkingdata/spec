@@ -17,7 +17,7 @@ properties:
       $ref: ../common/Reference.yaml
   endpoint:
     type: string
-    format: uri
+    format: url
     description: API endpoint expecting JSON POST messages with payloads corresponding to the type of event
     example: 'https://myapi.com/apds-events'
   topics:

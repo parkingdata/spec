@@ -1,17 +1,13 @@
 title: Image
 type: object
-description: |-
-  Class containing information relating to still or moving image
-  observation evidence or a reference (link) to such observation evidence.
+description: 'Class containing information relating to still or moving image observation evidence or a reference (link) to such observation evidence.'
 properties:
   id:
     type: string
-    description: Reference identifier to a specific image.
+    description: 'Reference identifier to a specific image.'
   image:
     type: string
-    description: |-
-      Base64 File or binary object containing a still or
-      moving image.
+    description: 'Base64 File or binary object containing a still or moving image.'
   imageLink:
     $ref: ../common/Url.yaml
 required:

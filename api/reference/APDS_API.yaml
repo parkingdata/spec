@@ -81,7 +81,7 @@ paths:
                 allOf:
                   - $ref: ../models/api/PaginatedListMeta.yaml
                   - type: object
-                    description: ''
+                    description: 'the actual data'
                     properties:
                       data:
                         type: array
@@ -718,7 +718,7 @@ paths:
           application/json:
             schema:
               $ref: ../models/api/HierarchyElementData.yaml
-        description: 'The new version of the `Place` hierarchy element, including only its changed attributes. In the case of Occupancy updates, the Place version doesn''t need to change.'
+        description: 'The new version of the `Place` hierarchy element, including only its changed attributes. In the case of Occupancy updates, the Place version does not need to change.'
     delete:
       summary: Delete Place hierarchy element
       operationId: delete-places-id
@@ -1450,6 +1450,7 @@ paths:
         name: id
         in: path
         required: true
+        description: the unique id of the quote
     get:
       summary: Your GET endpoint
       tags: []
@@ -1544,6 +1545,8 @@ components:
     cred_type:
       schema:
         type: array
+        items:
+          $ref: ../models/enums/CredentialTypeEnum.yaml
       name: credential_type
       in: query
       description: Type of credential
@@ -1575,6 +1578,8 @@ components:
     right_type:
       schema:
         type: array
+        items:
+          $ref: ../models/enums/RightTypeEnum.yaml
       name: right_type
       in: query
       description: Comma-separated list of type of `RightSpecifications` associated with place hierarchy elements (all will be assumed if parameter is not used or left blank)
@@ -1583,6 +1588,8 @@ components:
     place_type:
       schema:
         type: array
+        items:
+          $ref: ../models/enums/HierarchyElementTypeEnum.yaml
       name: type
       in: query
       description: Comma-separated list of type of `Place` hierarchy elements to consider (all will be assumed if parameter is not used or left blank)
@@ -1591,6 +1598,8 @@ components:
     structure_type:
       schema:
         type: array
+        items:
+          $ref: ../models/enums/StructureTypeEnum.yaml
       name: structure_type
       in: query
       description: Comma-separated list of types of Structure in the hierarchy to consider (all will be assumed if parameter is not used or left blank)
@@ -1599,6 +1608,8 @@ components:
     structure_grade:
       schema:
         type: array
+        items:
+          $ref: ../models/enums/StructureGradeEnum.yaml
       name: structure_grade
       in: query
       description: Comma-separated list of Structure grades in the hierarchy to consider (all will be assumed if parameter is not used or left blank)
@@ -1622,6 +1633,8 @@ components:
     place_list:
       schema:
         type: array
+        items:
+          type: string
       description: Comma-separated list of unique identifiers for elements in the `Place` hierarchy
       name: place
       in: query
@@ -1630,6 +1643,8 @@ components:
     right_specs_list:
       schema:
         type: array
+        items:
+          type: string
       description: Comma-separated list of unique identifiers for `RightSpecifications`
       name: right_spec
       in: query
@@ -1638,6 +1653,8 @@ components:
     cred_id_list:
       schema:
         type: array
+        items:
+          type: string
       in: query
       name: credential_id
       description: Comma-separated list of unique identifiers for credentials in given classes
@@ -1646,6 +1663,8 @@ components:
     cred_class_list:
       schema:
         type: array
+        items:
+          type: string
       in: query
       name: credential_class
       description: Comma-separated list of specific class names for credentials (a more generic option is to use `credential_type`)

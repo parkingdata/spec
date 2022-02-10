@@ -1,0 +1,14 @@
+
+errors
+
+Validator: spectral
+  Message :   Schema of type array should not have a format.
+  Rule    :   valid-type-format
+  Path    :   oneOf.1
+  Line    :   0
+
+  Message :   Schema of type array should not have a format.
+  Rule    :   valid-type-format
+  Path    :   oneOf.2
+  Line    :   0
+

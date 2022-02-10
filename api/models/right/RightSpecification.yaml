@@ -14,9 +14,7 @@ allOf:
         description: Date/time showing the timestamp for when a RightSpecification ceases to be valid.
       financialReference:
         type: string
-        description: |-
-          Creator defined free-text reference to financial transactions associated to the
-          specific Right Specification.
+        description: Creator defined free-text reference to financial transactions associated to the specific Right Specification.
       issuer:
         $ref: ../common/VersionedReference.yaml
       transferable:
