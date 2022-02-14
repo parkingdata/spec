@@ -26,17 +26,12 @@ More information on IBM's OpenAPI linter can be found here: [https://github.com/
 
 ### OpenAPI Generator
 When using openapi-generator, you should use the _bundled_ version of the API specification.
-<div>
-<pre>
-<code>
-<span style="color:lightgray">$ </span>openapi-generator validate -i api/reference/APDS_API_bundled.json 
+```
+$ openapi-generator validate -i api/reference/APDS_API_bundled.json 
 
-<span style="color:green">No validation issues detected.</span>
+No validation issues detected.
 
-</code>
-</pre>
-</div>
-
+```
 More information on openapi-generator can be found here: [https://openapi-generator.tech](https://openapi-generator.tech)
 
 
