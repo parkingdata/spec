@@ -26,6 +26,9 @@ _APDS_ is commited to support all adopters. In case you have questions or even s
 ## Tell us about your Project
 Obviously, _APDS_ is more than keen to learn how the standard is being applied by its users. So, please drop us a comment with some initial information about the particular APDS-related project you are working on.
 
+## License
+The _APDS API_ specification is provided under the [GNU General Public License Version 3](https://www.gnu.org/licenses/quick-guide-gplv3.html). You can find the plain text version of this license in this repository: [./LICENSE](./LICENSE).
+
 <hr/>
 
 ## Validation
