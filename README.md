@@ -63,3 +63,9 @@ No validation issues detected.
 More information on openapi-generator can be found here: [https://openapi-generator.tech](https://openapi-generator.tech)
 
 
+<br/>
+
+<div style="color:lightgray">
+&copy; 2022 Alliance for Parking Data Standards
+</div>
+
