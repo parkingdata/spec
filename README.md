@@ -1,4 +1,4 @@
-# Sample API Specification for APDS
+# API Specification for APDS
 
 > **IMPORTANT**
 > This specification is a working **DRAFT**. 
@@ -6,7 +6,7 @@
 
 ## About
 ### APDS: Context, Motivation
-A few years back, the [International Parking &amp; Mobility Institue (**IPMI**)]/(https://ipmi.parking-mobility.org), the [British Parking Association (**BPA**)](https://www.britishparking.co.uk), and the [European Parking Association (**EPA**)](https://www.europeanparking.eu) formed a not-for-profit organization with the mission to develop, promote, manage, and maintain a uniform global standard that will allow organizations to share parking data across platforms worldwide: **APDS**, the [Alliance for Parking Data Standards](https://www.allianceforparkingdatastandards.org). 
+A few years back, the [International Parking &amp; Mobility Institue (**IPMI**)](https://ipmi.parking-mobility.org), the [British Parking Association (**BPA**)](https://www.britishparking.co.uk), and the [European Parking Association (**EPA**)](https://www.europeanparking.eu) formed a not-for-profit organization with the mission to develop, promote, manage, and maintain a uniform global standard that will allow organizations to share parking data across platforms worldwide: **APDS**, the [Alliance for Parking Data Standards](https://www.allianceforparkingdatastandards.org). 
 
 ### About this Repository
 #### APDS Specification
