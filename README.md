@@ -23,6 +23,8 @@ __Note:__ depending on the OpenAPI tool chain of your choice, working off the mo
 ## Questions, Suggestions
 _APDS_ is commited to support all adopters. In case you have questions or even suggestions for changes, head over to the **APDS Forum** where you can join the discussion with parking, transportation and mobility professionals: [Forum](https://www.allianceforparkingdatastandards.org/forum).
 
+Alternatively, you can send an email to the [Technical Comments Email Address](mailto:technical-comments@allianceforparkingdatastandards.org).
+
 ## Tell us about your Project
 Obviously, _APDS_ is more than keen to learn how the standard is being applied by its users. So, please drop us a comment with some initial information about the particular APDS-related project you are working on.
 
