@@ -175,12 +175,6 @@ paths:
       tags:
         - delete
       description: Delete an existing `Assigned Right`
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ../models/common/VersionedReference.yaml
-        description: 'The final version of the `AssignedRight` should be sent, to confirm the client is acting based on updated information'
     put:
       summary: Update AssignedRight
       operationId: update-assigned_right
@@ -456,12 +450,6 @@ paths:
       tags:
         - delete
       description: Delete a `RightSpecification`
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ../models/common/VersionedReference.yaml
-        description: 'The final version of the `RightSpecification` should be sent, to confirm the client is acting based on updated information'
   /rates:
     get:
       summary: List and Search for RateTables
@@ -649,12 +637,6 @@ paths:
                     status: error
                     code: 409
                     message: Outdated version number provided
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ../models/common/VersionedReference.yaml
-        description: 'The final version of the `RateTable` should be sent, to confirm the client is acting based on updated information'
       tags:
         - delete
       description: Delete an existing `RateTable`
@@ -748,12 +730,6 @@ paths:
               schema:
                 $ref: ../models/api/ResponseStatus.yaml
       description: Delete Place hierarchy element
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ../models/common/VersionedIdentity.yaml
-        description: 'The final version of the `Place` hierarchy element should be sent, to confirm the client is acting based on updated information'
       tags:
         - delete
   /places:
@@ -1040,12 +1016,6 @@ paths:
       tags:
         - delete
       description: 'Delete an existing `Session`. `Segments` should be deleted by using the `PUT` operation, and removing them from the list of segments under the session'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ../models/common/VersionedReference.yaml
-        description: 'The final version of the `Session` should be sent, to confirm the client is acting based on updated information'
   /observations:
     get:
       summary: List and search Observations
@@ -1242,12 +1212,6 @@ paths:
                     code: 409
                     message: Outdated version number provided
       description: Delete an existing `Observation`
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: ../models/common/VersionedReference.yaml
-        description: 'The final version of the `Observation` should be sent, to confirm the client is acting based on updated information'
       tags:
         - delete
   /webhooks:

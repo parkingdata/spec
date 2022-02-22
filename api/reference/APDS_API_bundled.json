@@ -104,10 +104,10 @@
                         "description": "Class providing a versioned reference to a new quote",
                         "properties": {
                           "quoteResponseId": {
-                            "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                            "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                           },
                           "optionId": {
-                            "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                            "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                           }
                         }
                       }
@@ -291,17 +291,7 @@
         "tags": [
           "delete"
         ],
-        "description": "Delete an existing `Assigned Right`",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
-              }
-            }
-          },
-          "description": "The final version of the `AssignedRight` should be sent, to confirm the client is acting based on updated information"
-        }
+        "description": "Delete an existing `Assigned Right`"
       },
       "put": {
         "summary": "Update AssignedRight",
@@ -425,7 +415,7 @@
                   "description": "AssignedRight indicates the granting of a specific RightSpecification to a specific RightHolder,and indicates one instance of a planned use of the Right.",
                   "allOf": [
                     {
-                      "$ref": "#/paths/~1places~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                      "$ref": "#/paths/~1rates/post/requestBody/content/application~1json/schema/allOf/0"
                     },
                     {
                       "type": "object",
@@ -447,7 +437,7 @@
                           }
                         },
                         "rightSpecification": {
-                          "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                          "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                         },
                         "expiry": {
                           "type": "string",
@@ -565,7 +555,7 @@
                                 "$ref": "#/paths/~1rights~1assigned~1%7Bid%7D/get/responses/200/content/application~1json/schema/allOf/1/properties/issueMethod"
                               },
                               "issuer": {
-                                "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                               },
                               "credentialsAssigned": {
                                 "type": "array",
@@ -613,7 +603,7 @@
                             "description": "Lightweight record of payment for associated AssignedRight (temporary)",
                             "allOf": [
                               {
-                                "$ref": "#/paths/~1places~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                "$ref": "#/paths/~1rates/post/requestBody/content/application~1json/schema/allOf/0"
                               },
                               {
                                 "type": "object",
@@ -633,7 +623,7 @@
                                     "description": "Indicates the nature of the payment made against an AssignedRight.\n\n* `payment`: Indicates financial payment made\n* `validation`: Indicates financial value offset through use of validation coupon or similar"
                                   },
                                   "serviceProvider": {
-                                    "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                    "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                   },
                                   "taxIncluded": {
                                     "type": "boolean",
@@ -667,7 +657,7 @@
                               "description": "Whether tax included in monetary value, if yes (TRUE), if not (FALSE)."
                             },
                             "serviceProvider": {
-                              "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                              "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                             },
                             "value": {
                               "$ref": "#/paths/~1rights~1assigned~1%7Bid%7D/get/responses/200/content/application~1json/schema/allOf/1/properties/remainingValue"
@@ -803,7 +793,7 @@
                 ],
                 "allOf": [
                   {
-                    "$ref": "#/paths/~1places~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                    "$ref": "#/paths/~1rates/post/requestBody/content/application~1json/schema/allOf/0"
                   },
                   {
                     "type": "object",
@@ -821,7 +811,7 @@
                         "description": "Creator defined free-text reference to financial transactions associated to the specific Right Specification."
                       },
                       "issuer": {
-                        "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                        "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                       },
                       "transferable": {
                         "type": "boolean"
@@ -837,7 +827,7 @@
                         "minItems": 1,
                         "description": "Versioned references to `Places` in the hierarchy where this `RightSpecification` is available",
                         "items": {
-                          "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                          "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                         }
                       },
                       "credentials": {
@@ -869,7 +859,7 @@
                           "description": "Defines the combination of Eligibility requirements with RateTables and associates this combination to a RightSpecification.",
                           "allOf": [
                             {
-                              "$ref": "#/paths/~1places~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                              "$ref": "#/paths/~1rates/post/requestBody/content/application~1json/schema/allOf/0"
                             },
                             {
                               "type": "object",
@@ -887,7 +877,7 @@
                                   "$ref": "#/paths/~1quotes/post/requestBody/content/application~1json/schema/oneOf/0/allOf/1/properties/eligibility"
                                 },
                                 "rateTable": {
-                                  "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                  "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                 },
                                 "rateDiscount": {
                                   "title": "RateDiscount",
@@ -924,13 +914,13 @@
                           ],
                           "allOf": [
                             {
-                              "$ref": "#/paths/~1places~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                              "$ref": "#/paths/~1rates/post/requestBody/content/application~1json/schema/allOf/0"
                             },
                             {
                               "type": "object",
                               "properties": {
                                 "assignedRightsIssuer": {
-                                  "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                  "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                 },
                                 "availableAssignedRights": {
                                   "description": "The number of Assigned Rights that have been issued by the Rights creator to a specific Rights Issuer that are still available to be assigned.",
@@ -1459,17 +1449,7 @@
         "tags": [
           "delete"
         ],
-        "description": "Delete a `RightSpecification`",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
-              }
-            }
-          },
-          "description": "The final version of the `RightSpecification` should be sent, to confirm the client is acting based on updated information"
-        }
+        "description": "Delete a `RightSpecification`"
       }
     },
     "/rates": {
@@ -1659,7 +1639,28 @@
                 ],
                 "allOf": [
                   {
-                    "$ref": "#/paths/~1places~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                    "title": "VersionedIdentity",
+                    "type": "object",
+                    "description": "Represents an object with an identity and can have versions over time",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Unique identifier for object",
+                        "minLength": 1
+                      },
+                      "version": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Positive integer representing the object version"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "version"
+                    ],
+                    "x-tags": [
+                      "common"
+                    ]
                   },
                   {
                     "type": "object",
@@ -1755,7 +1756,7 @@
                         ]
                       },
                       "rateResponsibleParty": {
-                        "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                        "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                       },
                       "rateSupersedeLink": {
                         "type": "string",
@@ -2230,43 +2231,6 @@
             }
           }
         },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "title": "VersionedReference",
-                "description": "A reference to an identifiable version managed object where the combination of the identifier and version is unique. It comprises an identifier (e.g. GUID), a version (NonNegativeInteger) and a string identifying the class of the referenced object.",
-                "additionalProperties": false,
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "minLength": 1,
-                    "description": "Unique identifier"
-                  },
-                  "version": {
-                    "type": "integer",
-                    "minimum": 1,
-                    "description": "Version number"
-                  },
-                  "className": {
-                    "type": "string",
-                    "description": "Class name of the referenced object. It's optional, as it might be implied by the attribute name using this reference",
-                    "pattern": "^([A-Z][a-z0-9]+)+"
-                  }
-                },
-                "required": [
-                  "id",
-                  "version"
-                ],
-                "x-tags": [
-                  "common"
-                ]
-              }
-            }
-          },
-          "description": "The final version of the `RateTable` should be sent, to confirm the client is acting based on updated information"
-        },
         "tags": [
           "delete"
         ],
@@ -2419,37 +2383,6 @@
           }
         },
         "description": "Delete Place hierarchy element",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "title": "VersionedIdentity",
-                "type": "object",
-                "description": "Represents an object with an identity and can have versions over time",
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "description": "Unique identifier for object",
-                    "minLength": 1
-                  },
-                  "version": {
-                    "type": "integer",
-                    "minimum": 1,
-                    "description": "Positive integer representing the object version"
-                  }
-                },
-                "required": [
-                  "id",
-                  "version"
-                ],
-                "x-tags": [
-                  "common"
-                ]
-              }
-            }
-          },
-          "description": "The final version of the `Place` hierarchy element should be sent, to confirm the client is acting based on updated information"
-        },
         "tags": [
           "delete"
         ]
@@ -2582,7 +2515,7 @@
                         "description": "A generalised component of a place hierarchy, that forms one element in the tree-like hierarchy. This forms a reusable block of the hierarchy, with relations to its parent element (if one exists) and any child elements. Each Place element in the hierarchy shall have a name, and may support a free-text description and an operator/property owner defined reference (e.g. location number/identifier)",
                         "allOf": [
                           {
-                            "$ref": "#/paths/~1places~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                            "$ref": "#/paths/~1rates/post/requestBody/content/application~1json/schema/allOf/0"
                           },
                           {
                             "type": "object",
@@ -2609,13 +2542,13 @@
                                 }
                               },
                               "parentId": {
-                                "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                               },
                               "childIds": {
                                 "type": "array",
                                 "description": "The identity of one or several child nodes directly related to this hierarchy element.",
                                 "items": {
-                                  "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                  "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                 }
                               },
                               "operatorDefinedReference": {
@@ -2635,7 +2568,7 @@
                                     "description": "Date/time that this version of the place facility record was created."
                                   },
                                   "creator": {
-                                    "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                    "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                   },
                                   "creatorEmail": {
                                     "type": "string",
@@ -2650,7 +2583,7 @@
                                 "type": "array",
                                 "description": "RightSpecifications associated to the element",
                                 "items": {
-                                  "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                  "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                 }
                               },
                               "hierarchyElementReference": {
@@ -2659,7 +2592,7 @@
                                 "description": "A class providing a unique reference identifier for a discrete part of the parking place hierarchy. This can indicate a campus, parking place, hierarchy element, identifiable area or space.",
                                 "properties": {
                                   "elementId": {
-                                    "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                    "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                   },
                                   "demandTable": {
                                     "type": "array",
@@ -3213,7 +3146,7 @@
                                       ]
                                     },
                                     {
-                                      "$ref": "#/paths/~1places~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                      "$ref": "#/paths/~1rates/post/requestBody/content/application~1json/schema/allOf/0"
                                     },
                                     {
                                       "$ref": "#/paths/~1places/get/responses/200/content/application~1json/schema/allOf/1/properties/data/items/oneOf/1/allOf/2/properties/contacts/items/oneOf/0"
@@ -3231,7 +3164,7 @@
                                       "type": "object",
                                       "properties": {
                                         "contactReference": {
-                                          "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                          "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                         }
                                       },
                                       "required": [
@@ -3449,7 +3382,7 @@
                                       "$ref": "#/paths/~1webhooks/post/requestBody/content/application~1json/schema/properties/hierarchyElements/items"
                                     },
                                     "codeListId": {
-                                      "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                      "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                     },
                                     "entryDefinedValue": {
                                       "type": "string",
@@ -4430,7 +4363,7 @@
                                 "type": "array",
                                 "description": "list of applicable right specifications",
                                 "items": {
-                                  "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                  "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                 }
                               },
                               "supplementalFacilityIndex": {
@@ -4985,7 +4918,7 @@
                 "description": "A Session captures the **actual** use of an `AssignedRight` and includes start time, end time, credential, and other relevant data related to an operational transaction. A Session is not used for future activities.\n\nA `Session` is broken into one or multiple `Segments`.\n\n`Segments` enable a single `Session` to capture and report changes in `Rate` and `AssignedRight` during a `Session`.",
                 "allOf": [
                   {
-                    "$ref": "#/paths/~1places~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                    "$ref": "#/paths/~1rates/post/requestBody/content/application~1json/schema/allOf/0"
                   },
                   {
                     "type": "object",
@@ -5001,7 +4934,34 @@
                         "description": "The date/time of the end of the session."
                       },
                       "initiator": {
-                        "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                        "type": "object",
+                        "title": "VersionedReference",
+                        "description": "A reference to an identifiable version managed object where the combination of the identifier and version is unique. It comprises an identifier (e.g. GUID), a version (NonNegativeInteger) and a string identifying the class of the referenced object.",
+                        "additionalProperties": false,
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "minLength": 1,
+                            "description": "Unique identifier"
+                          },
+                          "version": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "description": "Version number"
+                          },
+                          "className": {
+                            "type": "string",
+                            "description": "Class name of the referenced object. It's optional, as it might be implied by the attribute name using this reference",
+                            "pattern": "^([A-Z][a-z0-9]+)+"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "version"
+                        ],
+                        "x-tags": [
+                          "common"
+                        ]
                       },
                       "identifiedCredentials": {
                         "type": "array",
@@ -5064,7 +5024,7 @@
                           "description": "Segments enable a single Session to capture and report changes in Rate and AssignedRight during a Session.\nA Segment can only have one AssignedRight and Rate associated to it.\n\nA `Segment`...\n\n* Is associated to a Session.\n* Is associated to an AssignedRight.\n* Is associated to a specific Rate via the AssignedRight.\n* Has a start and end time.\n* Has a credential via the AssignedRight.\n* Is associated to basic financial data.\n* Has version control on the AssignedRight (i.e. a segment starts with one AssignedRight and then is updated to a new AssignedRight at the end of the Segment, replacing the original).\n* Has a Place reference or Space ID.",
                           "allOf": [
                             {
-                              "$ref": "#/paths/~1places~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                              "$ref": "#/paths/~1rates/post/requestBody/content/application~1json/schema/allOf/0"
                             },
                             {
                               "type": "object",
@@ -5080,7 +5040,7 @@
                                 "assignedRight": {
                                   "oneOf": [
                                     {
-                                      "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                      "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                     },
                                     {
                                       "$ref": "#/paths/~1rights~1assigned~1%7Bid%7D/get/responses/200/content/application~1json/schema"
@@ -5120,7 +5080,7 @@
                         }
                       },
                       "hierachyElement": {
-                        "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                        "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                       },
                       "identifiedVehicle": {
                         "title": "VehicleAncilliaryIdentification",
@@ -5327,10 +5287,10 @@
                     "description": "Class providing a versioned reference to a quote for a session extension",
                     "properties": {
                       "quoteResponseId": {
-                        "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                        "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                       },
                       "optionId": {
-                        "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                        "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                       }
                     }
                   }
@@ -5416,17 +5376,7 @@
         "tags": [
           "delete"
         ],
-        "description": "Delete an existing `Session`. `Segments` should be deleted by using the `PUT` operation, and removing them from the list of segments under the session",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
-              }
-            }
-          },
-          "description": "The final version of the `Session` should be sent, to confirm the client is acting based on updated information"
-        }
+        "description": "Delete an existing `Session`. `Segments` should be deleted by using the `PUT` operation, and removing them from the list of segments under the session"
       }
     },
     "/observations": {
@@ -5526,7 +5476,7 @@
                     "description": "Details of the collection of a set of related recorded observations.",
                     "allOf": [
                       {
-                        "$ref": "#/paths/~1places~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                        "$ref": "#/paths/~1rates/post/requestBody/content/application~1json/schema/allOf/0"
                       },
                       {
                         "type": "object",
@@ -5537,7 +5487,7 @@
                             "format": "date-time"
                           },
                           "creator": {
-                            "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                            "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                           },
                           "observationElements": {
                             "type": "array",
@@ -5698,7 +5648,7 @@
                 "title": "ObservationElement",
                 "allOf": [
                   {
-                    "$ref": "#/paths/~1places~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                    "$ref": "#/paths/~1rates/post/requestBody/content/application~1json/schema/allOf/0"
                   },
                   {
                     "type": "object",
@@ -5798,13 +5748,13 @@
                         }
                       },
                       "elementIds": {
-                        "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                        "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                       },
                       "vehicleAncilliaryIdentification": {
                         "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/identifiedVehicle"
                       },
                       "observerOrganisation": {
-                        "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                        "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                       }
                     },
                     "required": [
@@ -5902,16 +5852,6 @@
           }
         },
         "description": "Delete an existing `Observation`",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
-              }
-            }
-          },
-          "description": "The final version of the `Observation` should be sent, to confirm the client is acting based on updated information"
-        },
         "tags": [
           "delete"
         ]
@@ -6291,7 +6231,7 @@
                                 "description": "class containing data to support response to request for quote for a new transaction",
                                 "allOf": [
                                   {
-                                    "$ref": "#/paths/~1places~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                    "$ref": "#/paths/~1rates/post/requestBody/content/application~1json/schema/allOf/0"
                                   },
                                   {
                                     "type": "object",
@@ -6324,7 +6264,7 @@
                                         ]
                                       },
                                       "quoteRequestId": {
-                                        "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                        "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                       },
                                       "responseTime": {
                                         "description": "date/time at which the response is made by the supplier",
@@ -6338,13 +6278,13 @@
                                           "description": "Class providing one option to a quote request",
                                           "allOf": [
                                             {
-                                              "$ref": "#/paths/~1places~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                              "$ref": "#/paths/~1rates/post/requestBody/content/application~1json/schema/allOf/0"
                                             },
                                             {
                                               "type": "object",
                                               "properties": {
                                                 "elementId": {
-                                                  "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                                  "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                                 },
                                                 "boolean": {
                                                   "type": "boolean",
@@ -6378,10 +6318,10 @@
                                                     "description": "Class containing information referencing one rateTable and one related rightSpecification",
                                                     "properties": {
                                                       "rateTableId": {
-                                                        "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                                        "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                                       },
                                                       "rightSpecificationId": {
-                                                        "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                                        "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                                       }
                                                     },
                                                     "required": [
@@ -6396,7 +6336,7 @@
                                                   "description": "Class containing information on financial value of a Quote",
                                                   "properties": {
                                                     "serviceProvider": {
-                                                      "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                                      "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                                     },
                                                     "taxIncluded": {
                                                       "type": "boolean",
@@ -6440,16 +6380,16 @@
                                 "description": "class containing data to support response to request for quote to extend an existing Session",
                                 "allOf": [
                                   {
-                                    "$ref": "#/paths/~1places~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                    "$ref": "#/paths/~1rates/post/requestBody/content/application~1json/schema/allOf/0"
                                   },
                                   {
                                     "type": "object",
                                     "properties": {
                                       "requestSessionExtensionId": {
-                                        "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                        "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                       },
                                       "sessionId": {
-                                        "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                        "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                       },
                                       "requestTime": {
                                         "type": "string",
@@ -6583,7 +6523,7 @@
                     "description": "class containing data elements required to request a quote for a new transaction",
                     "allOf": [
                       {
-                        "$ref": "#/paths/~1places~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                        "$ref": "#/paths/~1rates/post/requestBody/content/application~1json/schema/allOf/0"
                       },
                       {
                         "type": "object",
@@ -6596,7 +6536,7 @@
                             ],
                             "allOf": [
                               {
-                                "$ref": "#/paths/~1places~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                "$ref": "#/paths/~1rates/post/requestBody/content/application~1json/schema/allOf/0"
                               },
                               {
                                 "type": "object",
@@ -6973,10 +6913,10 @@
                               "description": "class to support reference to a RightSpecification",
                               "properties": {
                                 "elementId": {
-                                  "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                  "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                 },
                                 "rightSpecificationId": {
-                                  "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                                  "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                                 }
                               },
                               "required": [
@@ -7019,7 +6959,7 @@
                     "description": "class containing detail required to initiate a request for a quote to extend an existing session",
                     "allOf": [
                       {
-                        "$ref": "#/paths/~1places~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                        "$ref": "#/paths/~1rates/post/requestBody/content/application~1json/schema/allOf/0"
                       },
                       {
                         "type": "object",
@@ -7035,10 +6975,10 @@
                             "format": "date-time"
                           },
                           "sessionId": {
-                            "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                            "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                           },
                           "suppliedCredential": {
-                            "$ref": "#/paths/~1rates~1%7Bid%7D/delete/requestBody/content/application~1json/schema"
+                            "$ref": "#/paths/~1sessions/post/requestBody/content/application~1json/schema/allOf/1/properties/initiator"
                           }
                         },
                         "required": [
