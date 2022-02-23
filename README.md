@@ -18,7 +18,7 @@ The _APDS_ working group has also created a comprehensive representation of the 
 #### Specification Structure
 The actual specification has been documented in a modular way. The main document can be found [here](api/reference/APDS_API.yaml). It provides header information, and a directory of interface endpoints and expected payloads/responses. The actual model behind it is specified in form of individual _OpenAPI_ sub-specs, one per data type. It can be found [here](api/models/).
 
-__Note:__ depending on the OpenAPI tool chain of your choice, working off the modular specification version may show some processing issues. We hence have also created a **bundled version** that compiles all components into one single file. It is a full equivalent of the modular specification version. You can find it [here](api/reference/APDS_API_bundled.json). This bundled representation has been created using [_swagger-cli_](https://github.com/APIDevTools/swagger-cli).
+__Note:__ depending on the OpenAPI tool chain of your choice, working off the modular specification version may show some processing issues. We hence have also created a **bundled version** that compiles all components into one single file. It is a full equivalent of the modular specification version. You can find it [here](api/reference/APDS_API_bundled.json). This bundled representation has been created using [_swagger-cli_](https://github.com/APIDevTools/swagger-cli). As some tools struggle with relative paths and circular references, we have also added a fully-dereferenced bundled version which you can find [here](api/reference/APDS_API_dereferenced_bundled.json).
 
 ## Questions, Suggestions
 _APDS_ is commited to support all adopters. In case you have questions or even suggestions for changes, head over to the **APDS Forum** where you can join the discussion with parking, transportation and mobility professionals: [Forum](https://www.allianceforparkingdatastandards.org/forum).
@@ -64,6 +64,10 @@ No validation issues detected.
 ```
 More information on openapi-generator can be found here: [https://openapi-generator.tech](https://openapi-generator.tech)
 
+### Swagger Editor
+The Swagger-provided editor successfully validates the fully-dereferenced bundled version ([api/reference/APDS\_API\_dereferenced\_bundled.json](api/reference/APDS_API_dereferenced_bundled.json)).
+
+More information on Swagger Editor can be found here: [https://editor.swagger.io](https://editor.swagger.io)
 
 <br/>
 
