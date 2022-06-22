@@ -1,8 +1,8 @@
 # API Specification for APDS
 
 > **IMPORTANT**
-> This specification is a working **DRAFT**. 
-> It is in the process of being updated to reflect the latest version of the APDS Data Model and the emerging ISO 5206-1.  
+> This site shares preferred methods and formats for sharing parking and mobility related data using the APDS data specification.
+> We encourage the use of these preferred methods. If your organization introduces new API methods, we request you share them with APDS so we can review and, when appropriate, include them as a preferred method.
 
 ## About APDS
 ### APDS: Context, Motivation
