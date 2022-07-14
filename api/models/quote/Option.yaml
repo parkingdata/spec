@@ -6,7 +6,7 @@ allOf:
     properties:
       elementId:
         $ref: ../common/VersionedReference.yaml
-      boolean:
+      exact:
         type: boolean
         description: indicates the supplied Option fully covers the time period requested
       quoteExpiration:
