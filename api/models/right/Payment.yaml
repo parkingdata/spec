@@ -8,20 +8,28 @@ allOf:
         type: string
         description: Date / time that the payment related to this financial transaction is recorded as being paid and collected
         format: date-time
-      paymentType:
-        $ref: ../enums/PaymentTypeEnum.yaml
+      startPeriodCovered:
+        description: 'note field to describe the period a payment covers'
+        type: string
+        format: date-time
+      endPeriodCovered:
+        description: 'note field to describe the period a payment covers'
+        type: string
+        format: date-time
+      idCode:
+        type: string
+        description: 'user defined field to identity additional details such as customer account number or G/L account number'
       serviceProvider:
         $ref: ../common/VersionedReference.yaml
-      taxIncluded:
-        type: boolean
-        description: 'Whether tax included in monetary value, if yes (TRUE), if not (FALSE).'
       transactionID:
         type: string
         description: 'Identifier for the transaction (e.g. reservation number, credit card transaction reference) as agreed upon by the two entities sharing data.'
-      value:
-        $ref: ../common/AmountInCurrency.yaml
+      paymentLines:
+        type: array
+        description: 'a data class that enables transaction details to be accumulated'
+        items: 
+          $ref: ./PaymentLine.yaml
+
     required:
-      - paymentType
       - serviceProvider
-      - taxIncluded
-      - value
+      - paymentLines

@@ -1,0 +1,19 @@
+title: PaymentLine
+description: a data class that enables transaction details to be accumulated based on the type of payment (ie, base fee, taxes, surcharges, etc) 
+allOf:
+  - $ref: ../common/VersionedIdentity.yaml
+  - type: object
+    properties:
+      value:
+        $ref: ../common/AmountInCurrency.yaml
+      idCode:
+        type: string
+        description: 'unique cost code identifier, potentially agreed bi-laterally between data supplier and data receiver' 
+      identifierId:
+        type: string
+        description: 'identifier for the transaction (e.g. reservation number, credit card transaction reference)'
+      paymentType:
+        $ref: ../enums/PaymentTypeEnum.yaml
+    required:
+      - value 
+      - paymentType 

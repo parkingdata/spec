@@ -1,0 +1,31 @@
+title: PaymentAssignment
+description: record of association of a payment to an AssignedRight 
+allOf:
+  - $ref: ../common/VersionedIdentity.yaml
+  - type: object
+    properties:
+      assignmentId:
+        type: string
+        description: 'identifier for the association between AssignedRight and Payment'
+      assignedFrom: 
+        description: 'party (entity) indicated as the origin of a payment'
+        $ref: ../common/VersionedIdentity.yaml
+      assignedTo:
+        description: 'party (entity) indicated as the recipient of a payment'
+        $ref: ../common/VersionedIdentity.yaml
+      payment:
+        description: 'the payment as defined earlier'
+        $ref: ./Payment.yaml
+      assignedRights:
+        type: array
+        description: 'the matrix of AssignedRight ids that constitute the aggregated funds disbursement'
+        items:
+          $ref: ../common/VersionedIdentity.yaml
+
+    required:
+      - assignmentId
+      - assignedFrom
+      - assignedTo 
+      - payment 
+      - assignedRights
+
