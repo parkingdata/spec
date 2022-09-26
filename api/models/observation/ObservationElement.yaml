@@ -13,6 +13,9 @@ allOf:
       observedCredentialId:
         type: string
         description: Specific identifier to the referenced observed credential.
+      observedCredentialCountry:
+        $ref: ../common/CountryCode.yaml
+        description: country code of observed credential (in case applicable and available)
       observationStartTime:
         type: string
         format: date-time
