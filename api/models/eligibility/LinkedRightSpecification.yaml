@@ -1,0 +1,15 @@
+title: LinkedRightSpecification
+type: object
+x-tags:
+  - eligibility
+description: time-based constrained for a Qualification 
+properties:
+  assignedRightTimeRelative:
+    description: earliest/latest start/end relative (via offsets) or specific (via times)
+    $ref: ./AssignedRightTimeRelative.yaml
+  qualifyingRightSpecification:
+    description: held right specification to which this constraint relates
+    $ref: ../common/VersionedReference.yaml
+required:
+  - assignedRightTimeRelative 
+  - qualifyingRightSpecification 
