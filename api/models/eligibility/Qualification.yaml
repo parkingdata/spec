@@ -91,3 +91,7 @@ properties:
       The types of vehicles that qualify
     items:
       $ref: ./VehicleType.yaml
+  linkedRightSpecification:
+    description: 'time-based constraints relative to a right'
+    $ref: ./LinkedRightSpecification.yaml
+    
