@@ -1,0 +1,8 @@
+title: AssignedTimeRelative
+type: object
+x-tags:
+  - eligibility
+description: time-based constrained for a Qualification (either specific times or relative offsets)
+oneOf:
+  - $ref: ./RelativeOffsets.yaml
+  - $ref: ./TimesOfDay.yaml
