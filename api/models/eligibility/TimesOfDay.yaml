@@ -1,0 +1,18 @@
+title: TimesOfDay 
+type: object
+x-tags:
+  - eligibility
+description: definition of times used in a time-based constrained 
+properties:
+  earliesStart:
+    description: defines the earliest start of the eligibility period
+    $ref: ../common/Time.yaml
+  earliestEnd:
+    description: defines the earliest end of the eligibility period
+    $ref: ../common/Time.yaml
+  latestStart:
+    description: defines the latest start of the eligibility period
+    $ref: ../common/Time.yaml
+  latestEnd:
+    description: defines the latest end of the eligibility period
+    $ref: ../common/Time.yaml
