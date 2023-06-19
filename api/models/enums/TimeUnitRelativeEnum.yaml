@@ -1,0 +1,14 @@
+type: string
+title: TimeUnitRelativeEnum
+description: |-
+  A list of relativity operators for time units
+
+  * `previous`
+  * `current`
+  * `next`
+  
+enum:
+  - previous
+  - current
+  - next
+  
