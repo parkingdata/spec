@@ -1,0 +1,16 @@
+title: RelativeTimes 
+type: object
+x-tags:
+  - eligibility
+description: relative times definition used in a time-based constrained 
+properties:
+  unit:
+    $ref: ../enums/UnitOfTimeEnum.yaml
+  earliestStartRelative:
+    $ref: ../enums/TimeUnitRelativeEnum.yaml
+  earliestEndRelative:
+    $ref: ../enums/TimeUnitRelativeEnum.yaml    
+  latestStartRelative:
+    $ref: ../enums/TimeUnitRelativeEnum.yaml
+  latestEndRelative:
+    $ref: ../enums/TimeUnitRelativeEnum.yaml
