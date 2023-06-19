@@ -3,11 +3,17 @@ title: UnitOfTimeEnum
 description: |-
   A list of the supported units of measures of time
 
+  * `year`
+  * `month`
+  * `week`
   * `day`
   * `hour`
   * `minute`
   * `second`
 enum:
+  - year
+  - month
+  - week
   - day
   - hour
   - minute
