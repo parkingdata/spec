@@ -4,7 +4,7 @@ x-tags:
   - eligibility
 description: relative offsets definition used in a time-based constrained 
 properties:
-  earliesStartRelative:
+  earliestStartRelative:
     description: defines the earliest start of the eligibility period
     $ref: ../common/Duration.yaml
   earliestEndRelative:
