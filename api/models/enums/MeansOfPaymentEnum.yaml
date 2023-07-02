@@ -18,9 +18,9 @@ enum:
   - cashCoinsAndBills
   - cashCoinsOnly
   - mobileAccount
-  - paymentCreditCardstandards
-  - paymentDebitCardtheir
-  - paymentValueCardnot
+  - paymentCreditCard
+  - paymentDebitCard
+  - paymentValueCard
   - prepay
   - tollTag
   - unknown
