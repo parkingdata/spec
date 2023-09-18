@@ -110,8 +110,10 @@ Alternatively, you can send an email to the [Technical Comments Email Address](m
 Obviously, _APDS_ is more than keen to learn how the standard is being applied by its users. So, please drop us a comment with some initial information about the particular APDS-related project you are working on.
 
 ## License
-The _APDS API_ specification is provided under the [GNU General Public License Version 3](https://www.gnu.org/licenses/quick-guide-gplv3.html). You can find the plain text version of this license in this repository: [./LICENSE](./LICENSE).
+The _APDS API_ specification is provided to you under the [MIT License](./LICENSE). You can find the plain text version of this license in this repository: [./LICENSE](./LICENSE).
 
+> **IMPORTANT**
+> The _APDS API_ specification was originally provided under the [GPLv3](https://www.gnu.org/licenses/quick-guide-gplv3.html) license. _APDS_ has decided to **retroactively** switch to the more permissive MIT license, effective 15th of June, 2022.
 <hr/>
 
 ## Validation
