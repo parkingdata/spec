@@ -65,7 +65,7 @@ In general, client software shall expect 2XX codes for successful operations and
 5XX errors will be returned in extraordinary situations (typically server-sides failures). 
 
 ##### Authentication and Authorization
-The current version of the APDS API assumes that authentication is performed using a custom HTTP header containing a pre-shared secret (token), issued by the platform operator per client. The name of the custom header is **X-MCC-Access_Token**, the token will typically be a UUID-formatted identifier. Both, a missing authentication header, as well as an authentication header bearing an unknown access token, will lead to HTTP status **401 (Unauthorized)** to be returned.
+The current version of the APDS API assumes that authentication is performed using a custom HTTP header containing a pre-shared secret (token), issued by the platform operator per client. The name of the custom header is **X-MCC-Access-Token**, the token will typically be a UUID-formatted identifier. Both, a missing authentication header, as well as an authentication header bearing an unknown access token, will lead to HTTP status **401 (Unauthorized)** to be returned.
 
 Future versions of the API specification might offer alternative approaches.
 
