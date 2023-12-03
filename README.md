@@ -37,7 +37,7 @@ All requests are to be sent via HTTP**S**, regardless of the environment. A conf
 
 All requests are designed to be idempotent. That is, clients may repeat them without causing side effects.
 
-* The obective of this approach is to simplify the synchronisation strategy between clients, in case of disconnections or some other spurious errors during processing.
+* The objective of this approach is to simplify the synchronisation strategy between clients, in case of disconnections or some other spurious errors during processing.
 * In summary: if the APDS-conformant platform implementation's response to a given requests is not known for any reason, the request can be repeated.
 * Please make sure to read the "Identifiers & Resource Versioning" section and make sure to adhere to it.
 
@@ -94,7 +94,7 @@ Per the APDS API specification, all responses for "listing resources" are pagina
 * reference instant: indicates when the result set was initially generated
 
 ##### Throttling
-The APDS API team recommends implementers to consider methods of protecting their platform like e.g. throttling. Should a client (intentially or accidentally) exceed the maximum number of requests per minute, it will receive a HTTP status of **429 (Too Many Requests)**.
+The APDS API team recommends implementers to consider methods of protecting their platform like e.g. throttling. Should a client (intentionally or accidentally) exceed the maximum number of requests per minute, it will receive a HTTP status of **429 (Too Many Requests)**.
 
 
 <hr/>
@@ -102,7 +102,7 @@ The APDS API team recommends implementers to consider methods of protecting thei
 __Note:__ depending on the OpenAPI tool chain of your choice, working off the modular specification version may show some processing issues. We hence have also created a **bundled version** that compiles all components into one single file. It is a full equivalent of the modular specification version. You can find it [here](api/reference/APDS_API_bundled.json). This bundled representation has been created using [_swagger-cli_](https://github.com/APIDevTools/swagger-cli). As some tools struggle with relative paths and circular references, we have also added a fully-dereferenced bundled version which you can find [here](api/reference/APDS_API_dereferenced_bundled.json).
 
 ## Questions, Suggestions
-_APDS_ is commited to support all adopters. In case you have questions or even suggestions for changes, head over to the **APDS Forum** where you can join the discussion with parking, transportation and mobility professionals: [Forum](https://www.allianceforparkingdatastandards.org/forum).
+_APDS_ is committed to support all adopters. In case you have questions or even suggestions for changes, head over to the **APDS Forum** where you can join the discussion with parking, transportation and mobility professionals: [Forum](https://www.allianceforparkingdatastandards.org/forum).
 
 Alternatively, you can send an email to the [Technical Comments Email Address](mailto:technical-comments@allianceforparkingdatastandards.org).
 
