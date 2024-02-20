@@ -12,7 +12,7 @@ info:
     * `Sessions`
     * `Observations`
 
-    **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+    
   contact: {}
 tags:
   - name: create
@@ -1251,7 +1251,7 @@ paths:
               description: |-
                 This endpoint describes the payloads that webhook subscribers should expect to receive
 
-                **IMPORTANT**: This specification is a working **DRAFT**. Please **do not use it as the basis for APDS implementations at this stage**.
+                
               requestBody:
                 content:
                   application/json:
