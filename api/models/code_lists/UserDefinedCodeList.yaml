@@ -2,6 +2,12 @@ title: UserDefinedCodeList
 type: object
 description: Class providing structure to support a user-defined code list.
 properties:
+  id:
+    type: string
+    description: unique identifier of this code list
+  version:
+    type: integer
+    description: version of this list
   creator:
     $ref: ../common/VersionedReference.yaml
   includeNilReasonType:
