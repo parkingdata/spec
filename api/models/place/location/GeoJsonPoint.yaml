@@ -1,8 +1,0 @@
-allOf:
-  - $ref: ./GeoJsonGeometry.yaml
-  - type: object
-    properties:
-      coordinates:
-        $ref: ./GeoJsonPoint2D.yaml
-title: GeoJsonPoint
-description: GeoJson point

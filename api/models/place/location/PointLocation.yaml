@@ -1,7 +1,0 @@
-title: PointLocation
-description: Location representing a single geospatial point using GeoJSON or the standard APDS model
-x-tags:
-  - places
-oneOf:
-  - $ref: ./PointByCoordinates.yaml
-  - $ref: ./GeoJsonPoint.yaml
