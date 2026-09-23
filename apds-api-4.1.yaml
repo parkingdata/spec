@@ -401,7 +401,7 @@ paths:
                     propertyName: type
                     mapping:
                       ObservationElement: '#/components/schemas/ObservationElement'
-                      ObvservationSet: '#/components/schemas/ObservationSet'
+                      ObservationSet: '#/components/schemas/ObservationSet'
               required:
                 - type
             examples:
